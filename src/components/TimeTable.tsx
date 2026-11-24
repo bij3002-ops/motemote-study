@@ -54,6 +54,7 @@ export default function TimeTable({ date, sessions, marks, subjects, onMark }: P
   }, [date, sessions, marks]);
 
   const colorOf = (subjectId: string) => subjects.find((s) => s.id === subjectId)?.color ?? '#8D8D99';
+  const colorName = (subjectId: string) => subjects.find((s) => s.id === subjectId)?.name ?? '기록';
 
   // 오늘이면 지금 시간대가 보이도록 스크롤
   useEffect(() => {
@@ -160,6 +161,8 @@ export default function TimeTable({ date, sessions, marks, subjects, onMark }: P
       <div className="tt-scroll" ref={scrollRef}>
         <div
           className="tt-grid"
+          role="grid"
+          aria-label="10분 타임테이블"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerUp={endGesture}
@@ -168,14 +171,23 @@ export default function TimeTable({ date, sessions, marks, subjects, onMark }: P
           }}
         >
           {Array.from({ length: ROWS }, (_, row) => (
-            <div key={`row-${row}`} style={{ display: 'contents' }}>
-              <div className="tt-hour num">{hourLabel(row)}</div>
+            <div className="tt-row" role="row" key={`row-${row}`}>
+              <div className="tt-hour num" role="rowheader" aria-label={`${hourLabel(row)}시`}>
+                {hourLabel(row)}
+              </div>
               {Array.from({ length: CELLS }, (_, cell) => {
                 const key = slotKey(row, cell);
                 const subjectId = filled[key];
+                const minutes = (row * CELLS + cell) * 10;
+                const slotStart = `${hourLabel(row)}:${String(cell * 10).padStart(2, '0')}`;
+                const endMinutes = minutes + 10;
+                const slotEnd = `${hourLabel(row + Math.floor(endMinutes / 60))}:${String(endMinutes % 60).padStart(2, '0')}`;
+                const label = `${slotStart}~${slotEnd} ${subjectId ? colorName(subjectId) : '비어 있음'}`;
                 return (
                   <div
                     key={key}
+                    role="gridcell"
+                    aria-label={label}
                     data-slot={key}
                     className={`tt-cell${subjectId ? ' filled' : ''}`}
                     style={

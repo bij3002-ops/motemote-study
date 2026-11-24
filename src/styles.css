@@ -811,11 +811,16 @@ textarea {
 }
 
 .tt-grid {
-  display: grid;
-  grid-template-columns: 32px repeat(6, 1fr);
+  display: flex;
+  flex-direction: column;
   position: relative;
   touch-action: pan-y;
   user-select: none;
+}
+
+.tt-row {
+  display: grid;
+  grid-template-columns: 32px repeat(6, 1fr);
 }
 
 .tt-hour {
