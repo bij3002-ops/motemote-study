@@ -178,10 +178,9 @@ export default function TimeTable({ date, sessions, marks, subjects, onMark }: P
               {Array.from({ length: CELLS }, (_, cell) => {
                 const key = slotKey(row, cell);
                 const subjectId = filled[key];
-                const minutes = (row * CELLS + cell) * 10;
+                const endMinutes = (row * CELLS + cell) * 10 + 10;
                 const slotStart = `${hourLabel(row)}:${String(cell * 10).padStart(2, '0')}`;
-                const endMinutes = minutes + 10;
-                const slotEnd = `${hourLabel(row + Math.floor(endMinutes / 60))}:${String(endMinutes % 60).padStart(2, '0')}`;
+                const slotEnd = `${hourLabel(Math.floor(endMinutes / 60))}:${String(endMinutes % 60).padStart(2, '0')}`;
                 const label = `${slotStart}~${slotEnd} ${subjectId ? colorName(subjectId) : '비어 있음'}`;
                 return (
                   <div
