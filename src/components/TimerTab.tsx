@@ -98,12 +98,15 @@ export default function TimerTab() {
   const color = activeSubject?.color ?? '#FF6B6B';
 
   const handlePrimary = () => {
+    if (running) {
+      pauseTimer();
+      return;
+    }
     if (!timer || timer.accumulated === 0 || timer.mode !== mode || timer.subjectId !== subjectId) {
       startTimer(subjectId, mode);
       return;
     }
-    if (running) pauseTimer();
-    else resumeTimer();
+    resumeTimer();
   };
 
   const handleSave = () => {
@@ -138,10 +141,28 @@ export default function TimerTab() {
       <section className="card timer-card">
         <div className="timer-head">
           <div className="seg" style={{ flex: 1 }}>
-            <button aria-pressed={mode === 'stopwatch'} onClick={() => store.setTimerMode('stopwatch')}>
+            <button
+              aria-pressed={mode === 'stopwatch'}
+              onClick={() => {
+                if (running || elapsed > 0) {
+                  showToast('진행 중인 기록을 저장한 뒤 바꿔 주세요');
+                  return;
+                }
+                store.setTimerMode('stopwatch');
+              }}
+            >
               스톱워치
             </button>
-            <button aria-pressed={mode === 'pomodoro'} onClick={() => store.setTimerMode('pomodoro')}>
+            <button
+              aria-pressed={mode === 'pomodoro'}
+              onClick={() => {
+                if (running || elapsed > 0) {
+                  showToast('진행 중인 기록을 저장한 뒤 바꿔 주세요');
+                  return;
+                }
+                store.setTimerMode('pomodoro');
+              }}
+            >
               뽀모도로
             </button>
           </div>
@@ -211,8 +232,14 @@ export default function TimerTab() {
               key={s.id}
               className="chip"
               aria-pressed={s.id === subjectId}
-              style={{ ['--chip-color' as string]: s.color }}
-              onClick={() => setSubjectId(s.id)}
+              style={{ ['--chip-color' as string]: s.color, opacity: elapsed > 0 && s.id !== subjectId ? 0.45 : 1 }}
+              onClick={() => {
+                if (elapsed > 0) {
+                  showToast('진행 중인 기록을 저장한 뒤 바꿔 주세요');
+                  return;
+                }
+                setSubjectId(s.id);
+              }}
             >
               <span className="dot" style={{ background: s.color }} />
               {s.name}
