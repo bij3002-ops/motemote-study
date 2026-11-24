@@ -1,8 +1,9 @@
 import type { AppData, DayData, Subject } from '../types';
 import { addDays, plannerDayStart, todayKey, uid } from './date';
+import { createRpgState, normalizeRpg } from './rpg';
 
 export const STORAGE_KEY = 'motemote-study:v1';
-export const DATA_VERSION = 1;
+export const DATA_VERSION = 2;
 
 export const COLOR_PALETTE = [
   '#FF6B6B',
@@ -17,13 +18,17 @@ export const COLOR_PALETTE = [
   '#8D8D99',
 ];
 
+export const MAJOR_SUBJECT_NAME = '전공공부';
+
 export const DEFAULT_SUBJECTS: Subject[] = [
   { id: 'sub_quality', name: '품질경영기사', color: '#FF6B6B' },
   { id: 'sub_safety', name: '산업안전기사', color: '#4D7CFE' },
   { id: 'sub_english', name: '토익 / 오픽', color: '#FFC93C' },
-  { id: 'sub_school', name: '학교 전공·팀플', color: '#4ECB71' },
+  { id: 'sub_major', name: MAJOR_SUBJECT_NAME, color: '#4ECB71' },
   { id: 'sub_history', name: '한국사', color: '#B36BF5' },
 ];
+
+const MAJOR_MIGRATION = 'major-subject-v2';
 
 export function emptyDay(): DayData {
   return { tasks: [], memo: '', marks: {} };
@@ -42,7 +47,25 @@ export function createDefaultData(): AppData {
     days: {},
     settings: { theme: 'system', wakeLock: false, autoCarry: true },
     timer: null,
+    rpg: createRpgState(),
+    migrations: [MAJOR_MIGRATION],
   };
+}
+
+/**
+ * 예전 기본 과목('학교 전공·팀플')을 쓰던 사용자도 '전공공부'를 자연스럽게 보게 한다.
+ * - 기본 id(sub_school)가 옛 이름 그대로면 이름만 바꾼다 (기록·색은 그대로).
+ * - '전공공부'가 어디에도 없으면 새 과목으로 한 번만 추가한다 (지운 뒤 다시 생기지 않도록 표시).
+ */
+function migrateMajorSubject(subjects: Subject[], migrations: string[]): { subjects: Subject[]; migrations: string[] } {
+  if (migrations.includes(MAJOR_MIGRATION)) return { subjects, migrations };
+  let next = subjects.map((s) =>
+    s.id === 'sub_school' && s.name === '학교 전공·팀플' ? { ...s, name: MAJOR_SUBJECT_NAME } : s,
+  );
+  if (!next.some((s) => s.name === MAJOR_SUBJECT_NAME)) {
+    next = [...next, { id: 'sub_major', name: MAJOR_SUBJECT_NAME, color: '#4ECB71' }];
+  }
+  return { subjects: next, migrations: [...migrations, MAJOR_MIGRATION] };
 }
 
 export function loadData(): AppData {
@@ -52,14 +75,19 @@ export function loadData(): AppData {
     if (!raw) return base;
     const parsed = JSON.parse(raw) as Partial<AppData>;
     if (!parsed || typeof parsed !== 'object') return base;
+    const migrations = Array.isArray(parsed.migrations) ? parsed.migrations : [];
+    const subjects = Array.isArray(parsed.subjects) && parsed.subjects.length > 0 ? parsed.subjects : base.subjects;
+    const migrated = migrateMajorSubject(subjects, migrations);
     return {
       version: DATA_VERSION,
-      subjects: Array.isArray(parsed.subjects) && parsed.subjects.length > 0 ? parsed.subjects : base.subjects,
+      subjects: migrated.subjects,
       ddays: Array.isArray(parsed.ddays) ? parsed.ddays : base.ddays,
       sessions: Array.isArray(parsed.sessions) ? parsed.sessions : [],
       days: parsed.days && typeof parsed.days === 'object' ? parsed.days : {},
       settings: { ...base.settings, ...(parsed.settings ?? {}) },
       timer: parsed.timer ?? null,
+      rpg: normalizeRpg(parsed.rpg),
+      migrations: migrated.migrations,
     };
   } catch {
     return base;
@@ -85,12 +113,12 @@ export function buildSampleDay(data: AppData): { date: string; day: DayData; ses
     ['sub_safety', 10, 50, 12, 10],
     ['sub_english', 14, 0, 15, 20],
     ['sub_quality', 16, 0, 16, 50],
-    ['sub_school', 20, 10, 21, 40],
+    ['sub_major', 20, 10, 21, 40],
   ];
 
   const sessions = blocks.map(([subjectId, sh, sm, eh, em]) => ({
     id: uid('ses'),
-    subjectId,
+    subjectId: data.subjects.some((s) => s.id === subjectId) ? subjectId : data.subjects[0]?.id ?? subjectId,
     start: at(sh, sm),
     end: at(eh, em),
   }));
@@ -99,11 +127,8 @@ export function buildSampleDay(data: AppData): { date: string; day: DayData; ses
     { id: uid('task'), subjectId: 'sub_quality', text: '품질경영기사 1과목 기출 20문제', status: 'done' },
     { id: uid('task'), subjectId: 'sub_safety', text: '산업안전기사 2과목 요약노트 복습', status: 'done' },
     { id: uid('task'), subjectId: 'sub_english', text: 'OPIc 스크립트 3개 암기', status: 'doing' },
-    { id: uid('task'), subjectId: 'sub_school', text: '팀플 발표 자료 정리', status: 'todo' },
+    { id: uid('task'), subjectId: 'sub_major', text: '전공 수업 발표 자료 정리', status: 'todo' },
   ];
-
-  const subject = data.subjects.find((s) => s.id === 'sub_history') ?? data.subjects[0];
-  void subject;
 
   return {
     date,

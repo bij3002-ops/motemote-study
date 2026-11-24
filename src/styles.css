@@ -1262,8 +1262,8 @@ textarea {
   width: 100%;
   max-width: 460px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 7px 8px 9px;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 7px 6px 9px;
 }
 
 .nav-item {
@@ -1272,7 +1272,7 @@ textarea {
   align-items: center;
   gap: 3px;
   color: var(--ink-3);
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 650;
   padding: 3px 0 1px;
   transition: color 0.15s ease;
@@ -1358,5 +1358,852 @@ textarea {
   }
   .timer-display.pomo {
     font-size: 58px;
+  }
+}
+
+/* =========================================================
+   과목 빠른 추가 · RPG
+   ========================================================= */
+
+.chip-add {
+  border-style: dashed;
+  border-color: var(--line-2);
+  color: var(--ink-2);
+  font-weight: 700;
+}
+
+/* ---------- 과목 추가 시트 ---------- */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(16, 16, 19, 0.38);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: backdrop-in 0.16s ease;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.sheet {
+  width: 100%;
+  max-width: 460px;
+  background: var(--card);
+  border-radius: 22px 22px 0 0;
+  border: 1px solid var(--line);
+  border-bottom: none;
+  padding: 8px 18px calc(18px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: sheet-up 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 -10px 30px rgba(22, 22, 26, 0.12);
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(28px);
+    opacity: 0.6;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.sheet-grab {
+  width: 38px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--line-2);
+  margin: 2px auto 4px;
+  flex: 0 0 auto;
+}
+
+.sheet-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.sheet-sub {
+  margin: -8px 0 0;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.sheet-input {
+  height: 48px;
+  border-radius: 14px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  padding: 0 14px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.sheet-input:focus {
+  border-color: var(--ink-3);
+  background: var(--card);
+}
+
+.sheet-input::placeholder {
+  color: var(--ink-3);
+}
+
+.sheet-palette {
+  border-top: none;
+  padding: 0;
+  gap: 10px;
+}
+
+.sheet-palette button {
+  width: 30px;
+  height: 30px;
+}
+
+.sheet-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.sheet-actions .btn {
+  flex: 1;
+}
+
+/* ---------- 미니 몬스터 바 (타이머) ---------- */
+.monster-mini {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  text-align: left;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 10px 13px;
+  box-shadow: var(--shadow);
+}
+
+.monster-mini.as-button:active {
+  transform: scale(0.99);
+}
+
+.mm-face {
+  font-size: 24px;
+  line-height: 1;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--paper-2);
+  flex: 0 0 auto;
+}
+
+.mm-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mm-top {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  min-width: 0;
+}
+
+.mm-stage {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--ink-3);
+  flex: 0 0 auto;
+}
+
+.mm-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mm-hp {
+  margin-left: auto;
+  font-size: 10.5px;
+  color: var(--ink-3);
+  flex: 0 0 auto;
+}
+
+.mm-side {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+.mm-gold {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #b07d18;
+}
+
+:root[data-theme='dark'] .mm-gold {
+  color: #e0b25a;
+}
+
+.mm-arrow {
+  color: var(--ink-3);
+  font-size: 16px;
+}
+
+/* ---------- HP / XP 바 ---------- */
+.hpbar {
+  display: block;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+
+.hpbar > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff8a5c, #e8544d);
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hpbar.big {
+  height: 12px;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+}
+
+.hpbar.mm-bar {
+  height: 5px;
+}
+
+/* ---------- RPG 탭 ---------- */
+.gold-pill {
+  background: color-mix(in srgb, #ffc93c 20%, var(--card));
+  color: #8a6210;
+}
+
+:root[data-theme='dark'] .gold-pill {
+  color: #f0c672;
+}
+
+.char-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px;
+}
+
+.char-top {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.char-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background: color-mix(in srgb, #4d7cfe 14%, var(--paper-2));
+  border: 1px solid var(--line);
+  flex: 0 0 auto;
+}
+
+.char-id {
+  flex: 1;
+  min-width: 0;
+}
+
+.char-name {
+  font-size: 15px;
+  font-weight: 760;
+  letter-spacing: -0.02em;
+}
+
+.char-name b {
+  font-size: 17px;
+}
+
+.char-title {
+  font-size: 11.5px;
+  color: var(--ink-2);
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.char-item {
+  color: var(--ink-3);
+}
+
+.char-streak {
+  flex: 0 0 auto;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-3);
+  background: var(--paper-2);
+  border-radius: 11px;
+  padding: 5px 9px;
+  line-height: 1.25;
+}
+
+.char-streak.on {
+  color: #c65b1f;
+  background: color-mix(in srgb, #ff9f43 16%, var(--card));
+}
+
+:root[data-theme='dark'] .char-streak.on {
+  color: #ffab63;
+}
+
+.char-streak b {
+  font-size: 13px;
+}
+
+.char-streak small {
+  display: block;
+  font-size: 8.5px;
+  font-weight: 650;
+  color: var(--ink-3);
+}
+
+.xp-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.xp-k {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  flex: 0 0 auto;
+}
+
+.xpbar {
+  flex: 1;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+
+.xpbar > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4d7cfe, #7c6bf5);
+  transition: width 0.4s ease;
+}
+
+.xp-v {
+  font-size: 10.5px;
+  color: var(--ink-3);
+  flex: 0 0 auto;
+}
+
+.char-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  border-top: 1px solid var(--line);
+  padding-top: 11px;
+}
+
+.char-stats > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.char-stats b {
+  font-size: 14px;
+  font-weight: 780;
+  letter-spacing: -0.02em;
+}
+
+.char-stats span {
+  font-size: 9.5px;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+/* 현재 몬스터 */
+.battle-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  padding: 15px 16px 16px;
+  background:
+    radial-gradient(120% 70% at 50% 0%, color-mix(in srgb, #4d7cfe 9%, transparent), transparent 70%),
+    var(--card);
+}
+
+.battle-card.elite {
+  background:
+    radial-gradient(120% 70% at 50% 0%, color-mix(in srgb, #b36bf5 12%, transparent), transparent 70%),
+    var(--card);
+}
+
+.battle-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stage-chip {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--ink-2);
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+
+.reward-chip {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8a6210;
+}
+
+:root[data-theme='dark'] .reward-chip {
+  color: #f0c672;
+}
+
+.monster-face {
+  font-size: 62px;
+  line-height: 1.05;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 8px 14px rgba(22, 22, 26, 0.14));
+}
+
+.monster-name {
+  margin: -2px 0 0;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.monster-blurb {
+  margin: -4px 0 2px;
+  font-size: 11.5px;
+  color: var(--ink-3);
+  text-align: center;
+}
+
+.battle-card .hpbar {
+  width: 100%;
+  margin-top: 2px;
+}
+
+.hp-meta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 650;
+  margin-top: -3px;
+}
+
+.battle-rules {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 3px 0 4px;
+}
+
+.battle-rules span {
+  font-size: 10px;
+  font-weight: 650;
+  color: var(--ink-2);
+  background: var(--paper-2);
+  border-radius: 999px;
+  padding: 3px 8px;
+}
+
+.battle-card .btn {
+  width: 100%;
+  margin-top: 2px;
+}
+
+/* 도감 */
+.dex-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.dex-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 9px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  min-width: 0;
+}
+
+.dex-item.locked {
+  opacity: 0.55;
+  border-style: dashed;
+  background: transparent;
+}
+
+.dex-emoji {
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.dex-name {
+  font-size: 9.5px;
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dex-sub {
+  font-size: 8.5px;
+  color: var(--ink-3);
+}
+
+.dex-loot {
+  font-size: 8px;
+  color: var(--ink-3);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 상점 */
+.shop {
+  overflow: hidden;
+}
+
+.shop-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 13px;
+  border-top: 1px solid var(--line);
+}
+
+.shop-row:first-child {
+  border-top: none;
+}
+
+.shop-emoji {
+  font-size: 20px;
+  width: 26px;
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.shop-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.shop-name {
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.shop-desc {
+  font-size: 10.5px;
+  color: var(--ink-3);
+  margin-top: 1px;
+}
+
+.shop-btn {
+  flex: 0 0 auto;
+  min-width: 62px;
+}
+
+.shop-lock {
+  font-size: 10px;
+  color: var(--ink-3);
+  border: 1px dashed var(--line-2);
+  border-radius: 999px;
+  padding: 4px 8px;
+  flex: 0 0 auto;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--ink-2);
+  background: var(--paper-2);
+  border-radius: 999px;
+  padding: 2px 7px;
+  font-style: normal;
+}
+
+.tag.on {
+  color: #2f7d4f;
+  background: color-mix(in srgb, #4ecb71 18%, var(--card));
+}
+
+:root[data-theme='dark'] .tag.on {
+  color: #7fe0a0;
+}
+
+/* 전리품 */
+.loot-card {
+  padding: 12px 13px;
+}
+
+.loot-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.loot-chip {
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--ink-2);
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 10px;
+}
+
+.loot-chip.box {
+  color: #8a6210;
+  background: color-mix(in srgb, #ffc93c 16%, var(--card));
+  border-color: color-mix(in srgb, #ffc93c 30%, var(--line));
+}
+
+.loot-chip.badge {
+  color: #7a4bd6;
+  background: color-mix(in srgb, #7c6bf5 14%, var(--card));
+  border-color: color-mix(in srgb, #7c6bf5 28%, var(--line));
+}
+
+:root[data-theme='dark'] .loot-chip.box {
+  color: #f0c672;
+}
+
+:root[data-theme='dark'] .loot-chip.badge {
+  color: #b9aeff;
+}
+
+.rpg-rules b {
+  color: var(--ink-2);
+}
+
+/* ---------- 보상 결과 시트 ---------- */
+.result-sheet {
+  gap: 10px;
+}
+
+.result-hero {
+  text-align: center;
+  padding: 6px 0 2px;
+}
+
+.result-damage {
+  font-size: 38px;
+  font-weight: 820;
+  letter-spacing: -0.05em;
+  color: var(--danger);
+  line-height: 1.05;
+}
+
+.result-hero.focus .result-damage {
+  color: #e07a1f;
+}
+
+.result-hero.critical .result-damage {
+  color: #b43fd1;
+  text-shadow: 0 2px 16px color-mix(in srgb, #b43fd1 35%, transparent);
+}
+
+.result-tier {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--ink-2);
+  margin-top: 2px;
+}
+
+.result-hp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.result-hp .hpbar {
+  flex: 1;
+}
+
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: var(--paper-2);
+  border-radius: 14px;
+  padding: 10px 8px;
+}
+
+.result-stats > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.result-stats b {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.result-stats b.gold {
+  color: #b07d18;
+}
+
+:root[data-theme='dark'] .result-stats b.gold {
+  color: #f0c672;
+}
+
+.result-stats span {
+  font-size: 9.5px;
+  color: var(--ink-3);
+}
+
+.result-banner {
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #7a4bd6;
+  background: color-mix(in srgb, #7c6bf5 12%, var(--card));
+  border-radius: 12px;
+  padding: 8px 10px;
+}
+
+:root[data-theme='dark'] .result-banner {
+  color: #c0b6ff;
+}
+
+.result-kills {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.result-kill {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: color-mix(in srgb, #ffc93c 10%, var(--card));
+  border: 1px solid color-mix(in srgb, #ffc93c 26%, var(--line));
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+.rk-emoji {
+  font-size: 18px;
+  line-height: 1.1;
+  flex: 0 0 auto;
+}
+
+.rk-title {
+  color: #7a4bd6;
+  font-style: normal;
+  font-weight: 700;
+}
+
+:root[data-theme='dark'] .rk-title {
+  color: #c0b6ff;
+}
+
+.result-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.result-next {
+  text-align: center;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.result-next b {
+  color: var(--ink-2);
+}
+
+@media (max-width: 370px) {
+  .dex-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .char-stats b {
+    font-size: 13px;
+  }
+  .char-stats span {
+    font-size: 9px;
+  }
+  .monster-face {
+    font-size: 54px;
+    height: 66px;
   }
 }

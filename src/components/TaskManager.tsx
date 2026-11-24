@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useStore } from '../store';
 import type { TaskStatus } from '../types';
+import AddSubjectChip from './AddSubjectChip';
 
 const STATUS_GLYPH: Record<TaskStatus, string> = {
   todo: '○',
@@ -69,6 +70,13 @@ export default function TaskManager({ date }: { date: string }) {
             {s.name}
           </button>
         ))}
+        <AddSubjectChip
+          compact
+          onAdded={(id) => {
+            setFilter('all');
+            setSubjectId(id);
+          }}
+        />
       </div>
 
       <div className="task-list">

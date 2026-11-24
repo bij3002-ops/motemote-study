@@ -14,8 +14,11 @@ import {
 } from '../lib/date';
 import { sessionMinutesByDay } from '../lib/stats';
 import { useStore } from '../store';
-import type { TimerMode } from '../types';
+import type { RpgReward, TimerMode } from '../types';
+import AddSubjectChip from './AddSubjectChip';
 import DDayStrip from './DDayStrip';
+import MonsterMini from './MonsterMini';
+import RpgResultModal from './RpgResultModal';
 
 const PRESETS: Array<{ label: string; focus: number; brk: number }> = [
   { label: '25 / 5', focus: 25, brk: 5 },
@@ -47,13 +50,14 @@ function beep(): void {
   }
 }
 
-export default function TimerTab() {
+export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
   const store = useStore();
   const { data, subjects, subjectById, startTimer, pauseTimer, resumeTimer, saveTimer } = store;
   const timer = data.timer;
   const running = !!timer && timer.startedAt !== null;
   const now = useNow(200, running);
   const [toast, showToast] = useToast();
+  const [reward, setReward] = useState<RpgReward | null>(null);
 
   const mode: TimerMode = timer?.mode ?? 'stopwatch';
   const [subjectId, setSubjectId] = useState<string>(timer?.subjectId ?? subjects[0]?.id ?? '');
@@ -77,7 +81,11 @@ export default function TimerTab() {
     if (advanced && phaseRef.current !== before) {
       phaseRef.current = before;
       beep();
-      showToast(before === 'focus' ? '집중 완료! 휴식으로 전환했어요' : '휴식 끝! 다시 집중해 볼까요');
+      showToast(
+        before === 'focus'
+          ? `집중 완료! 몬스터에게 -${advanced.damage} HP · 휴식으로 전환`
+          : '휴식 끝! 다시 집중해 볼까요',
+      );
     }
   }, [elapsed, phaseMs, timer, store, showToast]);
 
@@ -110,10 +118,13 @@ export default function TimerTab() {
   };
 
   const handleSave = () => {
-    const session = saveTimer();
+    const { session, reward: gained } = saveTimer();
     if (session) {
       const name = subjectById(session.subjectId)?.name ?? '공부';
-      showToast(`${name} ${durationText(session.end - session.start)} 저장 · 플래너에 기록됐어요`);
+      showToast(
+        `${name} ${durationText(session.end - session.start)} 저장 · 몬스터에게 -${gained?.damage ?? 0} HP`,
+      );
+      if (gained) setReward(gained);
     } else {
       showToast('1분 이상 기록하면 저장돼요');
     }
@@ -126,6 +137,7 @@ export default function TimerTab() {
   return (
     <main className="screen">
       {toast}
+      {reward && <RpgResultModal reward={reward} onClose={() => setReward(null)} />}
       <header className="topbar">
         <div>
           <p className="eyebrow">오늘 · {formatKoreanDate(today)}</p>
@@ -137,6 +149,8 @@ export default function TimerTab() {
       </header>
 
       <DDayStrip limit={2} />
+
+      <MonsterMini onOpen={onOpenRpg} />
 
       <section className="card timer-card">
         <div className="timer-head">
@@ -245,6 +259,15 @@ export default function TimerTab() {
               {s.name}
             </button>
           ))}
+          <AddSubjectChip
+            onAdded={(id) => {
+              if (elapsed > 0) {
+                showToast('과목을 추가했어요. 진행 중인 기록을 저장한 뒤 선택돼요');
+                return;
+              }
+              setSubjectId(id);
+            }}
+          />
         </div>
       </div>
 

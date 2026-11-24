@@ -1,4 +1,4 @@
-const CACHE = 'motemote-v1';
+const CACHE = 'motemote-v2';
 const ASSETS = [
   './',
   './index.html',

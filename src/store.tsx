@@ -8,8 +8,20 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import type { AppData, DDay, DayData, Session, Settings, Subject, Task, TaskStatus, TimerMode } from './types';
+import type {
+  AppData,
+  DDay,
+  DayData,
+  RpgReward,
+  Session,
+  Settings,
+  Subject,
+  Task,
+  TaskStatus,
+  TimerMode,
+} from './types';
 import { addDays, plannerDayKey, uid } from './lib/date';
+import { applyStudy, ITEMS, normalizeRpg, TITLES } from './lib/rpg';
 import { buildSampleDay, createDefaultData, emptyDay, loadData, saveData } from './lib/storage';
 
 const STATUS_CYCLE: TaskStatus[] = ['todo', 'doing', 'done', 'carry'];
@@ -19,7 +31,7 @@ export type Store = {
   subjects: Subject[];
   subjectById: (id: string) => Subject | undefined;
   dayOf: (date: string) => DayData;
-  addSubject: (name: string, color: string) => void;
+  addSubject: (name: string, color: string) => string;
   updateSubject: (id: string, patch: Partial<Pick<Subject, 'name' | 'color'>>) => void;
   deleteSubject: (id: string) => void;
   addDDay: (title: string, date: string) => void;
@@ -34,8 +46,12 @@ export type Store = {
   pauseTimer: () => void;
   resumeTimer: () => void;
   resetTimer: () => void;
-  saveTimer: () => Session | null;
-  advancePomodoro: () => boolean;
+  saveTimer: () => { session: Session | null; reward: RpgReward | null };
+  advancePomodoro: () => RpgReward | null;
+  buyTitle: (id: string) => boolean;
+  equipTitle: (id: string) => void;
+  buyItem: (id: string) => boolean;
+  equipItem: (id: string) => void;
   setTimerMode: (mode: TimerMode) => void;
   setPomodoroLength: (focusMin: number, breakMin: number) => void;
   updateSettings: (patch: Partial<Settings>) => void;
@@ -70,10 +86,12 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const dayOf = useCallback((date: string) => ensureDay(dataRef.current.days, date), []);
 
-  const addSubject = useCallback((name: string, color: string) => {
+  const addSubject = useCallback((name: string, color: string): string => {
     const trimmed = name.trim();
-    if (!trimmed) return;
-    update((d) => ({ ...d, subjects: [...d.subjects, { id: uid('sub'), name: trimmed, color }] }));
+    if (!trimmed) return '';
+    const id = uid('sub');
+    update((d) => ({ ...d, subjects: [...d.subjects, { id, name: trimmed, color }] }));
+    return id;
   }, [update]);
 
   const updateSubject = useCallback((id: string, patch: Partial<Pick<Subject, 'name' | 'color'>>) => {
@@ -215,45 +233,58 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     update((d) => ({ ...d, timer: d.timer ? { ...d.timer, startedAt: null, accumulated: 0, phase: 'focus' } : null }));
   }, [update]);
 
-  const saveTimer = useCallback((): Session | null => {
+  const saveTimer = useCallback((): { session: Session | null; reward: RpgReward | null } => {
     const current = dataRef.current;
     const timer = current.timer;
-    if (!timer) return null;
+    if (!timer) return { session: null, reward: null };
     const elapsed = timer.accumulated + (timer.startedAt ? Date.now() - timer.startedAt : 0);
     const shouldSave = timer.mode === 'stopwatch' ? elapsed >= 60000 : timer.phase === 'focus' && elapsed >= 60000;
     let session: Session | null = null;
+    let reward: RpgReward | null = null;
+    let rpg = current.rpg;
     if (shouldSave) {
       const end = Date.now();
       session = { id: uid('ses'), subjectId: timer.subjectId, start: end - elapsed, end };
+      // 공부한 분만큼 몬스터에게 데미지 · 보상 지급
+      const applied = applyStudy(current.rpg, elapsed / 60000);
+      rpg = applied.rpg;
+      reward = applied.reward;
     }
     update((d) => ({
       ...d,
       sessions: session ? [...d.sessions, session] : d.sessions,
+      rpg,
       timer: d.timer ? { ...d.timer, startedAt: null, accumulated: 0, phase: 'focus' } : null,
     }));
-    return session;
+    return { session, reward };
   }, [update]);
 
-  /** 뽀모도로 한 단계(집중/휴식)가 끝났을 때 호출. 진행되었으면 true */
-  const advancePomodoro = useCallback((): boolean => {
+  /** 뽀모도로 한 단계(집중/휴식)가 끝났을 때 호출. 집중이 끝났으면 RPG 보상을 돌려준다. */
+  const advancePomodoro = useCallback((): RpgReward | null => {
     const current = dataRef.current;
     const timer = current.timer;
-    if (!timer || timer.mode !== 'pomodoro' || timer.startedAt === null) return false;
+    if (!timer || timer.mode !== 'pomodoro' || timer.startedAt === null) return null;
     const now = Date.now();
     const elapsed = timer.accumulated + (now - timer.startedAt);
     const phaseMs = (timer.phase === 'focus' ? timer.focusMin : timer.breakMin) * 60000;
-    if (elapsed < phaseMs) return false;
+    if (elapsed < phaseMs) return null;
 
     const overshoot = Math.min(elapsed - phaseMs, phaseMs);
     const phaseEnd = now - overshoot;
     let sessions = current.sessions;
+    let rpg = current.rpg;
+    let reward: RpgReward | null = null;
     if (timer.phase === 'focus') {
       const start = phaseEnd - timer.focusMin * 60000;
       sessions = [...sessions, { id: uid('ses'), subjectId: timer.subjectId, start, end: phaseEnd }];
+      const applied = applyStudy(current.rpg, timer.focusMin);
+      rpg = applied.rpg;
+      reward = applied.reward;
     }
     update((d) => ({
       ...d,
       sessions,
+      rpg,
       timer: d.timer
         ? {
             ...d.timer,
@@ -263,7 +294,37 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           }
         : null,
     }));
+    return reward;
+  }, [update]);
+
+  const buyTitle = useCallback((id: string): boolean => {
+    const rpg = dataRef.current.rpg;
+    const title = TITLES.find((t) => t.id === id);
+    if (!title || title.source !== 'shop' || rpg.titles.includes(id) || rpg.gold < title.cost) return false;
+    update((d) => ({
+      ...d,
+      rpg: { ...d.rpg, gold: d.rpg.gold - title.cost, titles: [...d.rpg.titles, id], title: id },
+    }));
     return true;
+  }, [update]);
+
+  const equipTitle = useCallback((id: string) => {
+    update((d) => (d.rpg.titles.includes(id) ? { ...d, rpg: { ...d.rpg, title: id } } : d));
+  }, [update]);
+
+  const buyItem = useCallback((id: string): boolean => {
+    const rpg = dataRef.current.rpg;
+    const item = ITEMS.find((i) => i.id === id);
+    if (!item || rpg.items.includes(id) || rpg.gold < item.cost) return false;
+    update((d) => ({
+      ...d,
+      rpg: { ...d.rpg, gold: d.rpg.gold - item.cost, items: [...d.rpg.items, id], item: id },
+    }));
+    return true;
+  }, [update]);
+
+  const equipItem = useCallback((id: string) => {
+    update((d) => (d.rpg.items.includes(id) ? { ...d, rpg: { ...d.rpg, item: id } } : d));
   }, [update]);
 
   const setTimerMode = useCallback((mode: TimerMode) => {
@@ -302,6 +363,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       days: incoming.days && typeof incoming.days === 'object' ? incoming.days : {},
       settings: { ...base.settings, ...(incoming.settings ?? {}) },
       timer: null,
+      rpg: normalizeRpg(incoming.rpg),
+      migrations: Array.isArray(incoming.migrations) ? incoming.migrations : [],
     });
   }, []);
 
@@ -344,6 +407,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       resetTimer,
       saveTimer,
       advancePomodoro,
+      buyTitle,
+      equipTitle,
+      buyItem,
+      equipItem,
       setTimerMode,
       setPomodoroLength,
       updateSettings,
@@ -372,6 +439,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       resetTimer,
       saveTimer,
       advancePomodoro,
+      buyTitle,
+      equipTitle,
+      buyItem,
+      equipItem,
       setTimerMode,
       setPomodoroLength,
       updateSettings,

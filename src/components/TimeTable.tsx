@@ -12,6 +12,7 @@ import {
 } from '../lib/date';
 import { mergeSlots, sessionSlots } from '../lib/stats';
 import type { Session, Subject } from '../types';
+import AddSubjectChip from './AddSubjectChip';
 
 const ROW_H = 36;
 
@@ -157,6 +158,7 @@ export default function TimeTable({ date, sessions, marks, subjects, onMark }: P
               <span className="dot" style={{ background: 'var(--ink-3)' }} />
               지우개
             </button>
+            <AddSubjectChip compact label="+" onAdded={(id) => setBrush(id)} />
           </div>
         </div>
       </div>
