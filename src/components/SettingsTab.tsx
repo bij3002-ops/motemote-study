@@ -251,6 +251,18 @@ export default function SettingsTab() {
         </div>
         <div className="toggle-row" style={{ borderTop: '1px solid var(--line)' }}>
           <div>
+            <div className="label">타이머 실행 시 흑백 집중 모드</div>
+            <div className="sub">재는 동안 화면 색을 빼서 도파민 자극을 줄여요</div>
+          </div>
+          <button
+            className="switch"
+            aria-pressed={data.settings.focusGrayscale !== false}
+            aria-label="타이머 실행 시 흑백 집중 모드"
+            onClick={() => store.updateSettings({ focusGrayscale: data.settings.focusGrayscale === false })}
+          />
+        </div>
+        <div className="toggle-row" style={{ borderTop: '1px solid var(--line)' }}>
+          <div>
             <div className="label">내일로 이월 자동 복사</div>
             <div className="sub">‘→’ 로 넘기면 다음 날 플래너에도 생겨요</div>
           </div>

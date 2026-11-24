@@ -5,6 +5,7 @@ import PlannerTab from './components/PlannerTab';
 import RpgTab from './components/RpgTab';
 import StatsTab from './components/StatsTab';
 import SettingsTab from './components/SettingsTab';
+import { applyFocusGray, isFocusGrayOn } from './lib/focus';
 import { useStore } from './store';
 import type { Tab } from './types';
 
@@ -16,6 +17,14 @@ function resolveTheme(theme: 'light' | 'dark' | 'system'): 'light' | 'dark' {
 export default function App() {
   const { data } = useStore();
   const [tab, setTab] = useState<Tab>('timer');
+  const focusGray = isFocusGrayOn(data);
+
+  // 타이머가 도는 동안에만 앱 전체를 흑백으로 (일시정지·저장·초기화·휴식이면 원래 색으로)
+  useEffect(() => {
+    applyFocusGray(focusGray);
+  }, [focusGray]);
+
+  useEffect(() => () => applyFocusGray(false), []);
 
   useEffect(() => {
     const apply = () => {

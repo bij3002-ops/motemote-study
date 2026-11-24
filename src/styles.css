@@ -86,6 +86,24 @@ textarea {
   font-feature-settings: 'tnum' 1;
 }
 
+/* ---------- 흑백 집중 모드 ----------
+   타이머가 도는 동안만 html에 걸린다. html(문서 루트)에 filter를 걸면
+   하단 내비 같은 position: fixed 요소의 기준이 바뀌지 않는다. */
+html {
+  filter: grayscale(0);
+  transition: filter 0.65s ease;
+}
+
+html[data-focus-gray='on'] {
+  filter: grayscale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    transition: none;
+  }
+}
+
 /* ---------- 앱 셸 ---------- */
 #root {
   min-height: 100%;
@@ -450,6 +468,56 @@ textarea {
 .timer-actions {
   display: flex;
   gap: 10px;
+}
+
+/* 타이머 카드 맨 아래: 흑백 집중 미니 칩 + 초기화 */
+.timer-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: -6px;
+}
+
+.focus-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 26px;
+  padding: 0 10px 0 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.focus-chip svg {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+}
+
+.focus-chip[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--accent-ink);
+}
+
+.timer-reset {
+  padding: 5px 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-3);
+  border-radius: 8px;
+  transition: color 0.15s ease;
+}
+
+.timer-reset:active {
+  color: var(--ink);
 }
 
 .timer-actions .btn {

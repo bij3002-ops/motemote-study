@@ -45,7 +45,7 @@ export function createDefaultData(): AppData {
     ],
     sessions: [],
     days: {},
-    settings: { theme: 'system', wakeLock: false, autoCarry: true },
+    settings: { theme: 'system', wakeLock: false, autoCarry: true, focusGrayscale: true },
     timer: null,
     rpg: createRpgState(),
     migrations: [MAJOR_MIGRATION],

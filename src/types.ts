@@ -102,6 +102,8 @@ export type Settings = {
   theme: ThemeSetting;
   wakeLock: boolean;
   autoCarry: boolean;
+  /** 타이머를 재는 동안 화면 전체를 흑백으로 (도파민 자극 줄이기) */
+  focusGrayscale: boolean;
 };
 
 export type TimerMode = 'stopwatch' | 'pomodoro';

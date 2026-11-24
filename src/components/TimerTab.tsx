@@ -12,6 +12,7 @@ import {
   plannerDayKey,
   todayKey,
 } from '../lib/date';
+import { isFocusGrayOn } from '../lib/focus';
 import { sessionMinutesByDay } from '../lib/stats';
 import { useStore } from '../store';
 import type { RpgReward, TimerMode } from '../types';
@@ -52,9 +53,10 @@ function beep(): void {
 
 export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
   const store = useStore();
-  const { data, subjects, subjectById, startTimer, pauseTimer, resumeTimer, saveTimer } = store;
+  const { data, subjects, subjectById, startTimer, pauseTimer, resumeTimer, saveTimer, resetTimer } = store;
   const timer = data.timer;
   const running = !!timer && timer.startedAt !== null;
+  const focusGrayOn = isFocusGrayOn(data);
   const now = useNow(200, running);
   const [toast, showToast] = useToast();
   const [reward, setReward] = useState<RpgReward | null>(null);
@@ -128,6 +130,13 @@ export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
     } else {
       showToast('1분 이상 기록하면 저장돼요');
     }
+  };
+
+  const handleReset = () => {
+    if (!timer) return;
+    if (!window.confirm('지금까지 잰 시간을 버리고 00:00으로 되돌릴까요?')) return;
+    resetTimer();
+    showToast('타이머를 처음으로 되돌렸어요');
   };
 
   const remaining = Math.max(0, phaseMs - elapsed);
@@ -236,6 +245,31 @@ export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
           <button className="btn btn-ghost" onClick={handleSave} disabled={elapsed === 0 && !running}>
             저장
           </button>
+        </div>
+
+        <div className="timer-foot">
+          <button
+            className="focus-chip"
+            aria-pressed={focusGrayOn}
+            aria-label="타이머 실행 중 흑백 집중 모드"
+            title={
+              data.settings.focusGrayscale
+                ? '누르면 흑백 집중 모드를 끕니다'
+                : '누르면 타이머를 재는 동안 화면이 흑백이 됩니다'
+            }
+            onClick={() => store.updateSettings({ focusGrayscale: !data.settings.focusGrayscale })}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
+              <path d="M12 3a9 9 0 0 1 0 18V3Z" fill="currentColor" />
+            </svg>
+            {data.settings.focusGrayscale ? (focusGrayOn ? '흑백 집중 중' : '흑백 집중 켜짐') : '흑백 집중 꺼짐'}
+          </button>
+          {timer && elapsed > 0 && (
+            <button className="timer-reset" onClick={handleReset}>
+              초기화
+            </button>
+          )}
         </div>
       </section>
 
