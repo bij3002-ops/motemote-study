@@ -65,6 +65,9 @@ export default function TimeTable({ date, sessions, marks, subjects, onMark }: P
   }, [isToday, now, date]);
 
   useEffect(() => {
+    // 과목 목록이 바뀌어 선택한 과목이 사라졌을 때만 첫 과목으로 되돌린다.
+    // ('erase'는 과목이 아니라 지우개라 여기서 걸러야 한다)
+    if (brush === 'erase') return;
     if (subjects.length > 0 && !subjects.some((s) => s.id === brush)) {
       setBrush(subjects[0].id);
     }
