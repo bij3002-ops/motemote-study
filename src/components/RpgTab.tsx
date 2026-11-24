@@ -122,7 +122,7 @@ export default function RpgTab({ onStartStudy }: { onStartStudy?: () => void }) 
           <span className="num">
             {hp} / {monster.maxHp} HP
           </span>
-          <span className="muted num">-{dealtPct}% 격파</span>
+          <span className="muted num">{dealtPct}% 격파</span>
         </div>
 
         <div className="battle-rules">

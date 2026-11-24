@@ -22,7 +22,7 @@ export default function RpgResultModal({ reward, onClose }: { reward: RpgReward;
 
         <div className="result-hp">
           <span className="num">
-            {reward.hpBefore} → {reward.hpAfter} HP
+            {killed ? `처치 완료! 다음 몬스터 ${reward.hpAfter}/${reward.monsterMaxAfter} HP` : `${reward.hpBefore} → ${reward.hpAfter} HP`}
           </span>
           <span className="hpbar">
             <span style={{ width: `${reward.monsterMaxAfter > 0 ? (reward.hpAfter / reward.monsterMaxAfter) * 100 : 0}%` }} />
