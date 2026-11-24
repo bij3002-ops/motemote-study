@@ -749,12 +749,14 @@ textarea {
 .task-add {
   display: flex;
   gap: 8px;
+  align-items: center;
   padding: 8px 10px 12px;
   border-top: 1px solid var(--line);
 }
 
 .task-add input {
   flex: 1;
+  min-width: 0;
   height: 40px;
   border-radius: 11px;
   background: var(--paper-2);
@@ -770,6 +772,8 @@ textarea {
 
 .task-add select {
   height: 40px;
+  min-width: 0;
+  flex: 0 1 auto;
   border-radius: 11px;
   background: var(--paper-2);
   padding: 0 8px;
