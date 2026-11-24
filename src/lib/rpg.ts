@@ -352,6 +352,7 @@ export function applyStudy(rpg: RpgState, minutesRaw: number, day = todayKey()):
       hpBefore: rpg.hp,
       monsterHpBefore: monsterAt(rpg.stage).maxHp,
       hpAfter: hp,
+      monsterMaxAfter: nextMonster.maxHp,
       monsterLabel: nextMonster.label,
       monsterEmoji: nextMonster.emoji,
       kills: killed,

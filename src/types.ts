@@ -90,6 +90,7 @@ export type RpgReward = {
   hpBefore: number;
   monsterHpBefore: number;
   hpAfter: number;
+  monsterMaxAfter: number;
   monsterLabel: string;
   monsterEmoji: string;
   kills: RpgKill[];

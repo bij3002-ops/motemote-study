@@ -25,7 +25,7 @@ export default function RpgResultModal({ reward, onClose }: { reward: RpgReward;
             {reward.hpBefore} → {reward.hpAfter} HP
           </span>
           <span className="hpbar">
-            <span style={{ width: `${reward.monsterHpBefore > 0 ? (reward.hpAfter / reward.monsterHpBefore) * 100 : 0}%` }} />
+            <span style={{ width: `${reward.monsterMaxAfter > 0 ? (reward.hpAfter / reward.monsterMaxAfter) * 100 : 0}%` }} />
           </span>
         </div>
 
