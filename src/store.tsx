@@ -42,6 +42,10 @@ export type Store = {
   cycleTask: (date: string, taskId: string) => void;
   deleteTask: (date: string, taskId: string) => void;
   setMark: (date: string, key: string, subjectId: string) => void;
+  /** 공부 기록(세션) 하나만 지운다. 통계·타임테이블에서도 즉시 빠진다. */
+  deleteSession: (id: string) => void;
+  /** 공부 기록(세션)만 전부 비운다. 과목·D-Day·할 일·RPG·단어장은 그대로 둔다. */
+  resetSessions: () => void;
   startTimer: (subjectId: string, mode: TimerMode) => void;
   pauseTimer: () => void;
   resumeTimer: () => void;
@@ -197,6 +201,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       else marks[key] = subjectId;
       return { ...d, days: { ...d.days, [date]: { ...day, marks } } };
     });
+  }, [update]);
+
+  const deleteSession = useCallback((id: string) => {
+    update((d) => (d.sessions.some((s) => s.id === id) ? { ...d, sessions: d.sessions.filter((s) => s.id !== id) } : d));
+  }, [update]);
+
+  const resetSessions = useCallback(() => {
+    update((d) => (d.sessions.length === 0 ? d : { ...d, sessions: [] }));
   }, [update]);
 
   const startTimer = useCallback((subjectId: string, mode: TimerMode) => {
@@ -401,6 +413,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       cycleTask,
       deleteTask,
       setMark,
+      deleteSession,
+      resetSessions,
       startTimer,
       pauseTimer,
       resumeTimer,
@@ -433,6 +447,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       cycleTask,
       deleteTask,
       setMark,
+      deleteSession,
+      resetSessions,
       startTimer,
       pauseTimer,
       resumeTimer,

@@ -10,6 +10,7 @@ import {
 } from '../lib/date';
 import { useStore } from '../store';
 import DDayStrip from './DDayStrip';
+import SessionLogCard from './SessionLogCard';
 import TaskManager from './TaskManager';
 import TimeTable from './TimeTable';
 
@@ -136,6 +137,8 @@ export default function PlannerTab() {
         subjects={subjects}
         onMark={handleMark}
       />
+
+      <SessionLogCard date={date} />
     </main>
   );
 }

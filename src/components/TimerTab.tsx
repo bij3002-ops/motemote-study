@@ -120,6 +120,16 @@ export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
   };
 
   const handleSave = () => {
+    // 4시간 넘게 잔 걸 그대로 저장하려 하면, 켜 두고 잊은 건 아닌지 한 번 더 묻는다.
+    if (mode === 'stopwatch' && elapsed >= 4 * 3600000) {
+      if (
+        !window.confirm(
+          `${durationText(elapsed)}나 기록됐어요! 혹시 켜 두고 잊으신 건 아닌가요? 그대로 저장할까요?`,
+        )
+      ) {
+        return;
+      }
+    }
     const { session, reward: gained } = saveTimer();
     if (session) {
       const name = subjectById(session.subjectId)?.name ?? '공부';

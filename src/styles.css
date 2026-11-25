@@ -644,6 +644,42 @@ html[data-focus-gray='on'] {
   font-size: 12px;
 }
 
+/* 공부 기록 목록 (개별 삭제) */
+.log-item .log-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.log-item .log-main .name {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.log-item .log-main .time {
+  font-size: 11.5px;
+  color: var(--ink-3);
+  letter-spacing: 0.2px;
+}
+
+.log-del {
+  flex: 0 0 auto;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 9px;
+  font-size: 11.5px;
+  font-weight: 750;
+  color: var(--danger);
+  border: 1px solid color-mix(in srgb, var(--danger) 28%, transparent);
+  background: color-mix(in srgb, var(--danger) 7%, transparent);
+}
+
+.log-del:active {
+  transform: scale(0.96);
+}
+
 .empty {
   padding: 22px 16px;
   text-align: center;

@@ -287,6 +287,16 @@ export default function SettingsTab() {
         <span className="hint">이 기기에만 저장돼요</span>
       </div>
 
+      <div className="card info-text">
+        <b>초기화는 두 가지예요</b>
+        <br />· <b>공부 기록만 초기화</b> — 타이머로 잰 공부 기록만 모두 지워요. 과목·D-Day·할 일·RPG·단어장은
+        그대로 남아요.
+        <br />· <b>전체 초기화</b> — 과목·D-Day·할 일·RPG·공부 기록까지 전부 처음 상태로 돌려요. (단어장 학습
+        기록은 남아요)
+        <br />
+        실수로 저장된 기록 한두 개만 지우려면 플래너·통계 탭의 기록 목록에서 <b>삭제</b>를 누르세요.
+      </div>
+
       <div className="card row-actions" style={{ gap: 10 }}>
         <button className="btn btn-ghost" onClick={exportJson}>
           JSON으로 내보내기 (백업)
@@ -315,9 +325,34 @@ export default function SettingsTab() {
           어제에 예시 하루 채우기
         </button>
         <button
+          className="btn btn-line"
+          style={{
+            color: 'var(--danger)',
+            borderColor: 'color-mix(in srgb, var(--danger) 30%, transparent)',
+          }}
+          disabled={data.sessions.length === 0}
+          onClick={() => {
+            if (data.sessions.length === 0) return;
+            if (
+              window.confirm(
+                `공부 기록 ${data.sessions.length}개를 모두 지울까요?\n과목·D-Day·할 일·RPG는 그대로 남아요.`,
+              )
+            ) {
+              store.resetSessions();
+              showToast('공부 기록만 지웠어요');
+            }
+          }}
+        >
+          공부 기록만 초기화{data.sessions.length > 0 ? ` (${data.sessions.length}개)` : ''}
+        </button>
+        <button
           className="btn btn-danger"
           onClick={() => {
-            if (window.confirm('모든 기록·과목·D-Day를 처음 상태로 되돌릴까요?')) {
+            if (
+              window.confirm(
+                '과목·D-Day·할 일·RPG·공부 기록을 모두 처음 상태로 되돌릴까요?\n이 작업은 되돌릴 수 없어요.',
+              )
+            ) {
               store.resetAll();
               showToast('처음 상태로 되돌렸어요');
             }

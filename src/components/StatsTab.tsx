@@ -13,6 +13,7 @@ import {
 } from '../lib/date';
 import { monthMinutes, sessionMinutesByDay, subjectMinutes, sumMinutes, weekMinutes } from '../lib/stats';
 import { useStore } from '../store';
+import SessionLogCard from './SessionLogCard';
 
 function level(minutes: number): string {
   if (minutes <= 0) return '';
@@ -26,6 +27,7 @@ export default function StatsTab() {
   const { data, subjects } = useStore();
   const today = todayKey();
   const [monthAnchor, setMonthAnchor] = useState<string>(today);
+  const [logDate, setLogDate] = useState<string>(today);
 
   const minutesMap = useMemo(() => sessionMinutesByDay(data.sessions), [data.sessions]);
 
@@ -93,6 +95,38 @@ export default function StatsTab() {
           <div className="v num">{minutesText(monthMin)}</div>
         </div>
       </div>
+
+      <SessionLogCard
+        date={logDate}
+        headRight={
+          <span className="row" style={{ gap: 4, alignItems: 'center' }}>
+            <button
+              className="icon-btn"
+              style={{ width: 24, height: 24, borderRadius: 8 }}
+              onClick={() => setLogDate(addDays(logDate, -1))}
+              aria-label="기록 이전 날짜"
+            >
+              ‹
+            </button>
+            <button
+              className="hint num"
+              style={{ minWidth: 62, textAlign: 'center', color: logDate === today ? 'var(--ink)' : undefined }}
+              onClick={() => setLogDate(today)}
+              aria-label="오늘 기록 보기"
+            >
+              {logDate === today ? '오늘' : logDate.slice(5).replace('-', '.')}
+            </button>
+            <button
+              className="icon-btn"
+              style={{ width: 24, height: 24, borderRadius: 8 }}
+              onClick={() => setLogDate(addDays(logDate, 1))}
+              aria-label="기록 다음 날짜"
+            >
+              ›
+            </button>
+          </span>
+        }
+      />
 
       <div className="section-title">
         <h2>최근 7일</h2>
