@@ -101,6 +101,7 @@ export default function TossTimer({
     }
     if (phase === 'answer') {
       beepFinish();
+      setRemaining(0);
       setPhase('done');
     }
   };
