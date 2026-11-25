@@ -10,15 +10,21 @@ import { useStore } from '../store';
 export default function SessionLogCard({
   date,
   title = '공부 기록',
+  emptyText = '이 날 저장된 공부 기록이 없어요',
   headRight,
+  notify,
 }: {
   date: string;
   title?: string;
+  emptyText?: string;
   /** 섹션 제목 오른쪽에 같이 둘 요소 (날짜 이동 등) */
   headRight?: ReactNode;
+  /** 토스트를 부모가 대신 띄울 때 (같은 화면에 토스트가 겹치지 않도록) */
+  notify?: (message: string) => void;
 }) {
   const { data, subjectById, deleteSession } = useStore();
-  const [toast, showToast] = useToast();
+  const [toast, showToastLocal] = useToast();
+  const showToast = notify ?? showToastLocal;
 
   const sessions = useMemo(
     () =>
@@ -30,7 +36,7 @@ export default function SessionLogCard({
 
   return (
     <>
-      {toast}
+      {notify ? null : toast}
       <div className="section-title">
         <h2>{title}</h2>
         <div className="row" style={{ gap: 6, alignItems: 'center' }}>
@@ -41,7 +47,7 @@ export default function SessionLogCard({
 
       <div className="card-flat" style={{ overflow: 'hidden' }}>
         {sessions.length === 0 ? (
-          <div className="empty">이 날 저장된 공부 기록이 없어요</div>
+          <div className="empty">{emptyText}</div>
         ) : (
           <div className="log-list">
             {sessions.map((s) => {

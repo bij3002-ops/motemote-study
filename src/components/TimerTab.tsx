@@ -9,7 +9,6 @@ import {
   formatKoreanDate,
   formatTime,
   minutesText,
-  plannerDayKey,
   todayKey,
 } from '../lib/date';
 import { isFocusGrayOn } from '../lib/focus';
@@ -20,6 +19,7 @@ import AddSubjectChip from './AddSubjectChip';
 import DDayStrip from './DDayStrip';
 import MonsterMini from './MonsterMini';
 import RpgResultModal from './RpgResultModal';
+import SessionLogCard from './SessionLogCard';
 
 const PRESETS: Array<{ label: string; focus: number; brk: number }> = [
   { label: '25 / 5', focus: 25, brk: 5 },
@@ -94,15 +94,6 @@ export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
   const today = todayKey();
   const minutesMap = useMemo(() => sessionMinutesByDay(data.sessions), [data.sessions]);
   const todayMinutes = minutesMap.get(today) ?? 0;
-
-  const todaySessions = useMemo(
-    () =>
-      data.sessions
-        .filter((s) => plannerDayKey(s.start) === today)
-        .sort((a, b) => b.start - a.start)
-        .slice(0, 8),
-    [data.sessions, today],
-  );
 
   const activeSubject = subjectById(subjectId) ?? subjects[0];
   const color = activeSubject?.color ?? '#FF6B6B';
@@ -334,35 +325,12 @@ export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
         </div>
       </div>
 
-      <div className="section-title">
-        <h2>오늘 기록</h2>
-        <span className="hint num">{todaySessions.length > 0 ? `${todaySessions.length}개` : ''}</span>
-      </div>
-
-      <div className="card-flat">
-        {todaySessions.length === 0 ? (
-          <div className="empty">
-            아직 기록이 없어요.
-            <br />
-            과목을 고르고 타이머를 시작해 보세요.
-          </div>
-        ) : (
-          <div className="log-list">
-            {todaySessions.map((s) => {
-              const subject = subjectById(s.subjectId);
-              return (
-                <div className="log-item" key={s.id}>
-                  <span className="bar" style={{ background: subject?.color ?? '#8D8D99' }} />
-                  <span className="name">{subject?.name ?? '삭제된 과목'}</span>
-                  <span className="time num">
-                    {formatTime(s.start)}–{formatTime(s.end)}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
+      <SessionLogCard
+        date={today}
+        title="오늘 기록"
+        emptyText="아직 기록이 없어요. 과목을 고르고 타이머를 시작해 보세요."
+        notify={showToast}
+      />
     </main>
   );
 }
