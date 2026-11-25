@@ -171,7 +171,7 @@ export default function RecorderBar({ hint = true }: { hint?: boolean }) {
           <button type="button" className="rec-btn" onClick={() => void start()}>
             <span aria-hidden="true">🎙</span> 내 목소리 녹음
           </button>
-          {hint && <span className="rec-hint">내 답변을 녹음하고 바로 들어 보세요 · 기기에만 저장돼요</span>}
+          {hint && <span className="rec-hint">내 답변을 녹음하고 바로 들어 보세요 · 서버로 보내지 않고 이 화면에서만 재생돼요</span>}
         </>
       )}
 
