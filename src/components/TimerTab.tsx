@@ -113,11 +113,15 @@ export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
   const handleSave = () => {
     // 4시간 넘게 잔 걸 그대로 저장하려 하면, 켜 두고 잊은 건 아닌지 한 번 더 묻는다.
     if (mode === 'stopwatch' && elapsed >= 4 * 3600000) {
-      if (
-        !window.confirm(
-          `${durationText(elapsed)}이나 기록됐어요! 혹시 켜 두고 잊으신 건 아닌가요? 그대로 저장할까요?`,
-        )
-      ) {
+      const keepGoing = window.confirm(
+        `${durationText(elapsed)}이나 기록됐어요! 혹시 켜 두고 잊으신 건 아닌가요? 그대로 저장할까요?`,
+      );
+      if (!keepGoing) {
+        // 저장하지 않겠다고 했으면, 켜 두고 잊은 시간을 바로 비울 수 있게 한 번 더 묻는다.
+        if (window.confirm('그럼 저장하지 않고 지금까지 잰 시간을 버릴까요?')) {
+          resetTimer();
+          showToast('저장하지 않고 시간을 버렸어요');
+        }
         return;
       }
     }
@@ -133,11 +137,14 @@ export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
     }
   };
 
-  const handleReset = () => {
+  /** 저장 없이 재고 있던 시간을 0으로 날린다. 5분 이상 쌓였으면 한 번 확인한다. */
+  const handleDiscard = () => {
     if (!timer) return;
-    if (!window.confirm('지금까지 잰 시간을 버리고 00:00으로 되돌릴까요?')) return;
+    if (elapsed >= 5 * 60000) {
+      if (!window.confirm('현재 측정 중인 시간을 저장하지 않고 버릴까요?')) return;
+    }
     resetTimer();
-    showToast('타이머를 처음으로 되돌렸어요');
+    showToast('저장하지 않고 시간을 버렸어요');
   };
 
   const remaining = Math.max(0, phaseMs - elapsed);
@@ -243,9 +250,22 @@ export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
           <button className="btn btn-primary" onClick={handlePrimary}>
             {running ? '일시정지' : elapsed > 0 ? '이어서' : '시작'}
           </button>
-          <button className="btn btn-ghost" onClick={handleSave} disabled={elapsed === 0 && !running}>
+          <button
+            className="btn btn-ghost btn-side"
+            onClick={handleSave}
+            disabled={elapsed === 0 && !running}
+          >
             저장
           </button>
+          {timer && (elapsed > 0 || running) && (
+            <button
+              className="btn btn-danger btn-side"
+              onClick={handleDiscard}
+              title="저장하지 않고 지금까지 잰 시간을 버려요"
+            >
+              버리기
+            </button>
+          )}
         </div>
 
         <div className="timer-foot">
@@ -266,11 +286,6 @@ export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
             </svg>
             {data.settings.focusGrayscale ? (focusGrayOn ? '흑백 집중 중' : '흑백 집중 켜짐') : '흑백 집중 꺼짐'}
           </button>
-          {timer && elapsed > 0 && (
-            <button className="timer-reset" onClick={handleReset}>
-              초기화
-            </button>
-          )}
         </div>
       </section>
 

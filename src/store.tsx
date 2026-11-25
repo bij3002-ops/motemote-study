@@ -21,7 +21,7 @@ import type {
   TimerMode,
 } from './types';
 import { addDays, plannerDayKey, uid } from './lib/date';
-import { applyStudy, ITEMS, normalizeRpg, TITLES } from './lib/rpg';
+import { applyBoxes, applyStudy, ITEMS, normalizeRpg, TITLES, type BoxOpenResult } from './lib/rpg';
 import { buildSampleDay, createDefaultData, emptyDay, loadData, saveData } from './lib/storage';
 
 const STATUS_CYCLE: TaskStatus[] = ['todo', 'doing', 'done', 'carry'];
@@ -52,6 +52,8 @@ export type Store = {
   resetTimer: () => void;
   saveTimer: () => { session: Session | null; reward: RpgReward | null };
   advancePomodoro: () => RpgReward | null;
+  /** 🎁 집중 상자를 count개(최대 보유량) 연다. 연 결과를 순서대로 돌려준다. */
+  openBoxes: (count?: number) => BoxOpenResult[];
   buyTitle: (id: string) => boolean;
   equipTitle: (id: string) => void;
   buyItem: (id: string) => boolean;
@@ -309,6 +311,15 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     return reward;
   }, [update]);
 
+  const openBoxes = useCallback((count = 1): BoxOpenResult[] => {
+    const current = dataRef.current;
+    if (current.rpg.boxes <= 0) return [];
+    const applied = applyBoxes(current.rpg, count);
+    if (applied.results.length === 0) return [];
+    update((d) => ({ ...d, rpg: applied.rpg }));
+    return applied.results;
+  }, [update]);
+
   const buyTitle = useCallback((id: string): boolean => {
     const rpg = dataRef.current.rpg;
     const title = TITLES.find((t) => t.id === id);
@@ -427,6 +438,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       equipItem,
       setTimerMode,
       setPomodoroLength,
+      openBoxes,
       updateSettings,
       importData,
       resetAll,
@@ -461,6 +473,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       equipItem,
       setTimerMode,
       setPomodoroLength,
+      openBoxes,
       updateSettings,
       importData,
       resetAll,

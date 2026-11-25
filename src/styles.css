@@ -467,7 +467,7 @@ html[data-focus-gray='on'] {
 
 .timer-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 /* 타이머 카드 맨 아래: 흑백 집중 미니 칩 + 초기화 */
@@ -524,14 +524,39 @@ html[data-focus-gray='on'] {
   height: 54px;
   border-radius: 16px;
   font-size: 15.5px;
+  padding: 0 10px;
+  white-space: nowrap;
 }
 
 .timer-actions .btn-primary {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 16px;
 }
 
-.timer-actions .btn-ghost {
-  width: 96px;
+/* 저장·버리기: 남는 폭을 나눠 갖되 글자가 줄바꿈되지 않는 고정 폭 */
+.timer-actions .btn-side {
+  flex: 0 0 auto;
+  width: 84px;
+  font-size: 14px;
+}
+
+.timer-actions .btn-danger {
+  font-weight: 750;
+}
+
+@media (max-width: 370px) {
+  .timer-actions {
+    gap: 6px;
+  }
+  .timer-actions .btn-side {
+    width: 70px;
+    font-size: 13px;
+    padding: 0 6px;
+  }
+  .timer-actions .btn-primary {
+    font-size: 15px;
+  }
 }
 
 .pomo-presets {
@@ -2147,6 +2172,279 @@ html[data-focus-gray='on'] {
 
 :root[data-theme='dark'] .loot-chip.badge {
   color: #b9aeff;
+}
+
+/* ---------- 🎁 집중 상자 ---------- */
+.box-pill {
+  background: color-mix(in srgb, #ffc93c 22%, var(--card));
+  color: #8a6210;
+  border: 1px solid color-mix(in srgb, #ffc93c 42%, var(--line));
+}
+
+:root[data-theme='dark'] .box-pill {
+  color: #f0c672;
+}
+
+.box-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, #ffc93c 18%, var(--card)),
+    color-mix(in srgb, #ff9f43 6%, var(--card))
+  );
+  border-color: color-mix(in srgb, #ffc93c 38%, var(--line));
+}
+
+.box-card-top {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.box-card-emoji {
+  font-size: 30px;
+  line-height: 1;
+  flex: 0 0 auto;
+  animation: box-wiggle 2.8s ease-in-out infinite;
+}
+
+@keyframes box-wiggle {
+  0%,
+  72%,
+  100% {
+    transform: rotate(0deg);
+  }
+  78% {
+    transform: rotate(-7deg);
+  }
+  84% {
+    transform: rotate(6deg);
+  }
+  90% {
+    transform: rotate(-3deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box-card-emoji {
+    animation: none;
+  }
+}
+
+.box-card-info {
+  min-width: 0;
+}
+
+.box-card-title {
+  font-size: 14.5px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+.box-card-title b {
+  font-size: 16px;
+}
+
+.box-card-sub {
+  font-size: 11px;
+  color: var(--ink-2);
+  margin-top: 2px;
+}
+
+.box-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.box-card-actions .btn {
+  flex: 1;
+}
+
+.loot-box-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.loot-box-actions .btn {
+  flex: 1;
+}
+
+/* ---------- 상자 개봉 결과 시트 ---------- */
+.box-sheet {
+  gap: 10px;
+}
+
+.box-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.box-head-emoji {
+  font-size: 27px;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+.box-head .sheet-title {
+  margin: 0;
+}
+
+.box-head .sheet-sub {
+  margin: 1px 0 0;
+}
+
+.box-total {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: var(--paper-2);
+  border-radius: 14px;
+  padding: 9px 8px;
+}
+
+.box-total > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.box-total b {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.box-total b.gold {
+  color: #b07d18;
+}
+
+:root[data-theme='dark'] .box-total b.gold {
+  color: #f0c672;
+}
+
+.box-total span {
+  font-size: 9.5px;
+  color: var(--ink-3);
+}
+
+.box-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 38dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.box-open {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-size: 11.5px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+}
+
+.box-open.tier-rare {
+  background: color-mix(in srgb, #4d7cfe 9%, var(--card));
+  border-color: color-mix(in srgb, #4d7cfe 26%, var(--line));
+}
+
+.box-open.tier-strike {
+  background: color-mix(in srgb, #ff9f43 12%, var(--card));
+  border-color: color-mix(in srgb, #ff9f43 32%, var(--line));
+}
+
+.box-open.tier-jackpot {
+  background: color-mix(in srgb, #b43fd1 12%, var(--card));
+  border-color: color-mix(in srgb, #b43fd1 32%, var(--line));
+}
+
+.box-open-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.box-open-emoji {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.box-open-tier {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--ink-2);
+}
+
+.box-open-tier.tier-rare {
+  color: #2f5bd0;
+}
+
+.box-open-tier.tier-strike {
+  color: #d9741a;
+}
+
+.box-open-tier.tier-jackpot {
+  color: #b43fd1;
+}
+
+:root[data-theme='dark'] .box-open-tier.tier-rare {
+  color: #8fb0ff;
+}
+
+:root[data-theme='dark'] .box-open-tier.tier-strike {
+  color: #ffbd6b;
+}
+
+:root[data-theme='dark'] .box-open-tier.tier-jackpot {
+  color: #dda6ff;
+}
+
+.box-open-gain {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.box-open-sub {
+  font-size: 10.5px;
+  color: var(--ink-3);
+}
+
+.box-open-kill {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--ink-2);
+  background: color-mix(in srgb, #ffc93c 12%, var(--card));
+  border-radius: 9px;
+  padding: 6px 8px;
+}
+
+.box-open-kill b {
+  color: var(--ink);
+}
+
+.box-sheet .sheet-actions {
+  flex-wrap: wrap;
+}
+
+.box-sheet .sheet-actions .btn {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0 8px;
+  font-size: 13.5px;
 }
 
 .rpg-rules b {

@@ -365,3 +365,172 @@ export function tierLabel(tier: RpgTier): string {
   if (tier === 'focus') return '25분+ 집중 보너스 · 데미지 +20%';
   return '공부 1분 = 1 데미지';
 }
+
+/* =========================================================
+   🎁 집중 상자 열기
+   25분+ 집중으로 모은 상자를 열면 골드·XP·추가 데미지가 나온다.
+   ========================================================= */
+
+export type BoxTier = 'common' | 'rare' | 'strike' | 'jackpot';
+
+export type BoxTierDef = {
+  tier: BoxTier;
+  label: string;
+  emoji: string;
+  /** 뽑힐 확률 (%) — 합계 100 */
+  chance: number;
+  gold: [number, number];
+  xp: [number, number];
+  /** 현재 몬스터에게 주는 추가 데미지 (없으면 null) */
+  damage: [number, number] | null;
+};
+
+export const BOX_TIERS: BoxTierDef[] = [
+  { tier: 'common', label: '일반', emoji: '🎁', chance: 60, gold: [20, 40], xp: [15, 25], damage: null },
+  { tier: 'rare', label: '희귀', emoji: '💎', chance: 25, gold: [55, 85], xp: [30, 45], damage: null },
+  { tier: 'strike', label: '집중의 일격', emoji: '⚡', chance: 10, gold: [25, 25], xp: [0, 0], damage: [15, 30] },
+  { tier: 'jackpot', label: '대박', emoji: '🌟', chance: 5, gold: [120, 180], xp: [60, 60], damage: null },
+];
+
+export type BoxOpenResult = {
+  tier: BoxTier;
+  label: string;
+  emoji: string;
+  /** 상자에서 바로 나온 보상 */
+  gold: number;
+  xp: number;
+  /** 집중의 일격일 때 몬스터에게 준 추가 데미지 */
+  damage: number;
+  /** 추가 데미지로 몬스터를 처치해 더 받은 보상 */
+  killGold: number;
+  killXp: number;
+  kills: RpgKill[];
+  levelsGained: number;
+  level: number;
+  /** 이 상자를 열고 남은 상자 수 */
+  boxesLeft: number;
+  monsterLabel: string;
+  monsterEmoji: string;
+};
+
+function randInt(min: number, max: number, rand: () => number): number {
+  if (max <= min) return Math.max(0, Math.round(min));
+  return min + Math.floor(rand() * (max - min + 1));
+}
+
+/** 확률표(60 / 25 / 10 / 5)대로 상자 등급 하나를 뽑는다. */
+export function rollBoxTier(rand: () => number = Math.random): BoxTierDef {
+  const roll = rand() * 100;
+  let acc = 0;
+  for (const def of BOX_TIERS) {
+    acc += def.chance;
+    if (roll < acc) return def;
+  }
+  return BOX_TIERS[0];
+}
+
+/**
+ * 상자 1개를 연다. 상태를 직접 바꾸지 않고 새 상태와 결과를 돌려준다.
+ * '집중의 일격' 데미지로 몬스터가 쓰러지면 스테이지·처치·전리품·칭호·골드를
+ * 공부 데미지와 똑같은 규칙으로 처리한다.
+ */
+function applyOneBox(rpg: RpgState, rand: () => number): { rpg: RpgState; result: BoxOpenResult } {
+  const def = rollBoxTier(rand);
+  const gold = randInt(def.gold[0], def.gold[1], rand);
+  const xp = randInt(def.xp[0], def.xp[1], rand);
+  const damage = def.damage ? randInt(def.damage[0], def.damage[1], rand) : 0;
+
+  let stage = rpg.stage;
+  let hp = rpg.hp;
+  const kills = { ...rpg.kills };
+  const loot = { ...rpg.loot };
+  const titles = [...rpg.titles];
+  const killed: RpgKill[] = [];
+  let killGold = 0;
+  let remaining = damage;
+  let guard = 0;
+
+  while (remaining >= hp && guard < 500) {
+    guard += 1;
+    const monster = monsterAt(stage);
+    remaining -= hp;
+    kills[monster.id] = (kills[monster.id] ?? 0) + 1;
+    loot[monster.loot.id] = (loot[monster.loot.id] ?? 0) + 1;
+    killGold += monster.gold;
+
+    let newTitle: string | undefined;
+    if (!titles.includes(monster.titleId)) {
+      titles.push(monster.titleId);
+      newTitle = titleById(monster.titleId)?.name;
+    }
+
+    killed.push({
+      id: monster.id,
+      label: monster.label,
+      emoji: monster.emoji,
+      gold: monster.gold,
+      loot: monster.loot.name,
+      newTitle,
+    });
+
+    stage += 1;
+    hp = monsterAt(stage).maxHp;
+  }
+  if (damage > 0) hp = Math.max(1, hp - remaining);
+
+  const killXp = killed.length * 20;
+  const xpGained = xp + killXp;
+  const levelResult = applyXp(rpg.level, rpg.xp, xpGained);
+  const nextMonster = monsterAt(stage);
+
+  const nextRpg: RpgState = {
+    ...rpg,
+    stage,
+    hp,
+    gold: rpg.gold + gold + killGold,
+    xp: levelResult.xp,
+    level: levelResult.level,
+    kills,
+    loot,
+    titles,
+    boxes: Math.max(0, rpg.boxes - 1),
+    totalDamage: rpg.totalDamage + damage,
+  };
+
+  return {
+    rpg: nextRpg,
+    result: {
+      tier: def.tier,
+      label: def.label,
+      emoji: def.emoji,
+      gold,
+      xp,
+      damage,
+      killGold,
+      killXp,
+      kills: killed,
+      levelsGained: levelResult.levelsGained,
+      level: levelResult.level,
+      boxesLeft: nextRpg.boxes,
+      monsterLabel: nextMonster.label,
+      monsterEmoji: nextMonster.emoji,
+    },
+  };
+}
+
+/** 보유한 상자 중 count개(최대 보유량)를 차례로 연다. */
+export function applyBoxes(
+  rpg: RpgState,
+  countRaw = 1,
+  rand: () => number = Math.random,
+): { rpg: RpgState; results: BoxOpenResult[] } {
+  const count = Math.min(Math.max(0, Math.floor(countRaw)), Math.max(0, rpg.boxes));
+  const results: BoxOpenResult[] = [];
+  let next = rpg;
+  for (let i = 0; i < count; i += 1) {
+    const opened = applyOneBox(next, rand);
+    next = opened.rpg;
+    results.push(opened.result);
+  }
+  return { rpg: next, results };
+}

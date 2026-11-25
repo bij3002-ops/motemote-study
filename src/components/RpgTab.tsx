@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useToast } from '../hooks/useToast';
 import {
   BADGE_FOCUS_50,
@@ -10,13 +10,26 @@ import {
   titleById,
   totalKills,
   xpToNext,
+  type BoxOpenResult,
 } from '../lib/rpg';
 import { useStore } from '../store';
+import BoxOpenModal from './BoxOpenModal';
 
 export default function RpgTab({ onStartStudy }: { onStartStudy?: () => void }) {
-  const { data, buyTitle, equipTitle, buyItem, equipItem } = useStore();
+  const { data, buyTitle, equipTitle, buyItem, equipItem, openBoxes } = useStore();
   const [toast, showToast] = useToast();
+  const [boxResults, setBoxResults] = useState<BoxOpenResult[] | null>(null);
   const rpg = data.rpg;
+
+  /** 상자 count개를 열고 결과 시트를 띄운다. 이미 시트가 떠 있으면 결과를 뒤에 이어 붙인다. */
+  const openBox = (count: number) => {
+    const results = openBoxes(count);
+    if (results.length === 0) {
+      showToast('열 수 있는 집중 상자가 없어요');
+      return;
+    }
+    setBoxResults((prev) => (prev ? [...prev, ...results] : results));
+  };
 
   const monster = monsterAt(rpg.stage);
   const hp = Math.max(0, Math.min(monster.maxHp, rpg.hp));
@@ -38,6 +51,15 @@ export default function RpgTab({ onStartStudy }: { onStartStudy?: () => void }) 
   return (
     <main className="screen">
       {toast}
+      {boxResults && (
+        <BoxOpenModal
+          results={boxResults}
+          boxesLeft={rpg.boxes}
+          onOpenMore={() => openBox(1)}
+          onOpenAll={() => openBox(rpg.boxes)}
+          onClose={() => setBoxResults(null)}
+        />
+      )}
       <header className="topbar">
         <div>
           <p className="eyebrow">공부가 곧 공격</p>
@@ -45,6 +67,11 @@ export default function RpgTab({ onStartStudy }: { onStartStudy?: () => void }) 
         </div>
         <div className="topbar-right">
           <span className="pill num gold-pill">🪙 {rpg.gold}</span>
+          {rpg.boxes > 0 && (
+            <button className="pill num box-pill" onClick={() => openBox(1)} aria-label="집중 상자 1개 열기">
+              🎁 {rpg.boxes}
+            </button>
+          )}
         </div>
       </header>
 
@@ -135,6 +162,33 @@ export default function RpgTab({ onStartStudy }: { onStartStudy?: () => void }) 
           공부하고 때리러 가기
         </button>
       </section>
+
+      {/* 🎁 집중 상자 */}
+      {rpg.boxes > 0 && (
+        <section className="card box-card">
+          <div className="box-card-top">
+            <span className="box-card-emoji" aria-hidden="true">
+              🎁
+            </span>
+            <div className="box-card-info">
+              <div className="box-card-title">
+                집중 상자 <b className="num">{rpg.boxes}</b>개 보유
+              </div>
+              <div className="box-card-sub">25분 이상 집중하면 쌓여요 · 열어서 보상 받기</div>
+            </div>
+          </div>
+          <div className="box-card-actions">
+            <button className="btn btn-primary btn-sm" onClick={() => openBox(1)}>
+              1개 열기
+            </button>
+            {rpg.boxes > 1 && (
+              <button className="btn btn-line btn-sm" onClick={() => openBox(rpg.boxes)}>
+                모두 열기
+              </button>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* 몬스터 도감 */}
       <div className="section-title">
@@ -279,6 +333,18 @@ export default function RpgTab({ onStartStudy }: { onStartStudy?: () => void }) 
             )}
           </div>
         )}
+        {rpg.boxes > 0 && (
+          <div className="loot-box-actions">
+            <button className="btn btn-primary btn-sm" onClick={() => openBox(1)}>
+              상자 1개 열기
+            </button>
+            {rpg.boxes > 1 && (
+              <button className="btn btn-line btn-sm" onClick={() => openBox(rpg.boxes)}>
+                모두 열기 ({rpg.boxes}개)
+              </button>
+            )}
+          </div>
+        )}
       </div>
 
       {/* 보상 규칙 */}
@@ -288,6 +354,7 @@ export default function RpgTab({ onStartStudy }: { onStartStudy?: () => void }) 
         <br />· <b>25분 이상</b> 한 번에 집중 → 데미지 +20%, 🎁 집중 상자, 보너스 10골드
         <br />· <b>50분 이상</b> 한 번에 집중 → 데미지 ×1.5, 🏅 집중의 증표, 상자 2개, 보너스 25골드
         <br />· 장비를 장착하면 데미지가 더 올라가요 (최대 +50%)
+        <br />· 🎁 <b>집중 상자</b>를 열면 골드·XP·몬스터 추가 데미지가 나와요
         <br />· 5단계를 다 잡으면 Lv.2 몬스터가 더 강해져서 다시 나타나요
       </div>
     </main>
