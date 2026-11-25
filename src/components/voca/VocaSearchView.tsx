@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { speakEnglish, type VocaData, type VocaWord } from '../../lib/voca';
+import { normalizeSearch, speakEnglish, type VocaData, type VocaWord } from '../../lib/voca';
 import type { VocaProgressStore } from '../../hooks/useVocaProgress';
 import { VocaRow } from './VocaBits';
 
@@ -18,19 +18,30 @@ export default function VocaSearchView({ data, voca, showToast }: Props) {
   const [mode, setMode] = useState<Mode>('stats');
   const [revealed, setRevealed] = useState<Set<number>>(() => new Set());
 
-  const query = q.trim().toLowerCase();
+  const query = q.trim();
+
+  const index = useMemo(
+    () =>
+      data.words.map((w) => ({
+        w,
+        word: normalizeSearch(w.word),
+        meaning: normalizeSearch(w.meaning),
+      })),
+    [data.words],
+  );
 
   const results = useMemo(() => {
     if (!query) return [];
+    const target = normalizeSearch(query);
     const out: VocaWord[] = [];
-    for (const w of data.words) {
-      if (w.word.toLowerCase().includes(query) || w.meaning.toLowerCase().includes(query)) {
-        out.push(w);
+    for (const row of index) {
+      if (row.word.includes(target) || row.meaning.includes(target)) {
+        out.push(row.w);
         if (out.length >= MAX_RESULTS) break;
       }
     }
     return out;
-  }, [data.words, query]);
+  }, [index, query]);
 
   const partStats = useMemo(
     () =>

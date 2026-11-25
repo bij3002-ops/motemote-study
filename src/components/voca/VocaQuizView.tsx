@@ -118,7 +118,7 @@ export default function VocaQuizView({ data, part, day, voca, showToast }: Props
         if (nextIndex >= prev.questions.length) return { ...prev, done: true, picked: null };
         return { ...prev, index: nextIndex, picked: null };
       });
-    }, 1100);
+    }, 1600);
   };
 
   const speak = (text: string) => {

@@ -173,6 +173,11 @@ export function countKnown(words: VocaWord[], known: Set<number>): number {
   return n;
 }
 
+/** 검색용: 악센트(résumé → resume)와 대소문자를 무시한다. */
+export function normalizeSearch(text: string): string {
+  return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
+
 /** Fisher–Yates */
 export function shuffle<T>(items: T[]): T[] {
   const arr = items.slice();
