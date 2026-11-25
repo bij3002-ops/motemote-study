@@ -293,7 +293,9 @@ export default function VocaQuizView({ data, part, day, voca, showToast }: Props
         className="btn btn-ghost btn-sm"
         onClick={() => {
           if (timer.current) window.clearTimeout(timer.current);
-          setQuiz({ ...quiz, done: true, picked: null });
+          const answered = quiz.index + (quiz.picked === null ? 0 : 1);
+          setQuiz(null);
+          showToast(answered > 0 ? `${answered}문항 풀고 그만뒀어요 · 오답은 저장됐어요` : '퀴즈를 그만뒀어요');
         }}
       >
         그만 풀기
