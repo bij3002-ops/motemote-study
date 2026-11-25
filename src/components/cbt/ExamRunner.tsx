@@ -25,6 +25,7 @@ export default function ExamRunner({ data, draft, onChange, onSubmit, onExit, is
   const q = list[idx];
   const now = useNow(500);
   const remain = Math.max(0, Math.round((draft.deadline - now) / 1000));
+  const elapsed = Math.max(0, Math.round((Math.min(now, draft.deadline) - draft.startedAt) / 1000));
   const [gridOpen, setGridOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const submittedRef = useRef(false);
@@ -60,7 +61,8 @@ export default function ExamRunner({ data, draft, onChange, onSubmit, onExit, is
         <div className="cbt-run-title">
           <span className="cbt-run-round">{data.examName} · {data.label}</span>
           <span className="cbt-run-scope">
-            {draft.scope === 'full' ? '전체 100문항' : `${data.subjects[(draft.scope as number) - 1]} 20문항`} · 응답 {answeredCount}/{total}
+            {draft.scope === 'full' ? '전체 100문항' : `${data.subjects[(draft.scope as number) - 1]} 20문항`} · 응답 {answeredCount}/{total} · 경과{' '}
+            {formatClock(elapsed)}
           </span>
         </div>
         <div className={`cbt-timer num${remain <= 300 ? ' urgent' : ''}`} aria-live="off">

@@ -140,6 +140,8 @@ export default function CbtTab() {
       const data = await loadRound(exam, meta.id);
       const list = scope === 'full' ? data.questions : data.questions.filter((q) => q.subject === scope);
       const startedAt = Date.now();
+      // 실전은 100문항 150분, 과목별 20문항은 30분
+      const limit = scope === 'full' ? EXAM_SECONDS : 30 * 60;
       const draft: CbtDraft = {
         exam,
         round: meta.id,
@@ -147,7 +149,7 @@ export default function CbtTab() {
         answers: {},
         current: list[0]?.n ?? 1,
         startedAt,
-        deadline: startedAt + EXAM_SECONDS * 1000,
+        deadline: startedAt + limit * 1000,
       };
       saveDraft(draft);
       setResult(null);

@@ -17,7 +17,8 @@ type Props = {
 export default function ResultView({ data, attempt, onHome, onReviewWrong, onRetry }: Props) {
   const full = attempt.scope === 'full';
   const passed = attempt.passed === true;
-  const verdict = full ? (passed ? '합격' : '불합격') : `${attempt.score}점`;
+  const subjectName = !full && typeof attempt.scope === 'number' ? data.subjects[attempt.scope - 1] ?? '' : '';
+  const verdict = full ? (passed ? '합격' : '불합격') : `${subjectName} 20문항`;
   const wrongCount = attempt.total - attempt.correct;
 
   return (
