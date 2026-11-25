@@ -19,6 +19,7 @@ export default function BoxOpenModal({
   const totalDamage = results.reduce((a, r) => a + r.damage, 0);
   const last = results[results.length - 1];
   const levelUps = results.reduce((a, r) => a + r.levelsGained, 0);
+  const anyKill = results.some((r) => r.kills.length > 0);
 
   return createPortal(
     <div className="sheet-backdrop" onClick={onClose}>
@@ -53,7 +54,7 @@ export default function BoxOpenModal({
             <span>XP</span>
           </div>
           <div>
-            <b className="num">-{totalDamage}</b>
+            <b className="num">{totalDamage > 0 ? `-${totalDamage}` : '0'}</b>
             <span>추가 데미지</span>
           </div>
         </div>
@@ -95,7 +96,7 @@ export default function BoxOpenModal({
         )}
 
         <div className="result-next">
-          다음 상대 <b>{last?.monsterEmoji} {last?.monsterLabel}</b>
+          {anyKill ? '다음 상대' : '현재 상대'} <b>{last?.monsterEmoji} {last?.monsterLabel}</b>
         </div>
 
         <div className="sheet-actions">
