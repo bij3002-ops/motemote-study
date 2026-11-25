@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import BottomNav from './components/BottomNav';
 import TimerTab from './components/TimerTab';
 import PlannerTab from './components/PlannerTab';
+import VocaTab from './components/VocaTab';
 import RpgTab from './components/RpgTab';
 import StatsTab from './components/StatsTab';
 import SettingsTab from './components/SettingsTab';
@@ -44,6 +45,7 @@ export default function App() {
     <div className="app">
       {tab === 'timer' && <TimerTab onOpenRpg={() => setTab('rpg')} />}
       {tab === 'planner' && <PlannerTab />}
+      {tab === 'voca' && <VocaTab />}
       {tab === 'rpg' && <RpgTab onStartStudy={() => setTab('timer')} />}
       {tab === 'stats' && <StatsTab />}
       {tab === 'settings' && <SettingsTab />}

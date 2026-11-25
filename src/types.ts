@@ -134,4 +134,4 @@ export type AppData = {
   migrations: string[];
 };
 
-export type Tab = 'timer' | 'planner' | 'rpg' | 'stats' | 'settings';
+export type Tab = 'timer' | 'planner' | 'voca' | 'stats' | 'rpg' | 'settings';

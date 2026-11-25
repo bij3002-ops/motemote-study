@@ -1330,8 +1330,8 @@ html[data-focus-gray='on'] {
   width: 100%;
   max-width: 460px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  padding: 7px 6px 9px;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 7px 4px 9px;
 }
 
 .nav-item {
@@ -1340,8 +1340,10 @@ html[data-focus-gray='on'] {
   align-items: center;
   gap: 3px;
   color: var(--ink-3);
-  font-size: 9.5px;
+  font-size: 9px;
   font-weight: 650;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
   padding: 3px 0 1px;
   transition: color 0.15s ease;
 }
@@ -1351,8 +1353,8 @@ html[data-focus-gray='on'] {
 }
 
 .nav-item svg {
-  width: 22px;
-  height: 22px;
+  width: 21px;
+  height: 21px;
   stroke-width: 1.8;
 }
 
@@ -2273,5 +2275,862 @@ html[data-focus-gray='on'] {
   .monster-face {
     font-size: 54px;
     height: 66px;
+  }
+}
+
+/* =========================================================
+   노랭이 토익 단어장
+   ========================================================= */
+.voca-screen {
+  gap: 12px;
+}
+
+.voca-screen .hint {
+  margin: 0;
+  font-size: 11.5px;
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+.voca-screen .hint.center {
+  text-align: center;
+}
+
+.voca-head-count {
+  font-size: 12.5px;
+  font-weight: 750;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.voca-head-count small {
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--ink-3);
+}
+
+.voca-view-seg {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--paper);
+}
+
+.voca-view-seg button {
+  font-size: 12px;
+  height: 34px;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- 파트 · DAY ---------- */
+.voca-part-chip .voca-chip-count {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+
+.chip[aria-pressed='true'] .voca-chip-count {
+  color: var(--ink-2);
+}
+
+.voca-days {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 2px 2px 6px;
+  margin: 0 -2px;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+}
+
+.voca-days::-webkit-scrollbar {
+  display: none;
+}
+
+.voca-day {
+  flex: 0 0 auto;
+  width: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 7px 8px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink-2);
+  scroll-snap-align: start;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.voca-day-label {
+  font-size: 10.5px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.voca-day-bar {
+  display: block;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+
+.voca-day-bar em {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--ink-3);
+  transition: width 0.2s ease;
+}
+
+.voca-day.done .voca-day-bar em {
+  background: #3fae63;
+}
+
+.voca-day.active {
+  border-color: var(--ink);
+  color: var(--ink);
+  box-shadow: 0 2px 10px rgba(22, 22, 26, 0.08);
+}
+
+.voca-day.active .voca-day-bar em {
+  background: var(--ink);
+}
+
+:root[data-theme='dark'] .voca-day.active {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- 진행률 ---------- */
+.voca-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 13px 16px 15px;
+}
+
+.voca-summary-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.voca-summary-k {
+  margin: 0 0 3px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--ink-3);
+  letter-spacing: 0.01em;
+}
+
+.voca-summary-v {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 780;
+  letter-spacing: -0.02em;
+}
+
+.voca-summary-v small {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--ink-3);
+}
+
+.voca-pct {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--ink-2);
+}
+
+.voca-pct.full {
+  color: #2f9e58;
+}
+
+:root[data-theme='dark'] .voca-pct.full {
+  color: #66d98f;
+}
+
+.voca-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.voca-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--ink);
+  transition: width 0.25s ease;
+}
+
+.voca-bar.big {
+  height: 8px;
+  width: 100%;
+}
+
+/* ---------- 보기 토글 ---------- */
+.voca-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.voca-toggle {
+  height: 30px;
+  padding: 0 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.voca-toggle[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--accent-ink);
+}
+
+/* ---------- 단어 목록 ---------- */
+.voca-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.voca-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 12px 11px 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.voca-row.known {
+  background: color-mix(in srgb, #4ecb71 7%, var(--card));
+  border-color: color-mix(in srgb, #4ecb71 26%, var(--line));
+}
+
+.voca-list.compact .voca-row {
+  padding: 9px 10px 9px 12px;
+  border-radius: 12px;
+}
+
+.voca-row-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.voca-word-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.voca-word {
+  font-size: 15.5px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.voca-row.known .voca-word {
+  color: var(--ink-2);
+}
+
+.voca-speak {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-3);
+  background: var(--paper-2);
+  flex: 0 0 auto;
+}
+
+.voca-speak:active {
+  transform: scale(0.92);
+}
+
+.voca-tag {
+  flex: 0 0 auto;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink-3);
+  background: var(--paper-2);
+  border-radius: 6px;
+  padding: 2px 5px;
+}
+
+.voca-mean {
+  margin: 2px 0 0;
+  font-size: 13.5px;
+  line-height: 1.42;
+  color: var(--ink-2);
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.voca-veil {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--ink-3);
+  background: var(--paper-2);
+  border: 1px dashed var(--line-2);
+  border-radius: 8px;
+  padding: 3px 9px;
+}
+
+.voca-veil.sm {
+  margin-top: 4px;
+  font-size: 11.5px;
+}
+
+.voca-row-tools {
+  display: flex;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+.voca-tool {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-3);
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+}
+
+.voca-tool:active {
+  transform: scale(0.92);
+}
+
+.voca-tool.star.on {
+  color: #eda21f;
+  background: color-mix(in srgb, #eda21f 15%, var(--card));
+  border-color: color-mix(in srgb, #eda21f 40%, var(--line));
+}
+
+.voca-tool.check.on {
+  color: #fff;
+  background: #3fae63;
+  border-color: #3fae63;
+}
+
+/* ---------- 플래시카드 ---------- */
+.voca-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+
+.voca-card-count {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-2);
+}
+
+.voca-card-scope {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.voca-card {
+  position: relative;
+  width: 100%;
+  min-height: 236px;
+  padding: 30px 22px;
+  border-radius: 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.voca-card:active {
+  transform: scale(0.995);
+}
+
+.voca-card-word {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.voca-card-mean {
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.voca-card-hint {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  border-bottom: 1px dashed var(--line-2);
+  padding-bottom: 2px;
+}
+
+.voca-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+
+.voca-card-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.voca-mini {
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-weight: 650;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.voca-mini.on {
+  color: var(--ink);
+  background: var(--paper-2);
+  border-color: var(--ink-3);
+}
+
+.voca-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.voca-card-actions .btn {
+  flex: 1;
+  height: 46px;
+  font-size: 14px;
+}
+
+.voca-done {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 28px 18px;
+  text-align: center;
+}
+
+.voca-done-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 780;
+}
+
+.voca-done-sub {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+
+.voca-done-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+/* ---------- 퀴즈 ---------- */
+.voca-quiz-setup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.voca-setup-title {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 750;
+}
+
+.voca-setup-sub {
+  margin: -4px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+
+.voca-question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 16px 22px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.voca-question-word {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.voca-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.voca-choice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  min-height: 52px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.voca-choice-no {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--paper-2);
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voca-choice-text {
+  flex: 1;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.voca-choice.right {
+  background: #e9f8ee;
+  border-color: #3fae63;
+  color: #1c6a34;
+}
+
+.voca-choice.right .voca-choice-no {
+  background: #3fae63;
+  color: #fff;
+}
+
+.voca-choice.wrong {
+  background: #fdecea;
+  border-color: #e8544d;
+  color: #a1322c;
+}
+
+.voca-choice.wrong .voca-choice-no {
+  background: #e8544d;
+  color: #fff;
+}
+
+.voca-choice.dim {
+  opacity: 0.45;
+}
+
+:root[data-theme='dark'] .voca-choice.right {
+  background: #16301f;
+  color: #8ce0aa;
+  border-color: #3fae63;
+}
+
+:root[data-theme='dark'] .voca-choice.wrong {
+  background: #33191a;
+  color: #ff9c96;
+  border-color: #e8544d;
+}
+
+.voca-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  padding: 26px 18px;
+  text-align: center;
+}
+
+.voca-result-k {
+  margin: 0;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.voca-result-score {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.voca-result-score small {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+
+.voca-result-sub {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+
+.voca-result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ---------- 검색 · 오답 ---------- */
+.voca-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+}
+
+.voca-search-icon {
+  display: inline-flex;
+  color: var(--ink-3);
+}
+
+.voca-search input {
+  flex: 1;
+  height: 100%;
+  font-size: 14px;
+  min-width: 0;
+}
+
+.voca-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.voca-search input::placeholder {
+  color: var(--ink-3);
+}
+
+.voca-search-clear {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--paper-2);
+  color: var(--ink-3);
+  font-size: 11px;
+  flex: 0 0 auto;
+}
+
+.voca-overall {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.voca-overall-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.voca-overall-v {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.voca-overall-v small {
+  font-size: 12.5px;
+  font-weight: 650;
+  color: var(--ink-3);
+}
+
+.voca-mini-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.voca-mini-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 11px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.voca-mini-card .k {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+
+.voca-mini-card .v {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.voca-mini-card[aria-pressed='true'] {
+  border-color: var(--ink);
+}
+
+.voca-part-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 16px;
+}
+
+.voca-part-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.voca-part-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.voca-part-top .nm {
+  flex: 1;
+  font-weight: 700;
+}
+
+.voca-part-top .vl {
+  font-size: 11.5px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.voca-part-top .pc {
+  min-width: 34px;
+  text-align: right;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.voca-reset {
+  width: 100%;
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+}
+
+/* ---------- 로딩 ---------- */
+.voca-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  padding: 34px 16px;
+  text-align: center;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.voca-loading p {
+  margin: 0;
+}
+
+.voca-spinner {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--line-2);
+  border-top-color: var(--ink);
+  animation: voca-spin 0.8s linear infinite;
+}
+
+@keyframes voca-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 350px) {
+  .voca-view-seg button {
+    font-size: 11px;
+  }
+  .voca-day {
+    width: 58px;
+  }
+  .voca-card-word {
+    font-size: 26px;
   }
 }

@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { useToast } from '../hooks/useToast';
 import { addDays, diffDays, formatDotDate, todayKey } from '../lib/date';
 import { COLOR_PALETTE } from '../lib/storage';
+import { broadcastProgressChange, loadProgress, normalizeProgress, saveProgress } from '../lib/voca';
 import { useStore } from '../store';
 import type { AppData, ThemeSetting } from '../types';
 
@@ -33,7 +34,9 @@ export default function SettingsTab() {
   const sortedDDays = [...data.ddays].sort((a, b) => (a.date < b.date ? -1 : 1));
 
   const exportJson = () => {
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    // 단어장 학습 기록도 같은 백업 파일에 담는다.
+    const payload = { ...data, voca: loadProgress() };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -49,14 +52,18 @@ export default function SettingsTab() {
     const reader = new FileReader();
     reader.onload = () => {
       try {
-        const parsed = JSON.parse(String(reader.result)) as AppData;
+        const parsed = JSON.parse(String(reader.result)) as AppData & { voca?: unknown };
         if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.subjects)) {
           showToast('이 파일은 백업 형식이 아니에요');
           return;
         }
         if (!window.confirm('지금 기록을 불러온 파일로 바꿀까요? (되돌릴 수 없어요)')) return;
         store.importData(parsed);
-        showToast('기록을 불러왔어요');
+        if (parsed.voca) {
+          saveProgress(normalizeProgress(parsed.voca));
+          broadcastProgressChange();
+        }
+        showToast(parsed.voca ? '기록과 단어장을 불러왔어요' : '기록을 불러왔어요');
       } catch {
         showToast('파일을 읽지 못했어요');
       }

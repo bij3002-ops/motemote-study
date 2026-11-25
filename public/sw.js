@@ -1,4 +1,4 @@
-const CACHE = 'motemote-v2';
+const CACHE = 'motemote-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -44,6 +44,22 @@ self.addEventListener('fetch', (event) => {
           return res;
         })
         .catch(() => caches.match('./index.html').then((hit) => hit || caches.match('./'))),
+    );
+    return;
+  }
+
+  // 단어장 데이터: 네트워크 우선 (새 데이터가 배포되면 바로 반영), 오프라인이면 캐시
+  if (url.pathname.includes('/data/')) {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          if (res.ok) {
+            const copy = res.clone();
+            caches.open(CACHE).then((cache) => cache.put(req, copy)).catch(() => {});
+          }
+          return res;
+        })
+        .catch(() => caches.match(req)),
     );
     return;
   }
