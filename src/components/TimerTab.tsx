@@ -115,7 +115,7 @@ export default function TimerTab({ onOpenRpg }: { onOpenRpg?: () => void }) {
     if (mode === 'stopwatch' && elapsed >= 4 * 3600000) {
       if (
         !window.confirm(
-          `${durationText(elapsed)}나 기록됐어요! 혹시 켜 두고 잊으신 건 아닌가요? 그대로 저장할까요?`,
+          `${durationText(elapsed)}이나 기록됐어요! 혹시 켜 두고 잊으신 건 아닌가요? 그대로 저장할까요?`,
         )
       ) {
         return;
