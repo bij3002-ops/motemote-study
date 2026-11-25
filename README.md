@@ -75,6 +75,8 @@ npm run build      # docs/ 로 정적 빌드 (GitHub Pages 소스)
 아이콘 재생성: `python3 tools/generate_icons.py`
 단어 데이터 재추출: `python3 tools/extract-noraengi.py` (원본 Anki 덱 → `public/data/noraengi-words.json`)
 기출 CBT 데이터 재생성: 원본 PDF → `work/cbt/build_all.py` (PyMuPDF로 문항·정답·해설 파싱 + 수식/도표 크롭 → `public/data/cbt/`)
+기출 CBT 데이터 검증: `python3 tools/validate-cbt.py` (회차 10개 · 1,000문항 · 이미지 313개 · 해설 496개 전수 확인)
+원본: comcbt.com 전자문제집 CBT 공개 기출 PDF(교사용·학생용, 정보처리기사는 해설집 포함) — 학생용 PDF에서 문제·그림을, 교사용에서 정답을 뽑았습니다.
 
 ## 배포
 
