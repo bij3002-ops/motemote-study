@@ -37,6 +37,19 @@ const items: Array<{ key: Tab; label: string; icon: JSX.Element }> = [
     ),
   },
   {
+    key: 'cbt',
+    label: '기출',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4.5" y="3.5" width="15" height="17" rx="3" />
+        <path d="M8.2 8.2h5.4" />
+        <path d="M8.2 12h7.6" />
+        <path d="M8.2 15.8h4.4" />
+        <path d="M17.2 14.6l.9.9 1.7-1.8" />
+      </svg>
+    ),
+  },
+  {
     key: 'stats',
     label: '통계',
     icon: (

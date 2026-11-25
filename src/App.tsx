@@ -3,6 +3,7 @@ import BottomNav from './components/BottomNav';
 import TimerTab from './components/TimerTab';
 import PlannerTab from './components/PlannerTab';
 import VocaTab from './components/VocaTab';
+import CbtTab from './components/cbt/CbtTab';
 import RpgTab from './components/RpgTab';
 import StatsTab from './components/StatsTab';
 import SettingsTab from './components/SettingsTab';
@@ -46,6 +47,7 @@ export default function App() {
       {tab === 'timer' && <TimerTab onOpenRpg={() => setTab('rpg')} />}
       {tab === 'planner' && <PlannerTab />}
       {tab === 'voca' && <VocaTab />}
+      {tab === 'cbt' && <CbtTab />}
       {tab === 'rpg' && <RpgTab onStartStudy={() => setTab('timer')} />}
       {tab === 'stats' && <StatsTab />}
       {tab === 'settings' && <SettingsTab />}

@@ -1,0 +1,132 @@
+{
+ "version": 1,
+ "generatedAt": "2026-11-25",
+ "exams": [
+  {
+   "id": "quality",
+   "name": "품질경영기사",
+   "rounds": [
+    {
+     "id": "2022-2",
+     "label": "2022년 2회",
+     "date": "2022-04-24",
+     "count": 100,
+     "images": 40,
+     "explanations": 0,
+     "file": "cbt/quality-2022-2.json",
+     "bytes": 37324
+    },
+    {
+     "id": "2022-1",
+     "label": "2022년 1회",
+     "date": "2022-03-05",
+     "count": 100,
+     "images": 33,
+     "explanations": 0,
+     "file": "cbt/quality-2022-1.json",
+     "bytes": 38641
+    },
+    {
+     "id": "2021-4",
+     "label": "2021년 4회",
+     "date": "2021-09-12",
+     "count": 100,
+     "images": 41,
+     "explanations": 0,
+     "file": "cbt/quality-2021-4.json",
+     "bytes": 38234
+    },
+    {
+     "id": "2021-2",
+     "label": "2021년 2회",
+     "date": "2021-05-15",
+     "count": 100,
+     "images": 27,
+     "explanations": 0,
+     "file": "cbt/quality-2021-2.json",
+     "bytes": 35686
+    },
+    {
+     "id": "2021-1",
+     "label": "2021년 1회",
+     "date": "2021-03-07",
+     "count": 100,
+     "images": 31,
+     "explanations": 0,
+     "file": "cbt/quality-2021-1.json",
+     "bytes": 38367
+    }
+   ],
+   "subjects": [
+    "실험계획법",
+    "통계적품질관리",
+    "생산시스템",
+    "신뢰성관리",
+    "품질경영"
+   ]
+  },
+  {
+   "id": "jeongcheo",
+   "name": "정보처리기사",
+   "rounds": [
+    {
+     "id": "2022-2",
+     "label": "2022년 2회",
+     "date": "2022-04-24",
+     "count": 100,
+     "images": 30,
+     "explanations": 100,
+     "file": "cbt/jeongcheo-2022-2.json",
+     "bytes": 95058
+    },
+    {
+     "id": "2022-1",
+     "label": "2022년 1회",
+     "date": "2022-03-05",
+     "count": 100,
+     "images": 35,
+     "explanations": 99,
+     "file": "cbt/jeongcheo-2022-1.json",
+     "bytes": 95425
+    },
+    {
+     "id": "2021-3",
+     "label": "2021년 3회",
+     "date": "2021-08-14",
+     "count": 100,
+     "images": 24,
+     "explanations": 99,
+     "file": "cbt/jeongcheo-2021-3.json",
+     "bytes": 99493
+    },
+    {
+     "id": "2021-2",
+     "label": "2021년 2회",
+     "date": "2021-05-15",
+     "count": 100,
+     "images": 27,
+     "explanations": 100,
+     "file": "cbt/jeongcheo-2021-2.json",
+     "bytes": 86142
+    },
+    {
+     "id": "2021-1",
+     "label": "2021년 1회",
+     "date": "2021-03-07",
+     "count": 100,
+     "images": 25,
+     "explanations": 98,
+     "file": "cbt/jeongcheo-2021-1.json",
+     "bytes": 79160
+    }
+   ],
+   "subjects": [
+    "소프트웨어 설계",
+    "소프트웨어 개발",
+    "데이터베이스 구축",
+    "프로그래밍 언어 활용",
+    "정보시스템 구축관리"
+   ]
+  }
+ ]
+}
