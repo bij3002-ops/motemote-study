@@ -86,7 +86,8 @@ def build_toeic():
                 audio["p"] = audio_name(q["id"], "-p")
             else:
                 audio["q"] = audio_name(q["id"], "-q")
-            audio["a"] = audio_name(q["id"], "-a")
+            if q.get("a"):
+                audio["a"] = audio_name(q["id"], "-a")
             # Part 1처럼 문항별 답변 시간이 없는 파트는 파트 기본값을 쓴다.
             qs.append({**q, "answerSec": q.get("answerSec", p["answerSec"]), "audio": audio})
         part["questions"] = qs

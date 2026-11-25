@@ -1,6 +1,6 @@
 {
  "version": 1,
- "generatedAt": "2026-11-25T17:56:09+09:00",
+ "generatedAt": "2026-11-25T17:59:56+09:00",
  "source": "motemote-study tools/build-speaking-data.py",
  "opic": {
   "label": "오픽 AL 실전",
@@ -1113,8 +1113,7 @@
       ],
       "answerSec": 45,
       "audio": {
-       "p": "data/speaking-audio/toeic-p1-1-p.mp3",
-       "a": "data/speaking-audio/toeic-p1-1-a.mp3"
+       "p": "data/speaking-audio/toeic-p1-1-p.mp3"
       }
      },
      {
@@ -1146,8 +1145,7 @@
       ],
       "answerSec": 45,
       "audio": {
-       "p": "data/speaking-audio/toeic-p1-2-p.mp3",
-       "a": "data/speaking-audio/toeic-p1-2-a.mp3"
+       "p": "data/speaking-audio/toeic-p1-2-p.mp3"
       }
      }
     ]
