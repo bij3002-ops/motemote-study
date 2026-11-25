@@ -248,6 +248,28 @@ export function formatClock(totalSec: number): string {
   return `${m}:${String(s).padStart(2, '0')}`;
 }
 
+/* ---------- 마지막으로 보던 화면 기억 ---------- */
+
+export const ENGLISH_MODE_KEY = 'motemote-study:english-mode';
+export const SPEAKING_MODE_KEY = 'motemote-study:speaking-mode';
+
+export function readMode<T extends string>(key: string, allowed: readonly T[], fallback: T): T {
+  try {
+    const raw = localStorage.getItem(key);
+    return allowed.includes(raw as T) ? (raw as T) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+export function writeMode(key: string, value: string): void {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    /* 무시 */
+  }
+}
+
 /** 카드 종류 한국어 이름 */
 export function kindLabel(kind: string): string {
   if (kind === 'pattern') return '패턴';

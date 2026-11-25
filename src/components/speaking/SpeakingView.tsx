@@ -1,6 +1,14 @@
 import { useEffect, useState } from 'react';
 import { usePlayer } from '../../hooks/usePlayer';
-import { loadSpeakingData, loadSpeakingStore, saveSpeakingStore, type SpeakingData } from '../../lib/speaking';
+import {
+  loadSpeakingData,
+  loadSpeakingStore,
+  readMode,
+  saveSpeakingStore,
+  SPEAKING_MODE_KEY,
+  writeMode,
+  type SpeakingData,
+} from '../../lib/speaking';
 import { speakingPlayer } from '../../lib/tts';
 import { StopButton, SpeedChips } from './PlayButtons';
 import MorningView from './MorningView';
@@ -18,7 +26,13 @@ const MODES: Array<{ key: Mode; label: string }> = [
 ];
 
 export default function SpeakingView() {
-  const [mode, setMode] = useState<Mode>('opic');
+  const [mode, setMode] = useState<Mode>(() =>
+    readMode(SPEAKING_MODE_KEY, ['opic', 'toeic', 'morning', 'mine'] as const, 'opic'),
+  );
+  const changeMode = (next: Mode) => {
+    setMode(next);
+    writeMode(SPEAKING_MODE_KEY, next);
+  };
   const [data, setData] = useState<SpeakingData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -70,7 +84,7 @@ export default function SpeakingView() {
             role="tab"
             aria-selected={mode === m.key}
             aria-pressed={mode === m.key}
-            onClick={() => setMode(m.key)}
+            onClick={() => changeMode(m.key)}
           >
             {m.label}
           </button>

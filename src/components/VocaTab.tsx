@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { ENGLISH_MODE_KEY, readMode, writeMode } from '../lib/speaking';
 import { useToast } from '../hooks/useToast';
 import { useVocaData, useVocaProgress } from '../hooks/useVocaProgress';
 import SpeakingView from './speaking/SpeakingView';
@@ -21,7 +22,12 @@ export default function VocaTab() {
   const { data, error, loading, retry } = useVocaData();
   const voca = useVocaProgress();
   const [toast, showToast] = useToast();
-  const [mode, setMode] = useState<'voca' | 'speak'>('voca');
+  // 앱을 오갔다 와도 마지막에 보던 화면(단어장/말하기)으로 돌아온다.
+  const [mode, setMode] = useState<'voca' | 'speak'>(() => readMode(ENGLISH_MODE_KEY, ['voca', 'speak'] as const, 'voca'));
+  const changeMode = (next: 'voca' | 'speak') => {
+    setMode(next);
+    writeMode(ENGLISH_MODE_KEY, next);
+  };
   const [view, setView] = useState<View>('list');
   const [part, setPart] = useState(voca.progress.last.part);
   const [day, setDay] = useState(voca.progress.last.day);
@@ -61,10 +67,10 @@ export default function VocaTab() {
       </header>
 
       <div className="seg english-seg" role="tablist" aria-label="영어 학습 종류">
-        <button role="tab" aria-selected={mode === 'voca'} aria-pressed={mode === 'voca'} onClick={() => setMode('voca')}>
+        <button role="tab" aria-selected={mode === 'voca'} aria-pressed={mode === 'voca'} onClick={() => changeMode('voca')}>
           노랭이 단어장
         </button>
-        <button role="tab" aria-selected={mode === 'speak'} aria-pressed={mode === 'speak'} onClick={() => setMode('speak')}>
+        <button role="tab" aria-selected={mode === 'speak'} aria-pressed={mode === 'speak'} onClick={() => changeMode('speak')}>
           토스 · 오픽 말하기
         </button>
       </div>
