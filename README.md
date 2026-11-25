@@ -27,7 +27,11 @@
   - 타이머 기록 자동 색칠 + 손가락 터치/가로 드래그로 수동 색칠·지우개
   - 현재 시각 표시선
 
-### 3. 노랭이 토익 단어장 (단어장 탭)
+### 3. 영어 — 노랭이 단어장 + 토스·오픽 말하기 (영어 탭)
+
+영어 탭 위쪽 세그먼트로 **노랭이 단어장**과 **토스 · 오픽 말하기**를 오갑니다. (단어장 기능·학습 기록은 그대로)
+
+#### 3-1. 노랭이 토익 단어장
 - 해커스 토익 **노랭이** Anki 덱에서 추출한 **5,101개 단어** (빈출 1,241 · 기초 837 · 800점 2,033 · 900점 990)
 - 4개 파트 × **DAY 01~30**, DAY별 진행률 · 뜻/단어 가리기 · 안 외운 단어만 보기
 - Web Speech API(`en-US`) 발음 듣기 (iOS Safari 대응), 즐겨찾기(★) · 외움 체크(✓)
@@ -36,6 +40,17 @@
 - **검색·오답**: 5,101개 영단어/뜻 실시간 검색, 전체·파트별 달성률, 즐겨찾기·오답 모아보기
 - 학습 기록은 `localStorage`에 저장되고 설정 탭 JSON 백업에 함께 담깁니다
 - 단어 데이터(`public/data/noraengi-words.json`, 212KB)는 **단어장 탭을 처음 누를 때만** 내려받아 타이머·플래너 초기 로딩을 해치지 않습니다
+
+#### 3-2. 토스 · 오픽 말하기
+- **오픽 AL 실전 17주제 · 24문항**: 자기소개 · 집/주거 · 동네 · 여가/운동 · 카페/맛집 · 음악 · 영화 · 국내/해외여행 · 기술/스마트폰 · 과거 경험 · 롤플레이 3종(문의 전화 · 문제 해결 · 대안 제안) · 돌발 3종(교통 · 날씨 · 쇼핑)
+  - 질문 + **AL 수준 모범답안**(승철님 상황에 맞춘 산업공학·공기업·송도 소재) + 한국어 해석 + 핵심 표현 + 꼬리질문 + 통화에서 쓴 표현
+- **토익스피킹 Part 1~5 실제 규격**: 지문 읽기(45/45초) · 사진 묘사(45/30초) · 질문 응답(3초/15·15·30초) · 표 보고 응답(지문 45초 → 15·15·30초, **표 데이터 포함**) · 의견 제시(45/60초)
+  - 파트별 공략 포인트, 끊어 읽기 표시, 표·일정표 렌더링
+  - **실전 타이머**: 준비 시간 → **비프음(Web Audio API)** → 답변 카운트다운, 마지막 3초 틱·종료음, 일시정지·건너뛰기·다시 하기
+- **내 모닝콜 복습**: 매일 아침 전화영어(`ngsl-talk`) `review-seed.json`에서 실제 통화로 쌓인 **55개 카드**(단어·패턴·내 문장 교정 + 튜터 설명)를 종류·날짜로 골라 복습
+- **내 스크립트**: 영어 질문·답변·메모를 직접 추가·수정·삭제(`localStorage` 키 `motemote-study:speaking:v1`), 설정 탭 JSON 백업의 `speaking` 필드에 함께 저장
+- **소리**: `public/data/speaking-audio/`의 **원어민 MP3(edge-tts en-US-Jenny/GuyNeural, 123개 · 8.3MB)** 우선 재생, 없는 문장은 Web Speech API(`en-US`)로 자동 대체. 재생 속도 **0.7x · 0.85x · 1.0x · 1.1x**(기억됨), 문장별 따라 읽기 · 전체 재생 · 반복
+- **내 목소리 녹음**: `MediaRecorder`(iOS Safari `audio/mp4` 우선 → `audio/webm` 폴백), 녹음 중 타이머, 바로 다시 듣기·다시 녹음·삭제. 마이크 권한 거부/미지원 시 안내 문구. 녹음은 기기 메모리에만 있고 서버로 보내지 않습니다
 
 ### 4. 기출 CBT (기출 탭)
 - **품질경영기사 · 정보처리기사 필기 최신 공개 기출 5회차씩 총 1,000문항**(각 100문항 · 5과목 × 20문항)
@@ -60,7 +75,7 @@
 - 과목 추가·이름/색 변경·삭제 (기본: 품질경영기사 · 산업안전기사 · 토익/오픽 · 학교 전공·팀플 · 한국사)
 - 라이트 / 다크 / 시스템 테마
 - 타이머 실행 시 흑백 집중 모드 (기본 켜짐)
-- JSON 내보내기·불러오기(단어장 · 기출 CBT 기록 포함), 어제 하루 예시 채우기, 전체 초기화
+- JSON 내보내기·불러오기(단어장 · 기출 CBT · 영어 스크립트 기록 포함), 어제 하루 예시 채우기, 전체 초기화
 
 ## 개발
 
@@ -74,6 +89,8 @@ npm run build      # docs/ 로 정적 빌드 (GitHub Pages 소스)
 
 아이콘 재생성: `python3 tools/generate_icons.py`
 단어 데이터 재추출: `python3 tools/extract-noraengi.py` (원본 Anki 덱 → `public/data/noraengi-words.json`)
+말하기 콘텐츠 재생성: `python3 tools/build-speaking-data.py` (tools/speaking_content_*.py + ngsl-talk review-seed → `public/data/speaking-data.json`)
+말하기 MP3 재생성: `pip install edge-tts` 후 `python3 tools/generate-speaking-audio.py [--force]` (`public/data/speaking-audio/`)
 기출 CBT 데이터 재생성: 원본 PDF → `work/cbt/build_all.py` (PyMuPDF로 문항·정답·해설 파싱 + 수식/도표 크롭 → `public/data/cbt/`)
 기출 CBT 데이터 검증: `python3 tools/validate-cbt.py` (회차 10개 · 1,000문항 · 이미지 313개 · 해설 496개 전수 확인)
 원본: comcbt.com 전자문제집 CBT 공개 기출 PDF(교사용·학생용, 정보처리기사는 해설집 포함) — 학생용 PDF에서 문제·그림을, 교사용에서 정답을 뽑았습니다.
@@ -92,7 +109,7 @@ AppData {
   ddays:    { id, title, date }[]
   sessions: { id, subjectId, start, end }[]        // 타이머 기록(epoch ms)
   days:     Record<'YYYY-MM-DD', { tasks, memo, marks }>
-  settings: { theme, wakeLock, autoCarry }
+  settings: { theme, wakeLock, autoCarry, focusGrayscale }
   timer:    { subjectId, mode, startedAt, accumulated, phase, focusMin, breakMin } | null
 }
 ```

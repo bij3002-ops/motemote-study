@@ -4,6 +4,12 @@ import { addDays, diffDays, formatDotDate, todayKey } from '../lib/date';
 import { COLOR_PALETTE } from '../lib/storage';
 import { loadCbt, normalizeCbt, saveCbt } from '../lib/cbt';
 import { broadcastProgressChange, loadProgress, normalizeProgress, saveProgress } from '../lib/voca';
+import {
+  broadcastSpeakingChange,
+  loadSpeakingStore,
+  normalizeSpeakingStore,
+  saveSpeakingStore,
+} from '../lib/speaking';
 import { useStore } from '../store';
 import type { AppData, ThemeSetting } from '../types';
 
@@ -35,8 +41,8 @@ export default function SettingsTab() {
   const sortedDDays = [...data.ddays].sort((a, b) => (a.date < b.date ? -1 : 1));
 
   const exportJson = () => {
-    // 단어장 학습 기록과 기출 CBT 기록도 같은 백업 파일에 담는다.
-    const payload = { ...data, voca: loadProgress(), cbt: loadCbt() };
+    // 단어장 학습 기록 · 기출 CBT 기록 · 내 영어 스크립트도 같은 백업 파일에 담는다.
+    const payload = { ...data, voca: loadProgress(), cbt: loadCbt(), speaking: loadSpeakingStore() };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -53,7 +59,11 @@ export default function SettingsTab() {
     const reader = new FileReader();
     reader.onload = () => {
       try {
-        const parsed = JSON.parse(String(reader.result)) as AppData & { voca?: unknown; cbt?: unknown };
+        const parsed = JSON.parse(String(reader.result)) as AppData & {
+          voca?: unknown;
+          cbt?: unknown;
+          speaking?: unknown;
+        };
         if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.subjects)) {
           showToast('이 파일은 백업 형식이 아니에요');
           return;
@@ -65,7 +75,13 @@ export default function SettingsTab() {
           broadcastProgressChange();
         }
         if (parsed.cbt) saveCbt(normalizeCbt(parsed.cbt));
-        const extra = [parsed.voca ? '단어장' : '', parsed.cbt ? '기출 CBT' : ''].filter(Boolean).join('·');
+        if (parsed.speaking) {
+          saveSpeakingStore(normalizeSpeakingStore(parsed.speaking));
+          broadcastSpeakingChange();
+        }
+        const extra = [parsed.voca ? '단어장' : '', parsed.cbt ? '기출 CBT' : '', parsed.speaking ? '영어 스크립트' : '']
+          .filter(Boolean)
+          .join('·');
         showToast(extra ? `기록과 ${extra}를 불러왔어요` : '기록을 불러왔어요');
       } catch {
         showToast('파일을 읽지 못했어요');

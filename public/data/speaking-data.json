@@ -1,0 +1,2250 @@
+{
+ "version": 1,
+ "generatedAt": "2026-11-25T17:56:09+09:00",
+ "source": "motemote-study tools/build-speaking-data.py",
+ "opic": {
+  "label": "오픽 AL 실전",
+  "note": "빈출 주제 17개 · 24문항. 질문 → 3초 생각 → 답변 순서로, 모범답안은 그림자처럼 따라 말해 보세요.",
+  "topics": [
+   {
+    "id": "opic-intro",
+    "title": "자기소개",
+    "emoji": "🙋",
+    "questions": [
+     {
+      "id": "opic-intro-1",
+      "q": "Let's start with a little self-introduction. Tell me about yourself.",
+      "qKo": "간단한 자기소개로 시작해 볼까요. 자신에 대해 말해 주세요.",
+      "a": "Sure, I'd be happy to. My name is Seungcheol, and I'm a junior at Incheon National University, majoring in industrial engineering. These days I'm mostly focused on getting a job at a public energy company, so I'm studying for two certifications — one in quality management and one in industrial safety. I'm also trying to improve my English, so I have a short speaking session on the phone every morning before class. In my free time I like working out and watching documentaries. People around me say I'm pretty organized, and that I don't give up easily once I start something.",
+      "aKo": "네, 좋아요. 제 이름은 승철이고, 인천대학교 산업경영공학과 3학년입니다. 요즘은 주로 공기업 에너지 회사에 취업하는 데 집중하고 있어서, 품질경영과 산업안전 두 가지 자격증을 준비하고 있습니다. 영어 실력도 늘리려고 수업 전에 매일 아침 짧게 전화로 말하기 연습을 하고 있어요. 여가 시간에는 운동하는 것과 다큐멘터리 보는 것을 좋아합니다. 주변 사람들은 제가 꽤 정리정돈을 잘하고, 한번 시작하면 쉽게 포기하지 않는다고 말해요.",
+      "expr": [
+       {
+        "en": "I'd be happy to.",
+        "ko": "기꺼이요. (자기소개 시작할 때 자연스러운 첫 문장)"
+       },
+       {
+        "en": "These days I'm mostly focused on ~",
+        "ko": "요즘은 주로 ~에 집중하고 있어요"
+       },
+       {
+        "en": "People around me say I'm ~",
+        "ko": "주변 사람들은 제가 ~라고 말해요"
+       },
+       {
+        "en": "once I start something",
+        "ko": "한번 시작하면"
+       }
+      ],
+      "follow": [
+       {
+        "q": "What kind of person are you? Tell me about your personality.",
+        "qKo": "어떤 성격인가요? 성격에 대해 말해 주세요."
+       },
+       {
+        "q": "How do you usually start your day?",
+        "qKo": "보통 하루를 어떻게 시작하나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-intro-1-q.mp3",
+       "a": "data/speaking-audio/opic-intro-1-a.mp3"
+      }
+     },
+     {
+      "id": "opic-intro-2",
+      "q": "What are you studying these days, and why did you choose it?",
+      "qKo": "요즘 무엇을 공부하고 있나요? 그리고 왜 그것을 선택했나요?",
+      "a": "Right now I'm studying for the engineer certificates I mentioned, and I'm also working on my English speaking. I chose this path for a couple of reasons. First, I've always been interested in how factories and companies make their products safer and more efficient, and that's basically what industrial engineering is about. Second, the company I want to join hires people with engineering certificates, so getting them is the most realistic way for me to get in. It's a lot of work, but I can see myself improving every week, and honestly that keeps me going.",
+      "aKo": "지금은 앞서 말한 기사 자격증 공부를 하고 있고, 영어 말하기도 함께 하고 있습니다. 이 길을 선택한 데는 몇 가지 이유가 있어요. 첫째, 공장이나 기업이 제품을 어떻게 더 안전하고 효율적으로 만드는지 늘 관심이 있었는데, 그게 바로 산업공학이 다루는 일이거든요. 둘째, 제가 가고 싶은 회사가 기사 자격증이 있는 사람을 뽑기 때문에, 자격증을 따는 것이 가장 현실적인 방법입니다. 일이 많지만 매주 실력이 늘고 있다는 게 느껴지고, 솔직히 그게 저를 계속 움직이게 합니다.",
+      "expr": [
+       {
+        "en": "for a couple of reasons",
+        "ko": "몇 가지 이유로"
+       },
+       {
+        "en": "that's basically what ~ is about",
+        "ko": "그게 바로 ~이 다루는 일이에요"
+       },
+       {
+        "en": "the most realistic way for me to ~",
+        "ko": "제가 ~하는 가장 현실적인 방법"
+       },
+       {
+        "en": "that keeps me going",
+        "ko": "그게 저를 계속 나아가게 해요"
+       }
+      ],
+      "follow": [
+       {
+        "q": "What is the most interesting subject you've studied?",
+        "qKo": "가장 흥미로웠던 과목은 무엇인가요?"
+       },
+       {
+        "q": "What do you want to do after you graduate?",
+        "qKo": "졸업 후에 무엇을 하고 싶나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-intro-2-q.mp3",
+       "a": "data/speaking-audio/opic-intro-2-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-housing",
+    "title": "집 · 주거",
+    "emoji": "🏠",
+    "questions": [
+     {
+      "id": "opic-housing-1",
+      "q": "Tell me about your home. What does it look like?",
+      "qKo": "집에 대해 말해 주세요. 어떤 집인가요?",
+      "a": "I live in an apartment in Songdo, which is a relatively new district in Incheon. It's a mid-sized place — three bedrooms, a living room, a kitchen, and a small balcony. What I like most about it is how bright it is, because the living room faces south and there's a big window. The furniture is pretty simple: a gray sofa, a low bookshelf, and a desk by the window where I study. It's not fancy at all, but it's clean and quiet, which is exactly what I need when I'm preparing for exams.",
+      "aKo": "저는 인천의 비교적 새로운 지역인 송도의 아파트에 살고 있습니다. 방 세 개, 거실, 주방, 작은 베란다가 있는 중간 크기 집이에요. 가장 마음에 드는 점은 집이 아주 밝다는 건데, 거실이 남향이고 큰 창이 있기 때문입니다. 가구는 꽤 단순한 편이에요. 회색 소파, 낮은 책장, 그리고 창가에 공부하는 책상이 있습니다. 전혀 화려하지는 않지만 깨끗하고 조용해서, 시험을 준비할 때 제가 필요로 하는 조건과 딱 맞습니다.",
+      "expr": [
+       {
+        "en": "a relatively new district",
+        "ko": "비교적 새로운 지역"
+       },
+       {
+        "en": "What I like most about it is ~",
+        "ko": "가장 마음에 드는 점은 ~입니다"
+       },
+       {
+        "en": "It's not fancy at all, but ~",
+        "ko": "전혀 화려하지는 않지만 ~"
+       },
+       {
+        "en": "which is exactly what I need",
+        "ko": "그게 바로 제게 필요한 것입니다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Is there anything you want to change about your home?",
+        "qKo": "집에서 바꾸고 싶은 점이 있나요?"
+       },
+       {
+        "q": "How long have you lived there?",
+        "qKo": "그곳에서 얼마나 살았나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-housing-1-q.mp3",
+       "a": "data/speaking-audio/opic-housing-1-a.mp3"
+      }
+     },
+     {
+      "id": "opic-housing-2",
+      "q": "Which room in your home do you use the most? Describe it in detail.",
+      "qKo": "집에서 가장 많이 쓰는 방은 어디인가요? 자세히 묘사해 주세요.",
+      "a": "That would definitely be my room. It's not very big, but I've set it up so that everything I need is within arm's reach. There's a long desk against the wall with my laptop, a second monitor, and a small lamp. Right next to the desk I have a bookshelf full of exam prep books, and above it there's a whiteboard where I write down my weekly plan. On the other side there's my bed and a small speaker I use for music. I usually keep the window open a little, because fresh air helps me stay awake when I'm studying late.",
+      "aKo": "당연히 제 방입니다. 아주 크지는 않지만, 필요한 것이 모두 손 닿는 곳에 있도록 꾸며 놨어요. 벽을 따라 긴 책상이 있고 그 위에 노트북, 두 번째 모니터, 작은 스탠드가 있습니다. 책상 바로 옆에는 시험 대비서가 가득한 책장이 있고, 그 위에는 주간 계획을 적는 화이트보드가 있어요. 반대편에는 침대와 음악을 듣는 작은 스피커가 있습니다. 창문은 보통 조금 열어 두는데, 늦게까지 공부할 때 신선한 공기가 잠을 쫓는 데 도움이 되거든요.",
+      "expr": [
+       {
+        "en": "set it up so that ~",
+        "ko": "~하도록 꾸며 놓다"
+       },
+       {
+        "en": "within arm's reach",
+        "ko": "손이 닿는 곳에"
+       },
+       {
+        "en": "against the wall",
+        "ko": "벽을 따라 / 벽에 붙여"
+       },
+       {
+        "en": "helps me stay awake",
+        "ko": "잠을 깨는 데 도움이 된다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Do you share the room with anyone?",
+        "qKo": "누군가와 방을 함께 쓰나요?"
+       },
+       {
+        "q": "What would you like to add to your room?",
+        "qKo": "방에 무엇을 더 두고 싶나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-housing-2-q.mp3",
+       "a": "data/speaking-audio/opic-housing-2-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-neighborhood",
+    "title": "동네 · 이웃",
+    "emoji": "🏙️",
+    "questions": [
+     {
+      "id": "opic-neighborhood-1",
+      "q": "Tell me about your neighborhood. What is it like?",
+      "qKo": "사는 동네에 대해 말해 주세요. 어떤 곳인가요?",
+      "a": "My neighborhood is in Songdo, and it's a mix of new apartment buildings and a lot of green space. The best part is Central Park — it takes me about ten minutes to walk there, and there's a canal where people ride bikes on weekends. There are also plenty of cafes and small restaurants around, so I never have to go far to grab something to eat. The downside is that it's a bit expensive compared to older parts of Incheon, and it gets pretty quiet at night. Still, it's safe and very walkable, so I'm happy living here.",
+      "aKo": "제 동네는 송도에 있고, 새 아파트 단지와 녹지가 섞여 있는 곳입니다. 가장 좋은 점은 센트럴파크예요. 걸어서 10분 정도면 닿고, 주말에는 사람들이 자전거를 타는 운하도 있습니다. 주변에 카페와 작은 식당도 많아서 먹을 것을 사러 멀리 갈 필요가 없어요. 단점은 인천의 오래된 지역에 비해 물가가 좀 비싸고, 밤에는 꽤 조용해진다는 것입니다. 그래도 안전하고 걸어 다니기 좋아서 여기 사는 게 만족스럽습니다.",
+      "expr": [
+       {
+        "en": "a mix of A and B",
+        "ko": "A와 B가 섞인"
+       },
+       {
+        "en": "it takes me about ten minutes to walk there",
+        "ko": "걸어서 10분 정도 걸린다"
+       },
+       {
+        "en": "The downside is that ~",
+        "ko": "단점은 ~라는 것입니다"
+       },
+       {
+        "en": "it's safe and very walkable",
+        "ko": "안전하고 걸어 다니기 좋다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "What do you usually do in your neighborhood on weekends?",
+        "qKo": "주말에 동네에서 보통 무엇을 하나요?"
+       },
+       {
+        "q": "What would you change about your neighborhood?",
+        "qKo": "동네에서 바꾸고 싶은 점이 있나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-neighborhood-1-q.mp3",
+       "a": "data/speaking-audio/opic-neighborhood-1-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-leisure",
+    "title": "여가 · 운동",
+    "emoji": "🏃",
+    "questions": [
+     {
+      "id": "opic-leisure-1",
+      "q": "How do you usually spend your free time?",
+      "qKo": "여가 시간을 보통 어떻게 보내나요?",
+      "a": "It depends on the day, but I'd say I have three main things. First, I work out three or four times a week — usually running in the park or doing weights at a small gym near my place. Second, I watch documentaries or YouTube videos on science and business, because I like learning things that aren't for an exam. And lately I've been spending a lot of my free time on English, since it's the part I'm weakest at. When I really need to rest, I just meet a friend for coffee and we talk for a couple of hours without doing anything productive.",
+      "aKo": "그날그날 다르지만 크게 세 가지라고 할 수 있어요. 첫째, 일주일에 서너 번 운동합니다. 보통 공원에서 달리거나 집 근처 작은 헬스장에서 근력 운동을 해요. 둘째, 과학이나 비즈니스 관련 다큐멘터리나 유튜브를 봅니다. 시험을 위한 게 아닌 것을 배우는 걸 좋아하거든요. 그리고 최근에는 여가 시간을 영어에 많이 쓰고 있어요. 제가 가장 약한 부분이니까요. 정말 쉬어야 할 때는 친구를 만나 커피를 마시며 두어 시간 아무 생산적인 일 없이 이야기만 하기도 합니다.",
+      "expr": [
+       {
+        "en": "It depends on the day, but ~",
+        "ko": "그날그날 다르지만 ~"
+       },
+       {
+        "en": "I'd say ~",
+        "ko": "제 생각에는 ~인 것 같아요"
+       },
+       {
+        "en": "lately I've been spending a lot of my time on ~",
+        "ko": "요즘 ~에 시간을 많이 쓰고 있어요"
+       },
+       {
+        "en": "without doing anything productive",
+        "ko": "아무 생산적인 일 없이"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Do you prefer spending free time alone or with other people?",
+        "qKo": "여가 시간을 혼자 보내는 것과 함께 보내는 것 중 어느 쪽을 선호하나요?"
+       },
+       {
+        "q": "Is there a new hobby you want to start?",
+        "qKo": "새로 시작하고 싶은 취미가 있나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-leisure-1-q.mp3",
+       "a": "data/speaking-audio/opic-leisure-1-a.mp3"
+      }
+     },
+     {
+      "id": "opic-leisure-2",
+      "q": "Tell me about a sport or exercise you do regularly. How did you start it?",
+      "qKo": "규칙적으로 하는 운동에 대해 말해 주세요. 어떻게 시작하게 됐나요?",
+      "a": "I run about three times a week, usually along the park near my apartment. I started about two years ago, when I realized I was sitting at my desk almost all day studying and my back was hurting all the time. At first I could barely run for ten minutes, so I used a simple app that told me when to run and when to walk. Now I can comfortably do five kilometers, and on good days I do eight. It's the one hour of the day when I don't look at my phone at all, so it clears my head better than anything else.",
+      "aKo": "일주일에 세 번 정도 달립니다. 보통 아파트 근처 공원을 따라 뛰어요. 2년쯤 전에 시작했는데, 하루 종일 책상에 앉아 공부하다 보니 허리가 계속 아팠기 때문입니다. 처음에는 10분도 겨우 뛰었기 때문에, 언제 뛰고 언제 걸을지 알려 주는 간단한 앱을 썼어요. 지금은 5km를 편하게 뛰고, 컨디션이 좋은 날은 8km도 뜁니다. 하루 중 휴대폰을 전혀 보지 않는 한 시간이라, 무엇보다 머리를 맑게 해 줍니다.",
+      "expr": [
+       {
+        "en": "I started about two years ago, when ~",
+        "ko": "2년쯤 전에 ~했을 때 시작했어요"
+       },
+       {
+        "en": "I could barely run for ten minutes",
+        "ko": "10분도 겨우 뛰었어요"
+       },
+       {
+        "en": "on good days I do eight",
+        "ko": "좋은 날은 8km를 해요"
+       },
+       {
+        "en": "it clears my head",
+        "ko": "머리를 맑게 해 준다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Do you prefer exercising alone or in a group?",
+        "qKo": "운동을 혼자 하는 것과 여럿이 하는 것 중 어느 쪽을 좋아하나요?"
+       },
+       {
+        "q": "Have you ever tried any other sports?",
+        "qKo": "다른 운동을 해 본 적이 있나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-leisure-2-q.mp3",
+       "a": "data/speaking-audio/opic-leisure-2-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-cafe",
+    "title": "카페 · 맛집",
+    "emoji": "☕",
+    "questions": [
+     {
+      "id": "opic-cafe-1",
+      "q": "Tell me about a cafe you often go to.",
+      "qKo": "자주 가는 카페에 대해 말해 주세요.",
+      "a": "There's a small cafe about five minutes from my campus that I go to at least twice a week. It's run by an older couple, and it looks more like someone's living room than a chain cafe — wooden tables, a lot of plants, and jazz playing quietly in the background. I always order an iced Americano and sit at the corner table by the window, because it has a power outlet and nobody walks past me. I usually stay for two or three hours and get through a whole chapter of my textbook. The staff already know my order, which is a small thing but it makes the place feel comfortable.",
+      "aKo": "캠퍼스에서 5분 거리에 일주일에 두 번은 가는 작은 카페가 있습니다. 부부가 운영하는 곳인데, 체인 카페보다 누군가의 거실처럼 보여요. 나무 테이블, 많은 화분, 조용히 흐르는 재즈가 있습니다. 저는 항상 아이스 아메리카노를 시키고 창가 구석 테이블에 앉는데, 콘센트가 있고 지나가는 사람이 없기 때문입니다. 보통 두세 시간 머물며 교재 한 챕터를 끝냅니다. 직원분들이 이미 제 주문을 알고 계신데, 사소한 일이지만 그 덕분에 편안하게 느껴집니다.",
+      "expr": [
+       {
+        "en": "It's run by ~",
+        "ko": "~가 운영하는 곳이에요"
+       },
+       {
+        "en": "it looks more like A than B",
+        "ko": "B보다 A처럼 보인다"
+       },
+       {
+        "en": "I always order ~ and sit at ~",
+        "ko": "항상 ~를 시키고 ~에 앉아요"
+       },
+       {
+        "en": "get through a whole chapter",
+        "ko": "한 챕터를 다 끝내다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "What kind of cafes do you dislike?",
+        "qKo": "어떤 카페를 싫어하나요?"
+       },
+       {
+        "q": "Do you ever study at cafes with friends?",
+        "qKo": "친구들과 카페에서 공부하기도 하나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-cafe-1-q.mp3",
+       "a": "data/speaking-audio/opic-cafe-1-a.mp3"
+      }
+     },
+     {
+      "id": "opic-cafe-2",
+      "q": "Describe a memorable meal you had with other people.",
+      "qKo": "다른 사람들과 했던 기억에 남는 식사에 대해 묘사해 주세요.",
+      "a": "The first meal that comes to mind is a dinner I had with three classmates after we finished a big team project last semester. We went to a small Korean barbecue place near the campus, and honestly we were exhausted, so we ordered way too much food. I remember the owner kept bringing us extra side dishes and telling us to eat more. We talked about everything except the project — the professor, our plans after graduation, and how none of us had slept for two days. The food was simple, but the mood was great, and it felt like a reward for all the work we'd done.",
+      "aKo": "가장 먼저 떠오르는 식사는 지난 학기에 큰 팀 프로젝트를 끝낸 뒤 세 명의 동기와 함께한 저녁입니다. 캠퍼스 근처 작은 고깃집에 갔는데, 솔직히 너무 지쳐 있어서 음식을 터무니없이 많이 시켰어요. 사장님이 계속 반찬을 더 가져다주시고 더 먹으라고 하시던 게 기억납니다. 우리는 프로젝트를 빼고 모든 이야기를 했어요. 교수님 이야기, 졸업 후 계획, 이틀 동안 아무도 못 잤다는 이야기까지요. 음식은 평범했지만 분위기가 좋았고, 우리가 한 일에 대한 보상처럼 느껴졌습니다.",
+      "expr": [
+       {
+        "en": "The first thing that comes to mind is ~",
+        "ko": "가장 먼저 떠오르는 것은 ~"
+       },
+       {
+        "en": "we ordered way too much food",
+        "ko": "음식을 너무 많이 시켰다"
+       },
+       {
+        "en": "everything except ~",
+        "ko": "~을 빼고 모든 것"
+       },
+       {
+        "en": "it felt like a reward for ~",
+        "ko": "~에 대한 보상처럼 느껴졌다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Do you usually eat out or cook at home?",
+        "qKo": "보통 외식하나요, 집에서 요리하나요?"
+       },
+       {
+        "q": "What food would you recommend to a foreign friend?",
+        "qKo": "외국인 친구에게 어떤 음식을 추천하고 싶나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-cafe-2-q.mp3",
+       "a": "data/speaking-audio/opic-cafe-2-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-music",
+    "title": "음악",
+    "emoji": "🎧",
+    "questions": [
+     {
+      "id": "opic-music-1",
+      "q": "What kind of music do you listen to? When do you listen to it?",
+      "qKo": "어떤 음악을 듣나요? 언제 듣나요?",
+      "a": "I listen to a pretty wide range, but mostly hip-hop and lo-fi these days. I'm not the kind of person who knows every artist or album — I just keep a playlist of songs I like and let it run. I listen when I'm on the bus in the morning, because it makes a forty-minute ride feel much shorter, and when I'm doing simple tasks like cleaning or organizing my notes. I can't listen to lyrics while I'm studying something difficult, so for that I switch to instrumental music or just silence.",
+      "aKo": "꽤 다양한 음악을 듣지만 요즘은 주로 힙합과 로파이를 듣습니다. 모든 가수나 앨범을 아는 타입은 아니고, 좋아하는 곡 목록을 만들어 두고 그냥 재생해요. 아침에 버스에 있을 때 듣는데, 40분 통학이 훨씬 짧게 느껴지기 때문이고, 청소나 노트 정리 같은 단순한 일을 할 때도 듣습니다. 어려운 걸 공부할 때는 가사가 있는 음악을 들을 수 없어서, 그럴 때는 연주곡으로 바꾸거나 그냥 조용히 합니다.",
+      "expr": [
+       {
+        "en": "a pretty wide range",
+        "ko": "꽤 넓은 범위"
+       },
+       {
+        "en": "I'm not the kind of person who ~",
+        "ko": "저는 ~하는 타입이 아니에요"
+       },
+       {
+        "en": "it makes the ride feel much shorter",
+        "ko": "이동 시간이 훨씬 짧게 느껴진다"
+       },
+       {
+        "en": "I switch to ~",
+        "ko": "~로 바꾼다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Have your music tastes changed over time?",
+        "qKo": "음악 취향이 시간이 지나면서 바뀌었나요?"
+       },
+       {
+        "q": "Is there a song that reminds you of a specific memory?",
+        "qKo": "특정 기억이 떠오르는 노래가 있나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-music-1-q.mp3",
+       "a": "data/speaking-audio/opic-music-1-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-movie",
+    "title": "영화 · 공연",
+    "emoji": "🎬",
+    "questions": [
+     {
+      "id": "opic-movie-1",
+      "q": "Tell me about a movie you enjoyed recently.",
+      "qKo": "최근에 재미있게 본 영화에 대해 말해 주세요.",
+      "a": "Recently I watched a documentary about artificial intelligence, and it stuck with me more than any movie I've seen this year. It followed a few researchers and showed how quickly the technology is changing, but it also asked uncomfortable questions — what happens to people whose jobs disappear, and who decides what these systems are allowed to do. I watched it alone on a Sunday evening, and afterwards I spent almost an hour just thinking about my own plans. I usually prefer light movies to relax, but once in a while something like this makes me look at my studies differently.",
+      "aKo": "최근에 인공지능에 관한 다큐멘터리를 봤는데, 올해 본 어떤 영화보다 오래 기억에 남았습니다. 몇 명의 연구자를 따라가며 기술이 얼마나 빨리 변하는지 보여 주면서도, 불편한 질문도 던졌어요. 일자리를 잃은 사람들은 어떻게 되는지, 이런 시스템이 무엇을 하도록 허용할지는 누가 정하는지 말이죠. 일요일 저녁에 혼자 봤는데, 보고 나서 한 시간 가까이 제 계획에 대해 생각만 했습니다. 보통은 쉬기 위해 가벼운 영화를 선호하지만, 가끔 이런 작품을 보면 제 공부를 다르게 보게 됩니다.",
+      "expr": [
+       {
+        "en": "it stuck with me",
+        "ko": "오래 기억에 남았다"
+       },
+       {
+        "en": "It followed a few researchers",
+        "ko": "몇 명의 연구자를 따라갔다"
+       },
+       {
+        "en": "it asked uncomfortable questions",
+        "ko": "불편한 질문을 던졌다"
+       },
+       {
+        "en": "once in a while",
+        "ko": "가끔"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Do you prefer watching movies at home or at the theater?",
+        "qKo": "영화를 집에서 보는 것과 극장에서 보는 것 중 어느 쪽을 선호하나요?"
+       },
+       {
+        "q": "Who do you usually watch movies with?",
+        "qKo": "보통 누구와 영화를 보나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-movie-1-q.mp3",
+       "a": "data/speaking-audio/opic-movie-1-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-travel-domestic",
+    "title": "국내여행",
+    "emoji": "🚆",
+    "questions": [
+     {
+      "id": "opic-travel-domestic-1",
+      "q": "Tell me about a memorable trip you took in Korea.",
+      "qKo": "국내에서 했던 기억에 남는 여행에 대해 말해 주세요.",
+      "a": "The trip I remember best was a two-day trip to Gangneung with two friends last summer. We took the train early in the morning, and as soon as we arrived we went straight to the beach. The plan was simple: eat, walk, and do nothing for two days. What made it special was the timing — we had all just finished our exams, so we were completely relaxed. We ended up sitting on the sand until it got dark and talking about what we wanted to do after graduation. It rained a little on the second day, so we spent the afternoon in a small cafe, but honestly nobody minded.",
+      "aKo": "가장 기억에 남는 여행은 지난여름 친구 두 명과 다녀온 강릉 1박 2일 여행입니다. 아침 일찍 기차를 타고 도착하자마자 바로 바다로 갔어요. 계획은 단순했습니다. 먹고, 걷고, 이틀 동안 아무것도 안 하기요. 특별했던 이유는 시기였습니다. 막 시험을 끝낸 참이라 완전히 편안한 상태였어요. 결국 해가 질 때까지 모래 위에 앉아 졸업 후 무엇을 하고 싶은지 이야기했습니다. 둘째 날 비가 조금 와서 오후는 작은 카페에서 보냈는데, 솔직히 아무도 신경 쓰지 않았어요.",
+      "expr": [
+       {
+        "en": "as soon as we arrived",
+        "ko": "도착하자마자"
+       },
+       {
+        "en": "What made it special was ~",
+        "ko": "특별하게 만든 것은 ~였다"
+       },
+       {
+        "en": "we ended up sitting on the sand",
+        "ko": "결국 모래 위에 앉아 있었다"
+       },
+       {
+        "en": "nobody minded",
+        "ko": "아무도 신경 쓰지 않았다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Do you prefer traveling alone or with other people?",
+        "qKo": "혼자 여행하는 것과 함께 여행하는 것 중 어느 쪽을 선호하나요?"
+       },
+       {
+        "q": "What do you usually prepare before a trip?",
+        "qKo": "여행 전에 보통 무엇을 준비하나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-travel-domestic-1-q.mp3",
+       "a": "data/speaking-audio/opic-travel-domestic-1-a.mp3"
+      }
+     },
+     {
+      "id": "opic-travel-domestic-2",
+      "q": "Where would you like to travel in Korea? Why?",
+      "qKo": "국내에서 어디로 여행하고 싶나요? 왜인가요?",
+      "a": "I'd really like to visit Jeju Island, but not the way most people do it. Instead of staying in a hotel and moving by taxi, I want to walk a part of the Jeju Olle Trail for three or four days. I've heard the courses along the coast are beautiful, and the whole point is to move slowly, so you end up talking to local people and eating at small places. I'd also like to go in late autumn, when the weather is cool and the island is less crowded. It might be tiring, but it's the kind of trip I think I'd remember for a long time.",
+      "aKo": "제주도에 꼭 가 보고 싶은데, 대부분의 사람들이 하는 방식은 아니고 싶어요. 호텔에 묵고 택시로 이동하는 대신, 제주 올레길을 사흘에서 나흘 정도 걸어 보고 싶습니다. 해안을 따라가는 코스가 아름답다고 들었고, 핵심은 천천히 걷는 것이라 결국 지역 사람들과 이야기하고 작은 식당에서 먹게 된다고 해요. 날씨가 서늘하고 섬이 덜 붐비는 늦가을에 가고 싶습니다. 힘들 수는 있지만, 오래 기억에 남을 여행이 될 것 같아요.",
+      "expr": [
+       {
+        "en": "I'd really like to ~",
+        "ko": "정말 ~하고 싶어요"
+       },
+       {
+        "en": "Instead of -ing, I want to ~",
+        "ko": "~하는 대신 ~하고 싶다"
+       },
+       {
+        "en": "the whole point is to ~",
+        "ko": "핵심은 ~하는 것이다"
+       },
+       {
+        "en": "it's the kind of trip I'd remember",
+        "ko": "오래 기억할 만한 여행이다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "What do you usually do to prepare for a trip?",
+        "qKo": "여행 준비로 보통 무엇을 하나요?"
+       },
+       {
+        "q": "Is there a place in Korea you would not recommend?",
+        "qKo": "추천하고 싶지 않은 국내 여행지가 있나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-travel-domestic-2-q.mp3",
+       "a": "data/speaking-audio/opic-travel-domestic-2-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-travel-overseas",
+    "title": "해외여행",
+    "emoji": "✈️",
+    "questions": [
+     {
+      "id": "opic-travel-overseas-1",
+      "q": "Have you ever traveled abroad? Tell me about your trip.",
+      "qKo": "해외여행을 해 본 적이 있나요? 여행에 대해 말해 주세요.",
+      "a": "Yes, I went to Osaka in Japan for four days about two years ago. It was my first time traveling without my family, and I went with a friend, so we had to figure everything out ourselves. We stayed in a small guesthouse near the station, which was cheap but very clean. The highlight for me was the food — we ate takoyaki, ramen, and something like a pancake with cabbage in it that I still think about. What surprised me most was how quiet the streets were at night. I'd love to go back, but next time I'd like to visit a smaller city instead of a big one.",
+      "aKo": "네, 2년쯤 전에 일본 오사카에 4일간 다녀왔습니다. 가족 없이 여행한 첫 경험이었고 친구와 함께 갔기 때문에 모든 것을 스스로 해결해야 했어요. 역 근처 작은 게스트하우스에 묵었는데, 저렴했지만 아주 깨끗했습니다. 저에게 하이라이트는 음식이었어요. 타코야키, 라멘, 그리고 지금도 생각나는 양배추가 들어간 팬케이크 같은 것을 먹었습니다. 가장 놀란 점은 밤에 거리가 아주 조용하다는 것이었어요. 다시 가고 싶지만, 다음에는 큰 도시보다 작은 도시를 가 보고 싶습니다.",
+      "expr": [
+       {
+        "en": "It was my first time -ing",
+        "ko": "~하는 것은 처음이었다"
+       },
+       {
+        "en": "we had to figure everything out ourselves",
+        "ko": "모든 것을 우리가 직접 해결해야 했다"
+       },
+       {
+        "en": "The highlight for me was ~",
+        "ko": "저에게 하이라이트는 ~였다"
+       },
+       {
+        "en": "What surprised me most was ~",
+        "ko": "가장 놀라웠던 것은 ~"
+       }
+      ],
+      "follow": [
+       {
+        "q": "What was the most difficult part of traveling abroad?",
+        "qKo": "해외여행에서 가장 어려웠던 점은 무엇인가요?"
+       },
+       {
+        "q": "Which country would you like to visit next?",
+        "qKo": "다음에 어느 나라에 가 보고 싶나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-travel-overseas-1-q.mp3",
+       "a": "data/speaking-audio/opic-travel-overseas-1-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-technology",
+    "title": "기술 · 스마트폰",
+    "emoji": "📱",
+    "questions": [
+     {
+      "id": "opic-technology-1",
+      "q": "How do you use your smartphone in your daily life?",
+      "qKo": "일상에서 스마트폰을 어떻게 사용하나요?",
+      "a": "Honestly, I use it for almost everything except studying. In the morning I check the bus app to see when the next bus comes, and I use a timer app when I study — it's actually a study planner that records how long I focus on each subject. During the day I use it for messages, and I keep a note app where I put ideas and vocabulary I want to review. I also set an alarm for my morning English call, because if I don't, I'll definitely oversleep. The only thing I try not to do is watch short videos, since I noticed they eat up an hour without me realizing it.",
+      "aKo": "솔직히 공부할 때를 빼면 거의 모든 것에 씁니다. 아침에는 다음 버스가 언제 오는지 버스 앱으로 확인하고, 공부할 때는 타이머 앱을 써요. 실제로 과목별로 얼마나 집중했는지 기록하는 공부 플래너입니다. 낮에는 메시지에 쓰고, 아이디어와 복습할 단어를 적어 두는 메모 앱도 사용합니다. 아침 영어 통화를 위한 알람도 맞추는데, 안 그러면 분명히 늦잠을 잘 거예요. 유일하게 하지 않으려고 하는 것은 짧은 영상 시청입니다. 나도 모르게 한 시간이 사라지는 걸 느꼈거든요.",
+      "expr": [
+       {
+        "en": "Honestly, I use it for almost everything except ~",
+        "ko": "솔직히 ~를 빼면 거의 모든 것에 씁니다"
+       },
+       {
+        "en": "I keep a note app where I put ~",
+        "ko": "~을 적는 메모 앱을 쓴다"
+       },
+       {
+        "en": "if I don't, I'll definitely oversleep",
+        "ko": "안 그러면 분명 늦잠잘 거예요"
+       },
+       {
+        "en": "they eat up an hour without me realizing it",
+        "ko": "나도 모르게 한 시간을 잡아먹는다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "How much time do you spend on your phone every day?",
+        "qKo": "하루에 휴대폰을 얼마나 쓰나요?"
+       },
+       {
+        "q": "Is there an app you can't live without?",
+        "qKo": "없으면 안 되는 앱이 있나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-technology-1-q.mp3",
+       "a": "data/speaking-audio/opic-technology-1-a.mp3"
+      }
+     },
+     {
+      "id": "opic-technology-2",
+      "q": "What do you think about artificial intelligence? How has it changed your life?",
+      "qKo": "인공지능에 대해 어떻게 생각하나요? 삶이 어떻게 바뀌었나요?",
+      "a": "I have mixed feelings about it, but overall I'm positive. On the practical side, it has saved me a lot of time. When I'm reading a long report for class, I ask an AI tool to summarize it first, and then I read the parts that matter. It's also useful for English — I can ask why a sentence sounds awkward and get an explanation immediately. At the same time, I worry that students like me start to skip the thinking part. If AI gives you the answer every time, you never learn how to find it yourself. So I try to use it as a helper, not as a replacement for my own brain.",
+      "aKo": "복합적인 감정이지만 대체로 긍정적입니다. 실용적인 면에서 시간을 많이 아껴 줍니다. 수업용 긴 보고서를 읽을 때 AI 도구로 먼저 요약하고, 중요한 부분만 읽어요. 영어에도 유용합니다. 왜 어떤 문장이 어색하게 들리는지 물으면 바로 설명을 받을 수 있거든요. 동시에 저 같은 학생이 생각하는 단계를 건너뛰게 되는 건 아닐까 걱정됩니다. AI가 매번 답을 주면 스스로 답을 찾는 법을 배우지 못하니까요. 그래서 저는 두뇌를 대신하는 것이 아니라 돕는 도구로 쓰려고 합니다.",
+      "expr": [
+       {
+        "en": "I have mixed feelings about it",
+        "ko": "복합적인 감정이 든다"
+       },
+       {
+        "en": "On the practical side, ~",
+        "ko": "실용적인 면에서는 ~"
+       },
+       {
+        "en": "At the same time, I worry that ~",
+        "ko": "동시에 ~가 걱정된다"
+       },
+       {
+        "en": "as a helper, not as a replacement",
+        "ko": "대체물이 아니라 도우미로"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Do you think AI will change the way people work?",
+        "qKo": "AI가 사람들의 일하는 방식을 바꿀 것이라고 생각하나요?"
+       },
+       {
+        "q": "Have you ever had a problem because of AI?",
+        "qKo": "AI 때문에 문제를 겪은 적이 있나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-technology-2-q.mp3",
+       "a": "data/speaking-audio/opic-technology-2-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-past-experience",
+    "title": "과거 경험",
+    "emoji": "💪",
+    "questions": [
+     {
+      "id": "opic-past-experience-1",
+      "q": "Tell me about a difficult situation you experienced and how you handled it.",
+      "qKo": "힘들었던 경험과 그것을 어떻게 해결했는지 말해 주세요.",
+      "a": "The hardest thing I dealt with recently was a team project last semester. We were a group of four, but one member stopped showing up about two weeks before the deadline. At first I was angry, but then I realized being angry wouldn't finish the project. So I called the other two members, and we split his part into three pieces based on what each of us was good at. I took the data analysis and the presentation, which meant staying in the library until midnight for a week. We submitted on time and got a good grade. What I learned was that the fastest way out of a problem is usually to stop complaining and make a list.",
+      "aKo": "최근에 겪은 가장 힘든 일은 지난 학기 팀 프로젝트였습니다. 네 명이 한 조였는데, 마감 2주 전쯤부터 한 명이 나오지 않기 시작했어요. 처음에는 화가 났지만, 화낸다고 프로젝트가 끝나지는 않는다는 걸 깨달았습니다. 그래서 나머지 두 명에게 전화해 그의 파트를 각자 잘하는 것에 따라 세 부분으로 나눴어요. 저는 데이터 분석과 발표를 맡았고, 그건 일주일 동안 자정까지 도서관에 있어야 한다는 뜻이었습니다. 우리는 제때 제출했고 좋은 성적을 받았어요. 배운 것은, 문제에서 가장 빨리 벗어나는 방법은 보통 불평을 멈추고 목록을 만드는 것이라는 점입니다.",
+      "expr": [
+       {
+        "en": "The hardest thing I dealt with was ~",
+        "ko": "제가 겪은 가장 힘든 일은 ~"
+       },
+       {
+        "en": "being angry wouldn't finish the project",
+        "ko": "화낸다고 프로젝트가 끝나지 않는다"
+       },
+       {
+        "en": "we split his part into three pieces",
+        "ko": "그의 몫을 세 부분으로 나눴다"
+       },
+       {
+        "en": "the fastest way out of a problem is to ~",
+        "ko": "문제에서 벗어나는 가장 빠른 길은 ~"
+       }
+      ],
+      "follow": [
+       {
+        "q": "How did you feel when the project was over?",
+        "qKo": "프로젝트가 끝났을 때 기분이 어땠나요?"
+       },
+       {
+        "q": "Would you work with that team again?",
+        "qKo": "그 팀과 다시 일할 의향이 있나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-past-experience-1-q.mp3",
+       "a": "data/speaking-audio/opic-past-experience-1-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-roleplay-call",
+    "title": "롤플레이 1 · 문의 전화",
+    "emoji": "☎️",
+    "questions": [
+     {
+      "id": "opic-roleplay-call-1",
+      "q": "You want to reserve a study room at the city library this Saturday. Call the library and ask three or four questions about the reservation.",
+      "qKo": "이번 토요일에 시립도서관 학습실을 예약하려고 합니다. 도서관에 전화해서 예약에 관해 세 네 가지를 물어보세요.",
+      "a": "Hi, hello. I'm calling because I'd like to reserve a study room at your library this Saturday. First, could you tell me what time the library opens on weekends? And how long can I use the room for — is there a time limit? I'd also like to know if I need to bring my ID card, or if I can just give you my name and phone number. One more thing: is there a fee for using the room, or is it free for students? Sorry, I have one last question — can I reserve it online, or do I have to come in person? Thank you, that's all I needed.",
+      "aKo": "안녕하세요. 이번 토요일에 도서관 학습실을 예약하고 싶어서 전화드렸습니다. 먼저 주말에 도서관이 몇 시에 문을 여는지 알려 주시겠어요? 그리고 방을 얼마나 오래 쓸 수 있는지, 이용 시간 제한이 있나요? 신분증을 가져와야 하는지, 아니면 이름과 전화번호만 알려 드리면 되는지도 알고 싶습니다. 하나 더, 이용 요금이 있는지, 학생은 무료인지도요. 죄송하지만 마지막 질문이 하나 더 있습니다. 온라인으로 예약할 수 있나요, 아니면 직접 방문해야 하나요? 감사합니다. 궁금한 건 다 물어봤습니다.",
+      "expr": [
+       {
+        "en": "I'm calling because ~",
+        "ko": "~때문에 전화드렸습니다"
+       },
+       {
+        "en": "Could you tell me what time ~?",
+        "ko": "~이 몇 시인지 알려 주시겠어요?"
+       },
+       {
+        "en": "Is there a time limit?",
+        "ko": "시간 제한이 있나요?"
+       },
+       {
+        "en": "One more thing: ~",
+        "ko": "하나 더 있는데요, ~"
+       }
+      ],
+      "follow": [
+       {
+        "q": "The librarian says the room is fully booked. Ask for another option.",
+        "qKo": "사서가 방이 모두 예약됐다고 합니다. 다른 방법을 물어보세요."
+       },
+       {
+        "q": "Ask what you can bring into the room.",
+        "qKo": "방에 무엇을 가져갈 수 있는지 물어보세요."
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-roleplay-call-1-q.mp3",
+       "a": "data/speaking-audio/opic-roleplay-call-1-a.mp3"
+      }
+     },
+     {
+      "id": "opic-roleplay-call-2",
+      "q": "You ordered a book online, but the store sent you the wrong one. Call the store, explain the problem, and ask what they can do about it.",
+      "qKo": "온라인으로 책을 주문했는데 매장에서 다른 책을 보냈습니다. 매장에 전화해서 문제를 설명하고 어떻게 해 줄 수 있는지 물어보세요.",
+      "a": "Hello, this is Seungcheol. I ordered a book from your website last week, and it arrived yesterday, but it's not the one I ordered. I ordered a statistics textbook, and I received a novel instead. I checked the invoice, and it says the right title, so I think it was a packing mistake. Could you check my order number and send the correct book? I'd also like to know what I should do with the wrong one — should I send it back, or can I drop it off at your store? And if it's possible, could you send the right book by Friday? I need it for a class next week. Thank you.",
+      "aKo": "안녕하세요, 승철입니다. 지난주에 홈페이지에서 책을 주문했는데 어제 도착했고, 주문한 책이 아닙니다. 통계학 교재를 주문했는데 소설이 왔어요. 송장을 확인해 보니 제목은 맞게 적혀 있어서 포장 실수인 것 같습니다. 제 주문 번호를 확인하시고 맞는 책을 보내 주시겠어요? 잘못 온 책은 어떻게 해야 하는지도 알고 싶습니다. 반송해야 하나요, 아니면 매장에 가져다 드리면 되나요? 그리고 가능하다면 금요일까지 맞는 책을 보내 주실 수 있을까요? 다음 주 수업에 필요합니다. 감사합니다.",
+      "expr": [
+       {
+        "en": "it's not the one I ordered",
+        "ko": "제가 주문한 것이 아닙니다"
+       },
+       {
+        "en": "I think it was a packing mistake",
+        "ko": "포장 실수인 것 같습니다"
+       },
+       {
+        "en": "Could you check my order number?",
+        "ko": "제 주문 번호를 확인해 주시겠어요?"
+       },
+       {
+        "en": "if it's possible, could you ~?",
+        "ko": "가능하다면 ~해 주시겠어요?"
+       }
+      ],
+      "follow": [
+       {
+        "q": "The store says you must pay for the return shipping. Respond.",
+        "qKo": "매장에서 반송 배송비를 내야 한다고 합니다. 대응해 보세요."
+       },
+       {
+        "q": "Ask when the correct book will arrive.",
+        "qKo": "맞는 책이 언제 도착하는지 물어보세요."
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-roleplay-call-2-q.mp3",
+       "a": "data/speaking-audio/opic-roleplay-call-2-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-roleplay-problem",
+    "title": "롤플레이 2 · 문제 해결",
+    "emoji": "🔧",
+    "questions": [
+     {
+      "id": "opic-roleplay-problem-1",
+      "q": "You bought a used laptop from a neighbor two weeks ago, but now the battery does not charge. Call the neighbor, explain the problem, and ask what he can do.",
+      "qKo": "2주 전에 이웃에게서 중고 노트북을 샀는데 지금 배터리가 충전되지 않습니다. 이웃에게 전화해 문제를 설명하고 어떻게 해 줄 수 있는지 물어보세요.",
+      "a": "Hi, it's Seungcheol from next door. I'm sorry to call you about this, but I think there's a problem with the laptop I bought from you two weeks ago. It worked fine at first, but since yesterday the battery doesn't charge at all — the screen says it's plugged in, but the percentage doesn't go up. I tried a different cable, so I don't think it's the charger. Would it be okay if I brought it over so you could take a look? Or if you know a repair shop nearby, could you recommend one? I'm not asking for a refund — I just want to know what my options are. Thanks for understanding.",
+      "aKo": "안녕하세요, 옆집 승철입니다. 이런 이야기로 전화드려 죄송한데, 2주 전에 사 간 노트북에 문제가 있는 것 같습니다. 처음에는 잘 됐는데 어제부터 배터리가 전혀 충전되지 않아요. 화면에는 연결됐다고 나오는데 충전 퍼센트가 올라가지 않습니다. 다른 케이블로도 해 봤으니 충전기 문제는 아닌 것 같아요. 제가 노트북을 가져가면 한번 봐 주실 수 있을까요? 아니면 근처에 수리점을 아시면 추천해 주실 수 있나요? 환불을 요구하는 것은 아니고, 제가 어떤 선택지를 가질 수 있는지 알고 싶습니다. 이해해 주셔서 감사합니다.",
+      "expr": [
+       {
+        "en": "I'm sorry to call you about this, but ~",
+        "ko": "이런 걸로 전화드려 죄송하지만 ~"
+       },
+       {
+        "en": "It worked fine at first, but since yesterday ~",
+        "ko": "처음엔 잘 됐는데 어제부터 ~"
+       },
+       {
+        "en": "Would it be okay if I brought it over?",
+        "ko": "제가 가져가도 괜찮을까요?"
+       },
+       {
+        "en": "I'm not asking for a refund",
+        "ko": "환불을 요구하는 것은 아닙니다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "The neighbor says it's not his responsibility now. Respond politely.",
+        "qKo": "이웃이 이제 자기 책임이 아니라고 합니다. 정중하게 대응해 보세요."
+       },
+       {
+        "q": "Ask if he still has the receipt or warranty information.",
+        "qKo": "영수증이나 보증서 정보가 아직 있는지 물어보세요."
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-roleplay-problem-1-q.mp3",
+       "a": "data/speaking-audio/opic-roleplay-problem-1-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-roleplay-suggest",
+    "title": "롤플레이 3 · 대안 제안",
+    "emoji": "🧩",
+    "questions": [
+     {
+      "id": "opic-roleplay-suggest-1",
+      "q": "You and a friend planned to go hiking this weekend, but the weather forecast says it will rain. Call your friend and suggest other things to do.",
+      "qKo": "이번 주말에 친구와 등산을 가기로 했는데 일기예보에 비가 온다고 합니다. 친구에게 전화해 다른 할 일을 제안하세요.",
+      "a": "Hey, it's me. Listen, I just checked the weather for Saturday, and it's supposed to rain all afternoon, so I don't think hiking is a good idea. What do you think about doing something indoors instead? There's a new exhibition at the museum near the station — I heard it's pretty good, and it's only about ten thousand won. Or, if you'd rather relax, we could go to that barbecue place we talked about and then watch a movie. Either way, let's keep Sunday open as a backup, because the forecast says it should be clear by then. Which one sounds better to you?",
+      "aKo": "어, 나야. 금요일이 아니라 토요일 날씨를 방금 봤는데 오후 내내 비가 온대. 그래서 등산은 별로인 것 같아. 대신 실내에서 뭐 하는 건 어때? 역 근처 미술관에서 새 전시를 하는데 꽤 괜찮다고 들었고, 만 원 정도밖에 안 한대. 아니면 좀 쉬고 싶으면 우리가 이야기했던 그 고깃집에 가서 영화를 봐도 되고. 어느 쪽이든 일요일은 예비로 비워 두자. 그때는 맑을 거래. 어느 쪽이 더 좋아?",
+      "expr": [
+       {
+        "en": "it's supposed to rain all afternoon",
+        "ko": "오후 내내 비가 온다고 한다"
+       },
+       {
+        "en": "What do you think about -ing instead?",
+        "ko": "대신 ~하는 건 어때?"
+       },
+       {
+        "en": "if you'd rather relax, we could ~",
+        "ko": "차라리 쉬고 싶다면 ~해도 좋아"
+       },
+       {
+        "en": "let's keep Sunday open as a backup",
+        "ko": "일요일은 예비로 비워 두자"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Your friend says he has to work on Saturday. Respond.",
+        "qKo": "친구가 토요일에 일해야 한다고 합니다. 대응해 보세요."
+       },
+       {
+        "q": "Ask your friend what time he wants to meet.",
+        "qKo": "친구에게 몇 시에 만나고 싶은지 물어보세요."
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-roleplay-suggest-1-q.mp3",
+       "a": "data/speaking-audio/opic-roleplay-suggest-1-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-surprise-transport",
+    "title": "돌발 · 교통 · 통학",
+    "emoji": "🚌",
+    "questions": [
+     {
+      "id": "opic-surprise-transport-1",
+      "q": "How do you usually get to school? Describe your commute.",
+      "qKo": "보통 학교에 어떻게 가나요? 통학에 대해 묘사해 주세요.",
+      "a": "I usually take the bus, and it takes about forty minutes door to door. I walk five minutes to the stop, take bus 46, and then walk another ten minutes from the campus gate. In the morning the bus is always crowded, so I usually stand and listen to music. The good thing is that it comes every ten minutes or so, so even if I miss one, it's not a big deal. When I'm running late or it's raining, I take a taxi, but it costs about fifteen thousand won, so I try not to do that too often.",
+      "aKo": "보통 버스를 타고, 집에서 학교까지 40분 정도 걸립니다. 정류장까지 5분 걸어가서 46번 버스를 타고, 정문에서 다시 10분 정도 걸어요. 아침에는 버스가 항상 붐비기 때문에 보통 서서 음악을 듣습니다. 좋은 점은 10분마다 오기 때문에 한 대를 놓쳐도 큰 문제가 아니라는 것이에요. 늦었거나 비가 올 때는 택시를 타지만 만 오천 원 정도 해서 자주는 안 하려고 합니다.",
+      "expr": [
+       {
+        "en": "it takes about forty minutes door to door",
+        "ko": "문에서 문까지 40분쯤 걸린다"
+       },
+       {
+        "en": "even if I miss one, it's not a big deal",
+        "ko": "한 대 놓쳐도 큰 문제는 아니다"
+       },
+       {
+        "en": "When I'm running late, ~",
+        "ko": "시간이 촉박할 때는 ~"
+       },
+       {
+        "en": "I try not to do that too often",
+        "ko": "자주는 안 하려고 한다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "What do you usually do on the bus?",
+        "qKo": "버스에서 보통 무엇을 하나요?"
+       },
+       {
+        "q": "How could public transportation in your city be improved?",
+        "qKo": "사는 도시의 대중교통은 어떻게 개선될 수 있을까요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-surprise-transport-1-q.mp3",
+       "a": "data/speaking-audio/opic-surprise-transport-1-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-surprise-season",
+    "title": "돌발 · 계절 · 날씨",
+    "emoji": "🍂",
+    "questions": [
+     {
+      "id": "opic-surprise-season-1",
+      "q": "What is your favorite season? Tell me why.",
+      "qKo": "가장 좋아하는 계절은 언제인가요? 이유를 말해 주세요.",
+      "a": "My favorite season is definitely autumn. The main reason is the weather — it's cool enough to walk around without sweating, but not so cold that you need a heavy coat. I also like the colors; in Korea the leaves turn red and yellow in October, and there are a few streets near my place that look amazing for about two weeks. Another thing is that autumn feels like a fresh start to me, because the new semester begins and the weather makes me want to study. The only downside is that it's too short — it feels like summer suddenly turns into winter.",
+      "aKo": "가장 좋아하는 계절은 단연 가을입니다. 주된 이유는 날씨예요. 땀 흘리지 않고 걸을 수 있을 만큼 서늘하지만, 두꺼운 코트가 필요할 만큼 춥지는 않습니다. 색깔도 좋아해요. 한국에서는 10월에 나뭇잎이 빨갛고 노랗게 물드는데, 우리 집 근처 몇몇 길이 2주 정도 정말 멋있어집니다. 또 가을은 저에게 새로운 시작처럼 느껴집니다. 새 학기가 시작되고 날씨가 공부하고 싶게 만들거든요. 유일한 단점은 너무 짧다는 것입니다. 여름이 갑자기 겨울이 되는 것 같아요.",
+      "expr": [
+       {
+        "en": "My favorite season is definitely ~",
+        "ko": "제가 가장 좋아하는 계절은 단연 ~입니다"
+       },
+       {
+        "en": "cool enough to walk around without sweating",
+        "ko": "땀 흘리지 않고 걸을 만큼 서늘한"
+       },
+       {
+        "en": "Another thing is that ~",
+        "ko": "또 다른 점은 ~이라는 것입니다"
+       },
+       {
+        "en": "The only downside is that ~",
+        "ko": "유일한 단점은 ~"
+       }
+      ],
+      "follow": [
+       {
+        "q": "What do you usually do on rainy days?",
+        "qKo": "비 오는 날에는 보통 무엇을 하나요?"
+       },
+       {
+        "q": "Has the weather in Korea changed in recent years?",
+        "qKo": "최근 몇 년간 한국의 날씨가 변했나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-surprise-season-1-q.mp3",
+       "a": "data/speaking-audio/opic-surprise-season-1-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "opic-surprise-shopping",
+    "title": "돌발 · 쇼핑",
+    "emoji": "🛒",
+    "questions": [
+     {
+      "id": "opic-surprise-shopping-1",
+      "q": "Do you prefer shopping online or in person? Tell me why.",
+      "qKo": "온라인 쇼핑과 직접 쇼핑 중 어느 쪽을 선호하나요? 이유를 말해 주세요.",
+      "a": "It depends on what I'm buying. For things like books, phone cases, or anything I already know the exact model of, I order online, because it's cheaper and it arrives in a day or two. But for clothes and shoes, I still prefer going to the store. I've ordered shoes online before and they were the right size on paper but uncomfortable when I actually wore them, and returning them was a hassle. When I shop in person I can try things on, and I also like that I can ask the staff questions. So overall, online for simple things, offline for anything I need to see and touch.",
+      "aKo": "무엇을 사는지에 따라 다릅니다. 책, 휴대폰 케이스처럼 정확한 모델을 이미 아는 물건은 온라인으로 주문해요. 더 저렴하고 하루 이틀이면 도착하니까요. 하지만 옷과 신발은 여전히 매장에 가는 편을 선호합니다. 예전에 신발을 온라인으로 주문했는데, 표기상으로는 맞는 사이즈였지만 실제로 신으니 불편했고 반품도 번거로웠어요. 직접 사면 입어 볼 수 있고, 직원에게 물어볼 수 있다는 점도 좋습니다. 그래서 종합하면 단순한 물건은 온라인, 직접 보고 만져야 하는 것은 오프라인입니다.",
+      "expr": [
+       {
+        "en": "It depends on what I'm buying",
+        "ko": "무엇을 사는지에 따라 다르다"
+       },
+       {
+        "en": "the right size on paper",
+        "ko": "표기상으로는 맞는 사이즈"
+       },
+       {
+        "en": "returning them was a hassle",
+        "ko": "반품이 번거로웠다"
+       },
+       {
+        "en": "online for simple things, offline for ~",
+        "ko": "간단한 것은 온라인, ~은 오프라인"
+       }
+      ],
+      "follow": [
+       {
+        "q": "What was the last thing you bought online?",
+        "qKo": "최근에 온라인으로 산 마지막 물건은 무엇인가요?"
+       },
+       {
+        "q": "Do you ever regret buying something online?",
+        "qKo": "온라인 구매를 후회한 적이 있나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/opic-surprise-shopping-1-q.mp3",
+       "a": "data/speaking-audio/opic-surprise-shopping-1-a.mp3"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "toeic": {
+  "label": "토익스피킹 IH~AL",
+  "note": "Part 1~5 실제 시험 규격. 준비 시간 → 비프음 → 답변 시간이 자동으로 흘러갑니다.",
+  "parts": [
+   {
+    "id": "toeic-p1",
+    "part": 1,
+    "title": "지문 읽기",
+    "subtitle": "Read a text aloud",
+    "range": "Q1 · Q2",
+    "prepSec": 45,
+    "answerSec": 45,
+    "readSec": 0,
+    "timingNote": "준비 45초 · 답변 45초",
+    "tips": [
+     "쉼표·마침표에서 끊고, 전치사구 뒤에서 짧게 쉰다 (뜻 단위로 끊기).",
+     "중요 정보(시간·장소·가격·요일)는 세게, 기능어(the, of, to)는 약하게 읽는다.",
+     "고유명사·숫자는 또박또박. 특히 30과 13, 15와 50의 강세 위치를 구분한다.",
+     "마지막 문장은 살짝 낮추며 끝내 상대를 기다리게 하지 않는다. 속도보다 일정함이 점수다."
+    ],
+    "questions": [
+     {
+      "id": "toeic-p1-1",
+      "q": "Read the announcement below as if you were speaking to shoppers.",
+      "qKo": "아래 안내 방송을 고객에게 말하듯 읽어 보세요.",
+      "passage": "Attention, shoppers. Our store will close early today at 6 p.m. for a staff training session. If you have items to return, please do so before 5:30. We apologize for the inconvenience and will reopen tomorrow at our usual time, 9 a.m.",
+      "guide": "Attention, shoppers, / Our store will close early today / at 6 p.m. / for a staff training session. / If you have items to return, / please do so before 5:30. / We apologize for the inconvenience / and will reopen tomorrow / at our usual time, / 9 a.m.",
+      "aKo": "고객 여러분께 안내 말씀 드립니다. 오늘 매장은 직원 교육으로 저녁 6시에 조기 마감합니다. 반품하실 물건이 있으시면 5시 30분 전에 처리해 주세요. 불편을 드려 죄송하며, 내일은 평소처럼 오전 9시에 다시 문을 엽니다.",
+      "expr": [
+       {
+        "en": "close early for a staff training session",
+        "ko": "직원 교육으로 조기 마감하다"
+       },
+       {
+        "en": "please do so before 5:30",
+        "ko": "5시 30분 전에 해 주세요"
+       },
+       {
+        "en": "We apologize for the inconvenience",
+        "ko": "불편을 드려 죄송합니다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "같은 지문을 1.1배 속도로 다시 읽어 보세요.",
+        "qKo": "속도 버튼으로 1.1x를 골라 다시 읽어 봅니다."
+       }
+      ],
+      "answerSec": 45,
+      "audio": {
+       "p": "data/speaking-audio/toeic-p1-1-p.mp3",
+       "a": "data/speaking-audio/toeic-p1-1-a.mp3"
+      }
+     },
+     {
+      "id": "toeic-p1-2",
+      "q": "Read the advertisement below as if you were speaking to customers.",
+      "qKo": "아래 광고를 고객에게 말하듯 읽어 보세요.",
+      "passage": "Visit our booth this weekend at the City Fitness Expo and try the new smart rowing machine. The first hundred visitors will receive a free one-month membership. For more information, please check our website.",
+      "guide": "Visit our booth this weekend / at the City Fitness Expo / and try the new smart rowing machine. / The first hundred visitors / will receive a free one-month membership. / For more information, / please check our website.",
+      "aKo": "이번 주말 시티 피트니스 박람회에서 저희 부스를 방문하시고 새 스마트 로잉 머신을 써 보세요. 먼저 오시는 100명에게는 무료 1개월 이용권을 드립니다. 자세한 내용은 홈페이지를 확인해 주세요.",
+      "expr": [
+       {
+        "en": "the first hundred visitors",
+        "ko": "먼저 오시는 100명"
+       },
+       {
+        "en": "a free one-month membership",
+        "ko": "무료 1개월 이용권"
+       },
+       {
+        "en": "For more information, please check ~",
+        "ko": "자세한 내용은 ~를 확인해 주세요"
+       }
+      ],
+      "follow": [
+       {
+        "q": "강조할 정보(100명·무료·1개월)를 크게 읽어 다시 녹음해 보세요.",
+        "qKo": "숫자와 무료 혜택을 강조해 읽습니다."
+       }
+      ],
+      "answerSec": 45,
+      "audio": {
+       "p": "data/speaking-audio/toeic-p1-2-p.mp3",
+       "a": "data/speaking-audio/toeic-p1-2-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "toeic-p2",
+    "part": 2,
+    "title": "사진 묘사",
+    "subtitle": "Describe a picture",
+    "range": "Q3 · Q4",
+    "prepSec": 45,
+    "answerSec": 30,
+    "readSec": 0,
+    "timingNote": "준비 45초 · 답변 30초",
+    "tips": [
+     "30초는 4~5문장이면 충분하다. 욕심내지 말고 순서대로.",
+     "① 전체 인상(장소·분위기) → ② 앞/뒤 사람의 동작 → ③ 사물·배경 → ④ 마무리 한 문장.",
+     "사람은 '누가+무엇을 입고+무엇을 하는지', 사물은 '어디에+어떤 상태로' 있는지로 말한다.",
+     "모르는 단어는 피하고 아는 표현으로 우회한다 (예: 랙 → shelves where they keep the tools)."
+    ],
+    "sceneNote": "사진 대신 머릿속 장면으로 연습하거나, 사진을 하나 띄워 두고 같은 순서로 말해 보세요. 아래는 두 장면의 예시입니다.",
+    "questions": [
+     {
+      "id": "toeic-p2-1",
+      "q": "Describe this picture: an outdoor cafe terrace on a sunny afternoon where several people are sitting with coffee.",
+      "qKo": "다음 장면을 묘사하세요: 화창한 오후, 야외 카페 테라스에 사람들이 커피를 들고 앉아 있는 모습.",
+      "sceneKo": "테라스에 테이블 4개, 세 명이 앉아 이야기 중, 한 명은 노트북으로 일하는 중, 종업원이 쟁반을 들고 다가오는 중, 배경에는 가게 간판과 화분.",
+      "a": "This picture shows the outdoor terrace of a cafe on a sunny afternoon. In the foreground, three people are sitting around a wooden table, talking and holding cups of coffee. To the right, a man is working on his laptop with his headphones on, and there's a half-finished cake next to him. In the background, a server in a black apron is carrying a tray toward one of the tables. There are several plants along the wall, and a large sign is hanging above the entrance. The whole place looks relaxed and comfortable.",
+      "aKo": "이 사진은 화창한 오후의 카페 야외 테라스를 보여 줍니다. 앞쪽에는 세 사람이 나무 테이블에 둘러앉아 커피잔을 들고 이야기하고 있습니다. 오른쪽에는 남자 한 명이 헤드폰을 낀 채 노트북으로 일하고 있고, 옆에는 다 먹다 남은 케이크가 있습니다. 배경에는 검은 앞치마를 한 종업원이 쟁반을 들고 테이블로 다가가고 있습니다. 벽을 따라 화분이 여러 개 있고, 입구 위에는 큰 간판이 걸려 있습니다. 전체적으로 편안해 보이는 공간입니다.",
+      "expr": [
+       {
+        "en": "In the foreground, ~ / In the background, ~",
+        "ko": "앞쪽에는 ~ / 배경에는 ~"
+       },
+       {
+        "en": "three people are sitting around a wooden table",
+        "ko": "세 사람이 나무 테이블에 둘러앉아 있다"
+       },
+       {
+        "en": "To the right, a man is working on his laptop",
+        "ko": "오른쪽에는 남자가 노트북으로 일하고 있다"
+       },
+       {
+        "en": "The whole place looks relaxed",
+        "ko": "전체적으로 편안해 보인다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "같은 장면을 20초 안에 3문장으로 줄여 말해 보세요.",
+        "qKo": "핵심만 남겨 짧게 말하는 연습입니다."
+       }
+      ],
+      "answerSec": 30,
+      "audio": {
+       "q": "data/speaking-audio/toeic-p2-1-q.mp3",
+       "a": "data/speaking-audio/toeic-p2-1-a.mp3"
+      }
+     },
+     {
+      "id": "toeic-p2-2",
+      "q": "Describe this picture: a meeting room where a woman is giving a presentation while four coworkers watch.",
+      "qKo": "다음 장면을 묘사하세요: 회의실에서 여성이 발표하고 네 명의 동료가 듣고 있는 모습.",
+      "sceneKo": "긴 회의실, 앞에 스크린에 그래프, 발표자가 리모컨을 들고 서 있음, 테이블에 노트북과 커피·서류, 벽면 창문으로 햇빛.",
+      "a": "This picture was taken in a meeting room, probably during a company presentation. In the center, a woman is standing in front of a large screen and holding a small remote in her hand. A line graph is on the screen, and she seems to be explaining the results. Four coworkers are sitting at a long table, looking at the screen, and two of them have opened their laptops. There are cups of coffee and some documents on the table, and sunlight is coming through the windows on the left. Everyone looks focused.",
+      "aKo": "이 사진은 회의실에서 찍은 것으로, 아마 회사 발표 중인 것 같습니다. 가운데에는 여성 한 명이 큰 화면 앞에 서서 작은 리모컨을 들고 있습니다. 화면에는 꺾은선 그래프가 있고, 그녀가 결과를 설명하고 있는 것 같습니다. 네 명의 동료가 긴 테이블에 앉아 화면을 보고 있고, 그중 두 명은 노트북을 펼쳐 두었습니다. 테이블에는 커피잔과 서류가 있고, 왼쪽 창문으로 햇빛이 들어옵니다. 모두 집중하고 있는 모습입니다.",
+      "expr": [
+       {
+        "en": "This picture was taken in ~",
+        "ko": "이 사진은 ~에서 찍은 것입니다"
+       },
+       {
+        "en": "probably during ~",
+        "ko": "아마 ~ 중일 것입니다"
+       },
+       {
+        "en": "she seems to be -ing",
+        "ko": "그녀는 ~하고 있는 것 같다"
+       },
+       {
+        "en": "Everyone looks focused",
+        "ko": "모두 집중하고 있는 것 같다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "사진에 없는 것을 상상해 한 문장 덧붙여 보세요.",
+        "qKo": "예: 'I guess the meeting will end around noon.'"
+       }
+      ],
+      "answerSec": 30,
+      "audio": {
+       "q": "data/speaking-audio/toeic-p2-2-q.mp3",
+       "a": "data/speaking-audio/toeic-p2-2-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "toeic-p3",
+    "part": 3,
+    "title": "질문 응답",
+    "subtitle": "Respond to questions",
+    "range": "Q5 · Q6 · Q7",
+    "prepSec": 3,
+    "answerSec": 15,
+    "readSec": 0,
+    "timingNote": "문항당 준비 3초 · 답변 15·15·30초",
+    "tips": [
+     "15초 문항은 두 문장이면 만점 분량: 직접 답 → 짧은 이유/부연.",
+     "30초 문항은 '답 → 이유 → 구체적 예시 → 마무리' 4단으로 간다.",
+     "질문의 시제를 그대로 따라 쓴다 (Did you ~? → 과거, Do you ~? → 현재).",
+     "3초 준비 동안 첫 문장만 정해 두면 말문이 안 막힌다."
+    ],
+    "questions": [
+     {
+      "id": "toeic-p3-1",
+      "q": "What time do you usually wake up, and what is the first thing you do?",
+      "qKo": "보통 몇 시에 일어나며, 제일 먼저 무엇을 하나요?",
+      "answerSec": 15,
+      "a": "I usually wake up around seven, and the first thing I do is check the bus app on my phone. Then I wash up and make a quick cup of coffee before class.",
+      "aKo": "보통 7시쯤 일어나고, 가장 먼저 하는 일은 휴대폰으로 버스 앱을 확인하는 것입니다. 그다음 씻고 수업 전에 커피를 빠르게 한 잔 내려 마십니다.",
+      "expr": [
+       {
+        "en": "The first thing I do is ~",
+        "ko": "제일 먼저 하는 일은 ~"
+       },
+       {
+        "en": "before class",
+        "ko": "수업 전에"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Do you ever sleep in on weekends?",
+        "qKo": "주말에는 늦잠을 자나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/toeic-p3-1-q.mp3",
+       "a": "data/speaking-audio/toeic-p3-1-a.mp3"
+      }
+     },
+     {
+      "id": "toeic-p3-2",
+      "q": "How do you usually get to school or work?",
+      "qKo": "보통 학교나 직장에 어떻게 가나요?",
+      "answerSec": 15,
+      "a": "I usually take the bus. It takes about forty minutes, and I listen to music or review vocabulary on the way. If I'm late, I take a taxi, but that's expensive, so I try to leave early.",
+      "aKo": "보통 버스를 탑니다. 40분 정도 걸리고, 가는 동안 음악을 듣거나 단어를 복습해요. 늦었을 때는 택시를 타지만 비싸서 일찍 출발하려고 합니다.",
+      "expr": [
+       {
+        "en": "on the way",
+        "ko": "가는 길에"
+       },
+       {
+        "en": "If I'm late, I take a taxi",
+        "ko": "늦으면 택시를 탄다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Is public transportation in your city convenient?",
+        "qKo": "사는 도시의 대중교통은 편리한가요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/toeic-p3-2-q.mp3",
+       "a": "data/speaking-audio/toeic-p3-2-a.mp3"
+      }
+     },
+     {
+      "id": "toeic-p3-3",
+      "q": "Tell me about a morning when things did not go as planned.",
+      "qKo": "계획대로 되지 않았던 아침에 대해 말해 주세요.",
+      "answerSec": 30,
+      "a": "Sure. A few weeks ago I had an important exam, and I set three alarms, but I slept through all of them. When I woke up, it was already twenty past eight, and the exam started at nine. I skipped breakfast, ran to the bus stop, and luckily a bus came right away. I got to the classroom with about five minutes to spare, but I had forgotten my student ID, so I had to ask the professor to let me in. In the end I took the exam, but my hands were shaking for the first ten minutes. Since then, I always put my phone across the room.",
+      "aKo": "네. 몇 주 전에 중요한 시험이 있었는데, 알람을 세 개 맞춰 놓고도 다 지나서 잤어요. 일어나 보니 이미 8시 20분이었고 시험은 9시에 시작했습니다. 아침을 거르고 버스 정류장으로 뛰었는데 다행히 버스가 바로 왔어요. 교실에는 5분쯤 여유 있게 도착했지만 학생증을 두고 와서 교수님께 부탁해 들어가야 했습니다. 결국 시험은 봤지만 처음 10분은 손이 떨렸어요. 그 후로는 항상 휴대폰을 방 반대편에 두고 자요.",
+      "expr": [
+       {
+        "en": "I slept through all of them",
+        "ko": "알람을 다 지나서 잤다"
+       },
+       {
+        "en": "with about five minutes to spare",
+        "ko": "5분쯤 여유를 두고"
+       },
+       {
+        "en": "In the end, ~",
+        "ko": "결국 ~"
+       },
+       {
+        "en": "Since then, I always ~",
+        "ko": "그 후로 항상 ~한다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "What do you do to avoid that kind of morning?",
+        "qKo": "그런 아침을 피하려고 무엇을 하나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/toeic-p3-3-q.mp3",
+       "a": "data/speaking-audio/toeic-p3-3-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "toeic-p4",
+    "part": 4,
+    "title": "표 보고 응답",
+    "subtitle": "Respond using information provided",
+    "range": "Q8 · Q9 · Q10",
+    "prepSec": 3,
+    "answerSec": 15,
+    "readSec": 45,
+    "timingNote": "지문 읽기 45초 · 문항당 준비 3초 · 답변 15·15·30초",
+    "tips": [
+     "45초 동안 표의 '시간·장소·요금·대상' 네 칸만 눈으로 훑는다.",
+     "답할 때 표의 정보를 문장으로 옮겨 말한다 — 숫자를 읽는 연습이 곧 점수다.",
+     "표에 없는 내용은 'I'm sorry, that information isn't listed'로 정중히 말한다.",
+     "30초 문항은 두 항목을 비교하고 추천 이유를 붙이면 된다."
+    ],
+    "table": {
+     "title": "Riverside Community Center — Saturday Workshops",
+     "columns": [
+      "Time",
+      "Program",
+      "Room",
+      "Fee"
+     ],
+     "rows": [
+      [
+       "9:00",
+       "Pottery class",
+       "Studio B",
+       "$20"
+      ],
+      [
+       "11:00",
+       "Cooking demo",
+       "Kitchen",
+       "Free"
+      ],
+      [
+       "13:00",
+       "Photography walk",
+       "Meet at lobby",
+       "$10"
+      ],
+      [
+       "15:00",
+       "Book club",
+       "Room 201",
+       "Free"
+      ]
+     ],
+     "note": "Registration closes on Thursday. Children under 10 must come with an adult."
+    },
+    "questions": [
+     {
+      "id": "toeic-p4-1",
+      "q": "What time does the cooking demo start, and where is it held?",
+      "qKo": "요리 시연은 몇 시에 시작하고 어디에서 하나요?",
+      "answerSec": 15,
+      "a": "The cooking demo starts at eleven in the morning, and it's held in the kitchen. It's free, so you don't need to pay.",
+      "aKo": "요리 시연은 오전 11시에 시작하고 주방에서 진행됩니다. 무료라서 돈을 내지 않으셔도 됩니다.",
+      "expr": [
+       {
+        "en": "It's held in ~",
+        "ko": "~에서 열린다"
+       },
+       {
+        "en": "you don't need to pay",
+        "ko": "돈을 낼 필요가 없다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Do I need to register in advance?",
+        "qKo": "미리 등록해야 하나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/toeic-p4-1-q.mp3",
+       "a": "data/speaking-audio/toeic-p4-1-a.mp3"
+      }
+     },
+     {
+      "id": "toeic-p4-2",
+      "q": "I'd like to do something with my daughter that costs less than fifteen dollars. What do you recommend?",
+      "qKo": "딸과 함께 15달러 이하로 할 수 있는 것을 추천해 주시겠어요?",
+      "answerSec": 15,
+      "a": "I'd recommend the photography walk at one o'clock. It's only ten dollars, and children can join with an adult. If you prefer to stay indoors, the book club at three is free.",
+      "aKo": "오후 1시 사진 산책을 추천합니다. 10달러밖에 안 하고, 어린이는 어른과 함께 참여할 수 있어요. 실내가 좋으시면 3시 북클럽은 무료입니다.",
+      "expr": [
+       {
+        "en": "I'd recommend ~",
+        "ko": "~을 추천합니다"
+       },
+       {
+        "en": "children can join with an adult",
+        "ko": "어린이는 어른과 함께 참여할 수 있다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Where should we meet for that program?",
+        "qKo": "그 프로그램은 어디서 만나나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/toeic-p4-2-q.mp3",
+       "a": "data/speaking-audio/toeic-p4-2-a.mp3"
+      }
+     },
+     {
+      "id": "toeic-p4-3",
+      "q": "I want to join the photography walk. What should I do, and is there anything I need to know?",
+      "qKo": "사진 산책에 참여하고 싶습니다. 무엇을 해야 하고 알아 둘 것이 있나요?",
+      "answerSec": 30,
+      "a": "First, you need to register by Thursday, because registration closes that day. The program starts at one o'clock, and you should meet at the lobby. The fee is ten dollars, and you'll probably be outside for about two hours, so I'd bring a jacket and, of course, your camera. If you have children under ten, they need to come with an adult. If you need more information, you can call the center.",
+      "aKo": "먼저 목요일까지 등록하셔야 합니다. 등록이 그날 마감되기 때문입니다. 프로그램은 1시에 시작하고 로비에서 만나시면 됩니다. 참가비는 10달러이고, 두 시간 정도 야외에 계실 테니 겉옷과 물론 카메라를 가져가시는 게 좋습니다. 10살 미만 어린이는 어른과 함께 와야 합니다. 더 필요한 정보가 있으시면 센터로 전화하시면 됩니다.",
+      "expr": [
+       {
+        "en": "you need to register by Thursday",
+        "ko": "목요일까지 등록해야 한다"
+       },
+       {
+        "en": "you should meet at the lobby",
+        "ko": "로비에서 만나야 한다"
+       },
+       {
+        "en": "I'd bring ~",
+        "ko": "~을 가져갈 것 같다"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Can I pay at the door?",
+        "qKo": "현장에서 결제할 수 있나요?"
+       }
+      ],
+      "audio": {
+       "q": "data/speaking-audio/toeic-p4-3-q.mp3",
+       "a": "data/speaking-audio/toeic-p4-3-a.mp3"
+      }
+     }
+    ]
+   },
+   {
+    "id": "toeic-p5",
+    "part": 5,
+    "title": "의견 제시",
+    "subtitle": "Express an opinion",
+    "range": "Q11",
+    "prepSec": 45,
+    "answerSec": 60,
+    "readSec": 0,
+    "timingNote": "준비 45초 · 답변 60초",
+    "tips": [
+     "60초 구조: 입장(10초) → 이유 1 + 예시(20초) → 이유 2(15초) → 반대 의견 인정(10초) → 마무리(5초).",
+     "입장은 첫 문장에서 분명히. 'It depends'로 시작하면 60초를 버티기 어렵다.",
+     "예시는 사람·회사·경험 하나만 구체적으로. 숫자나 상황을 넣으면 내용 점수가 올라간다.",
+     "결론에서 첫 문장을 다른 말로 한 번 더 말하면 일관성 점수가 잡힌다."
+    ],
+    "questions": [
+     {
+      "id": "toeic-p5-1",
+      "q": "Some companies now let employees work from home permanently. Do you agree with this policy?",
+      "qKo": "일부 기업은 직원들이 영구적으로 재택근무를 하도록 허용합니다. 이 정책에 동의하나요?",
+      "a": "I agree with this policy, but only for jobs that don't require being physically present. My first reason is time. When I worked on a group project last year, two members joined remotely, and they saved almost two hours a day that they would have spent commuting. That time went into the work itself. Second, working from home lets people focus on tasks that need deep thinking, like writing or coding, without being interrupted every ten minutes. Of course, I understand the concerns — some teams really do communicate better face to face, and new employees learn faster in an office. So I think the best answer is a flexible policy: let people choose two or three days a week, and bring everyone together for important meetings. That way, companies keep the benefits without losing the team spirit.",
+      "aKo": "저는 이 정책에 동의하지만, 꼭 사무실에 있어야 하는 업무가 아닌 경우에만 그렇습니다. 첫 번째 이유는 시간입니다. 작년에 팀 프로젝트를 할 때 두 명이 원격으로 참여했는데, 통근에 쓸 뻔한 시간을 하루 두 시간 가까이 아꼈어요. 그 시간은 일 자체에 쓰였습니다. 둘째, 재택근무는 글쓰기나 코딩처럼 깊은 사고가 필요한 일에 10분마다 방해받지 않고 집중할 수 있게 합니다. 물론 우려도 이해합니다. 어떤 팀은 확실히 얼굴을 보고 소통할 때 더 잘 되고, 신입 사원은 사무실에서 더 빨리 배웁니다. 그래서 가장 좋은 답은 유연한 정책이라고 생각합니다. 주 2~3일은 스스로 고르게 하고, 중요한 회의 때는 모두 모이게 하는 것이죠. 그렇게 하면 회사는 장점을 지키면서 팀워크를 잃지 않을 수 있습니다.",
+      "expr": [
+       {
+        "en": "I agree with this policy, but only for ~",
+        "ko": "동의하지만 ~인 경우에만"
+       },
+       {
+        "en": "My first reason is ~",
+        "ko": "첫 번째 이유는 ~"
+       },
+       {
+        "en": "I understand the concerns",
+        "ko": "우려도 이해합니다"
+       },
+       {
+        "en": "That way, ~",
+        "ko": "그렇게 하면 ~"
+       }
+      ],
+      "follow": [
+       {
+        "q": "Would you personally prefer working from home? Why?",
+        "qKo": "본인은 재택근무를 선호하나요? 왜인가요?"
+       },
+       {
+        "q": "How can companies keep teamwork when people work remotely?",
+        "qKo": "재택근무 때 팀워크를 어떻게 유지할 수 있을까요?"
+       }
+      ],
+      "answerSec": 60,
+      "audio": {
+       "q": "data/speaking-audio/toeic-p5-1-q.mp3",
+       "a": "data/speaking-audio/toeic-p5-1-a.mp3"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "morning": {
+  "label": "내 모닝콜 복습",
+  "note": "매일 아침 전화영어(ngsl-talk)에서 실제로 틀리거나 새로 배운 표현입니다. '내가 말한 문장 → 교정'으로 다시 말해 보세요.",
+  "days": [
+   "2026-11-25",
+   "2026-11-24",
+   "2026-11-23",
+   "2026-11-22",
+   "2026-11-19",
+   "2026-11-18"
+  ],
+  "counts": {
+   "word": 28,
+   "pattern": 9,
+   "sentence": 18
+  },
+  "cards": [
+   {
+    "id": "morning-591882619",
+    "kind": "word",
+    "front": "명 · 처벌, 벌칙; (스포츠) 페널티",
+    "back": "penalty — a penalty for breaking the rules / pay a heavy penalty",
+    "example": "There is a penalty for breaking the rules.",
+    "note": "",
+    "tag": "NGSL",
+    "day": "2026-11-25",
+    "audio": "data/speaking-audio/morning-591882619.mp3",
+    "speakText": "There is a penalty for breaking the rules."
+   },
+   {
+    "id": "morning-3872922973",
+    "kind": "sentence",
+    "front": "It doesn't make students. Think themselves.",
+    "back": "It doesn't make students think for themselves.",
+    "example": "",
+    "note": "make는 목적어 뒤에 동사원형을 받는 사역동사다(make somebody do). 11-18의 P-002는 make + 목적어 + 형용사였고, 오늘은 그 동사 버전이다. for가 빠지면 \"그들 자신을 생각하다\"가 된다(think themselves ❌).",
+    "tag": "",
+    "day": "2026-11-25",
+    "audio": "data/speaking-audio/morning-3872922973.mp3",
+    "speakText": "It doesn't make students think for themselves."
+   },
+   {
+    "id": "morning-3704850777",
+    "kind": "sentence",
+    "front": "I usually use my AI for. Ask. Something. And. I want to know the. Essential of what I study.",
+    "back": "I usually use AI to ask questions and understand the key concepts of what I study.",
+    "example": "",
+    "note": "목적은 use A to + 동사원형(~하기 위해 A를 쓴다). use A for -ing(for asking)도 되지만 for ask처럼 for + 동사원형은 안 된다. 도구는 my AI가 아니라 그냥 AI. \"본질\"은 essential(형용사)로는 안 되고 the key concepts(핵심 개념) 또는 the main ideas. what I study는 \"내가 공부하는 것\"으로 그대로 좋다.",
+    "tag": "",
+    "day": "2026-11-25",
+    "audio": "data/speaking-audio/morning-3704850777.mp3",
+    "speakText": "I usually use AI to ask questions and understand the key concepts of what I study."
+   },
+   {
+    "id": "morning-3370455314",
+    "kind": "pattern",
+    "front": "패턴: use + 목적어 + to + 동사원형 (~하기 위해 …를 쓰다)",
+    "back": "I usually use AI to ask questions.",
+    "example": "I use my phone to check the bus schedule. / I use AI to summarize long articles.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-25",
+    "audio": "data/speaking-audio/morning-3370455314.mp3",
+    "speakText": "I use my phone to check the bus schedule. / I use AI to summarize long articles."
+   },
+   {
+    "id": "morning-3215026000",
+    "kind": "word",
+    "front": "명 · 처벌, 벌",
+    "back": "punishment — a punishment for breaking the rules / as a punishment",
+    "example": "A punishment for breaking the rules.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-25",
+    "audio": "data/speaking-audio/morning-3215026000.mp3",
+    "speakText": "A punishment for breaking the rules."
+   },
+   {
+    "id": "morning-2423616125",
+    "kind": "sentence",
+    "front": "AI cheering is just only. Correct. The. Answer, not how. Do you get know the. Like. How, how, not. How. Just answer.",
+    "back": "AI cheating only shows the answer, not the learning process.",
+    "example": "",
+    "note": "just와 only는 같은 뜻이라 하나만 쓴다(11-24 just only on the weekend와 같은 자리 — 이틀 연속). \"정답만 보여 준다\"는 only shows the answer, \"과정은 안 준다\"는 not the learning process(학습 과정). not how로 끊으면 문장이 안 되고, 상대가 무엇을 말하는지 추측해야 한다. Do you get know는 Do you know.",
+    "tag": "",
+    "day": "2026-11-25",
+    "audio": "data/speaking-audio/morning-2423616125.mp3",
+    "speakText": "AI cheating only shows the answer, not the learning process."
+   },
+   {
+    "id": "morning-2151390037",
+    "kind": "word",
+    "front": "동 · (법·규칙을) 시행하다, 집행하다",
+    "back": "enforce — enforce the rules / enforce a law / strictly enforced",
+    "example": "Schools enforce the rules.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-25",
+    "audio": "data/speaking-audio/morning-2151390037.mp3",
+    "speakText": "Schools enforce the rules."
+   },
+   {
+    "id": "morning-1570101208",
+    "kind": "word",
+    "front": "스스로 생각하다",
+    "back": "think for themselves",
+    "example": "It does not make students think for themselves.",
+    "note": "",
+    "tag": "NGSL",
+    "day": "2026-11-25",
+    "audio": "data/speaking-audio/morning-1570101208.mp3",
+    "speakText": "It does not make students think for themselves."
+   },
+   {
+    "id": "morning-4221862723",
+    "kind": "word",
+    "front": "동 · 일시 중단하다; (자격·처벌을) 정지하다",
+    "back": "suspend — suspend service / suspend the subway / be suspended for a week",
+    "example": "They may suspend service.",
+    "note": "",
+    "tag": "NGSL",
+    "day": "2026-11-24",
+    "audio": "data/speaking-audio/morning-4221862723.mp3",
+    "speakText": "They may suspend service."
+   },
+   {
+    "id": "morning-3987634303",
+    "kind": "sentence",
+    "front": "It's going to be 20 minutes.",
+    "back": "It takes about 20 minutes on foot.",
+    "example": "",
+    "note": "매일 반복되는 통학 시간은 It takes + 시간(걸린다)으로 말한다. It's going to be는 \"앞으로 ~가 될 것\"이라 오늘 아침 한 번의 일처럼 들린다. 걸어서 간다는 뜻은 on foot(도보로) — by walk가 아니다. by는 by bus·by subway처럼 교통수단 이름에만 붙는다.",
+    "tag": "",
+    "day": "2026-11-24",
+    "audio": "data/speaking-audio/morning-3987634303.mp3",
+    "speakText": "It takes about 20 minutes on foot."
+   },
+   {
+    "id": "morning-379982844",
+    "kind": "pattern",
+    "front": "패턴: enjoy + 동명사(-ing) (동사 뒤 목적어 자리에 -ing)",
+    "back": "I enjoy walking.",
+    "example": "I enjoy walking to school in late autumn. / I enjoy listening to music on the bus.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-24",
+    "audio": "data/speaking-audio/morning-379982844.mp3",
+    "speakText": "I enjoy walking to school in late autumn. / I enjoy listening to music on the bus."
+   },
+   {
+    "id": "morning-3555621234",
+    "kind": "word",
+    "front": "가끔씩, 자주는 아니고",
+    "back": "now and then (but not that often)",
+    "example": "I take the subway now and then, but not that often.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-24",
+    "audio": "data/speaking-audio/morning-3555621234.mp3",
+    "speakText": "I take the subway now and then, but not that often."
+   },
+   {
+    "id": "morning-3461762775",
+    "kind": "word",
+    "front": "걸어서, 도보로",
+    "back": "on foot",
+    "example": "It takes about 20 minutes on foot.",
+    "note": "",
+    "tag": "NGSL",
+    "day": "2026-11-24",
+    "audio": "data/speaking-audio/morning-3461762775.mp3",
+    "speakText": "It takes about 20 minutes on foot."
+   },
+   {
+    "id": "morning-184996805",
+    "kind": "sentence",
+    "front": "I'm feel comfortable when I walk to school on foot. … I'm enjoy when. My. Wearing.",
+    "back": "I feel comfortable walking to school. … I enjoy walking.",
+    "example": "",
+    "note": "be동사 뒤에는 형용사·명사가 오고 동사원형이 그대로 올 수 없다. I'm feel은 I feel, I'm enjoy는 I enjoy. 11-23의 should be compliance(조동사 뒤에 명사)와 같은 유형 — 동사 자리에 다른 품사가 먼저 튀어나오는 습관이다. 감정·습관은 현재형 그대로 I feel ~ / I enjoy ~.",
+    "tag": "",
+    "day": "2026-11-24",
+    "audio": "data/speaking-audio/morning-184996805.mp3",
+    "speakText": "I feel comfortable walking to school. … I enjoy walking."
+   },
+   {
+    "id": "morning-1678408333",
+    "kind": "sentence",
+    "front": "There's nothing to go to school. Around me.",
+    "back": "There isn't much around me.",
+    "example": "",
+    "note": "갈 만한 게 없다\"는 there isn't much(별거 없다), \"내 주변에는\"은 around me. There's nothing to go to school은 \"학교에 갈 것이 없다\"가 되어 뜻이 어긋난다. 부정은 nothing보다 not much가 부드럽고 회화에서 훨씬 자주 쓴다.",
+    "tag": "",
+    "day": "2026-11-24",
+    "audio": "data/speaking-audio/morning-1678408333.mp3",
+    "speakText": "There isn't much around me."
+   },
+   {
+    "id": "morning-1281427184",
+    "kind": "word",
+    "front": "형 · 불법적인, 위법의",
+    "back": "illegal — be illegal / it's illegal to do / illegal parking",
+    "example": "If you get caught cheating, it can be illegal.",
+    "note": "",
+    "tag": "NGSL",
+    "day": "2026-11-24",
+    "audio": "data/speaking-audio/morning-1281427184.mp3",
+    "speakText": "If you get caught cheating, it can be illegal."
+   },
+   {
+    "id": "morning-743934642",
+    "kind": "sentence",
+    "front": "Student should ask to teacher before they use AI.",
+    "back": "Students should ask their teacher before they use AI.",
+    "example": "",
+    "note": "ask는 사람을 목적어로 바로 받는다(ask somebody). ask to teacher는 to가 끼어 틀린다. 주어가 복수면 Students, 그 사람은 their teacher. 튜터가 \"ask their teacher, no to\"로 짚은 뒤에도 한 번 더 \"ask to teacher\"로 나왔다.",
+    "tag": "",
+    "day": "2026-11-23",
+    "audio": "data/speaking-audio/morning-743934642.mp3",
+    "speakText": "Students should ask their teacher before they use AI."
+   },
+   {
+    "id": "morning-4135228111",
+    "kind": "word",
+    "front": "명 · 장애",
+    "back": "disability — people with disabilities / a learning disability",
+    "example": "AI glasses could be a game changer for people with disabilities.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-23",
+    "audio": "data/speaking-audio/morning-4135228111.mp3",
+    "speakText": "AI glasses could be a game changer for people with disabilities."
+   },
+   {
+    "id": "morning-349448845",
+    "kind": "sentence",
+    "front": "They should be banned for the exam.",
+    "back": "They should be banned in exams.",
+    "example": "",
+    "note": "무엇이 금지되는 상황·장소는 in/during으로 받는다(during exams도 같은 뜻). for the exam은 \"시험을 위해서 금지된다\"로 들려 뜻이 반대가 된다. be banned는 ban의 수동태로, 오늘 It should be prohibited.와 함께 should + be + 과거분사(P-007) 틀로 세 번 반복됐다.",
+    "tag": "",
+    "day": "2026-11-23",
+    "audio": "data/speaking-audio/morning-349448845.mp3",
+    "speakText": "They should be banned in exams."
+   },
+   {
+    "id": "morning-347442745",
+    "kind": "word",
+    "front": "(~을) 따르다, 준수하다",
+    "back": "comply with",
+    "example": "Students should comply with the rules.",
+    "note": "",
+    "tag": "TOEIC",
+    "day": "2026-11-23",
+    "audio": "data/speaking-audio/morning-347442745.mp3",
+    "speakText": "Students should comply with the rules."
+   },
+   {
+    "id": "morning-3068948638",
+    "kind": "word",
+    "front": "동/명 · (문제를) 다루다; 연설, 주소",
+    "back": "address — address the issue / a street address / give a short address",
+    "example": "I think address has a lot of meaning — like, speech, you know?",
+    "note": "",
+    "tag": "NGSL",
+    "day": "2026-11-23",
+    "audio": "data/speaking-audio/morning-3068948638.mp3",
+    "speakText": "I think address has a lot of meaning — like, speech, you know?"
+   },
+   {
+    "id": "morning-2736201613",
+    "kind": "word",
+    "front": "판을 바꾸는 것, 게임 체인저",
+    "back": "game changer",
+    "example": "AI glasses could be a game changer for people with disabilities.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-23",
+    "audio": "data/speaking-audio/morning-2736201613.mp3",
+    "speakText": "AI glasses could be a game changer for people with disabilities."
+   },
+   {
+    "id": "morning-2699555604",
+    "kind": "pattern",
+    "front": "패턴: should be + 과거분사 (조동사 수동태: ~되어야 한다)",
+    "back": "They should be banned in exams.",
+    "example": "Phones should be turned off during the exam. / The new rules should be explained to students first.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-23",
+    "audio": "data/speaking-audio/morning-2699555604.mp3",
+    "speakText": "Phones should be turned off during the exam. / The new rules should be explained to students first."
+   },
+   {
+    "id": "morning-178495239",
+    "kind": "sentence",
+    "front": "First of all, advantages for the handicap person.",
+    "back": "First of all, it's a big advantage for people with disabilities.",
+    "example": "",
+    "note": "handicap person은 영어권에서 낡고 무례하게 들릴 수 있는 말이다. 사람을 먼저 두는 people with disabilities(장애가 있는 사람들)가 표준이고, 오픽 AL 답변에서도 그대로 쓸 수 있다. advantage는 명사이므로 it's a big advantage for ~로 받는다. 이어서 \"to communication with\"도 to communicate with(동사 자리)로.",
+    "tag": "",
+    "day": "2026-11-23",
+    "audio": "data/speaking-audio/morning-178495239.mp3",
+    "speakText": "First of all, it's a big advantage for people with disabilities."
+   },
+   {
+    "id": "morning-1648853125",
+    "kind": "word",
+    "front": "동/명 · 금지하다; 금지(령)",
+    "back": "ban — be banned in/during exams / ban somebody from -ing",
+    "example": "They should be banned in exams.",
+    "note": "",
+    "tag": "NGSL",
+    "day": "2026-11-23",
+    "audio": "data/speaking-audio/morning-1648853125.mp3",
+    "speakText": "They should be banned in exams."
+   },
+   {
+    "id": "morning-360815094",
+    "kind": "word",
+    "front": "명 · 경보, 경고(문); (동) 경보를 내다",
+    "back": "alert — an emergency alert text / set off an alert",
+    "example": "They were caught through the emergency alert text.",
+    "note": "",
+    "tag": "TOEIC",
+    "day": "2026-11-22",
+    "audio": "data/speaking-audio/morning-360815094.mp3",
+    "speakText": "They were caught through the emergency alert text."
+   },
+   {
+    "id": "morning-3532013429",
+    "kind": "word",
+    "front": "(…하기 전에) 두 번 생각하다, 신중히 재고하다",
+    "back": "think twice (before …)",
+    "example": "Students need to think twice before they use it.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-22",
+    "audio": "data/speaking-audio/morning-3532013429.mp3",
+    "speakText": "Students need to think twice before they use it."
+   },
+   {
+    "id": "morning-3202362539",
+    "kind": "sentence",
+    "front": "If you get caught, you can follow all year.",
+    "back": "If you get caught, it can follow you for years.",
+    "example": "",
+    "note": "① 결과를 말할 때 주어는 그 사실·기록이므로 it. you can follow you는 \"네가 너를 따라간다\"가 되어 뜻이 뒤집힌다. ② 기간은 all year(한 해 내내)가 아니라 for years(수년간). ③ get caught = 적발되다. 끝까지 바로잡히지 않아 \"You can follow you all years.\" → \"You follow you for years.\"로 두 번 더 시도했고, 튜터가 \"It follows you for years.\"로 줄여 줬다.",
+    "tag": "",
+    "day": "2026-11-22",
+    "audio": "data/speaking-audio/morning-3202362539.mp3",
+    "speakText": "If you get caught, it can follow you for years."
+   },
+   {
+    "id": "morning-3180720022",
+    "kind": "sentence",
+    "front": "I submit my report on Friday.",
+    "back": "I'll submit my report by Friday.",
+    "example": "",
+    "note": "① submit = 제출하다(= hand in). 제출물(명사)이 아니다. 뜻을 물었을 때 \"Presentation?\"이라고 답해 present와 섞였고, 문장을 만들 때도 \"I submit my present. I sub.\"로 두 번 끊쳤다. ② 마감은 by Friday(금요일까지), on Friday는 \"금요일에\". ③ 아직 안 낸 일이라 미래 I'll.",
+    "tag": "",
+    "day": "2026-11-22",
+    "audio": "data/speaking-audio/morning-3180720022.mp3",
+    "speakText": "I'll submit my report by Friday."
+   },
+   {
+    "id": "morning-3035739645",
+    "kind": "pattern",
+    "front": "패턴: If + 주어 + 동사, it can + 동사 (결과의 주어를 it으로 받기)",
+    "back": "If you get caught, it can follow you for years.",
+    "example": "If you skip breakfast, it can make you tired by noon. / If you practice every morning, it can change your accent in a year.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-22",
+    "audio": "data/speaking-audio/morning-3035739645.mp3",
+    "speakText": "If you skip breakfast, it can make you tired by noon. / If you practice every morning, it can change your accent in a year."
+   },
+   {
+    "id": "morning-2655814254",
+    "kind": "word",
+    "front": "(부정행위·실수로) 적발되다, 걸리다",
+    "back": "get caught",
+    "example": "If you get caught, it can follow you for years.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-22",
+    "audio": "data/speaking-audio/morning-2655814254.mp3",
+    "speakText": "If you get caught, it can follow you for years."
+   },
+   {
+    "id": "morning-178234871",
+    "kind": "word",
+    "front": "명 · 단점, 부작용",
+    "back": "downside — the downside of -ing / a big downside",
+    "example": "The downside is that it can follow you for years.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-22",
+    "audio": "data/speaking-audio/morning-178234871.mp3",
+    "speakText": "The downside is that it can follow you for years."
+   },
+   {
+    "id": "morning-1424012419",
+    "kind": "sentence",
+    "front": "Student needs to think twice before they use it.",
+    "back": "Students need to think twice before they use it.",
+    "example": "",
+    "note": "① 주어가 복수 Students면 동사도 need(단수 needs 아님). 튜터가 \"Students need.\"로 짚어 주자 그대로 따라 말했다. ② 앞서 같은 표현이 \"To place it twice.\"로 나왔다 — think twice(두 번 생각하다)의 think가 place로 바뀌어 뜻이 사라졌다. /θ/ 소리를 피하면서 다른 단어가 나온 경우다.",
+    "tag": "",
+    "day": "2026-11-22",
+    "audio": "data/speaking-audio/morning-1424012419.mp3",
+    "speakText": "Students need to think twice before they use it."
+   },
+   {
+    "id": "morning-1037269381",
+    "kind": "word",
+    "front": "동 · 제출하다, 내다 (= hand in)",
+    "back": "submit — submit a report / submit an application by Friday",
+    "example": "I'll submit my report by Friday.",
+    "note": "",
+    "tag": "NGSL",
+    "day": "2026-11-22",
+    "audio": "data/speaking-audio/morning-1037269381.mp3",
+    "speakText": "I'll submit my report by Friday."
+   },
+   {
+    "id": "morning-785996636",
+    "kind": "pattern",
+    "front": "패턴: postpone + 목적어 + until + 시점",
+    "back": "I postponed my presentation until Monday.",
+    "example": "We postponed the meeting until Friday afternoon. / I always postpone studying until the night before the exam.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-19",
+    "audio": "data/speaking-audio/morning-785996636.mp3",
+    "speakText": "We postponed the meeting until Friday afternoon. / I always postpone studying until the night before the exam."
+   },
+   {
+    "id": "morning-494687561",
+    "kind": "word",
+    "front": "동 · (일정·결정을) 연기하다, 미루다",
+    "back": "postpone — postpone + 명사/-ing / postpone something until + 시점",
+    "example": "I postponed my presentation until Monday.",
+    "note": "",
+    "tag": "TOEIC",
+    "day": "2026-11-19",
+    "audio": "data/speaking-audio/morning-494687561.mp3",
+    "speakText": "I postponed my presentation until Monday."
+   },
+   {
+    "id": "morning-3928918262",
+    "kind": "sentence",
+    "front": "I agree that published to someone who cheated.",
+    "back": "I agree that punishing students who cheat is fair.",
+    "example": "",
+    "note": "바로 앞에서 \"I deserve it. The people do cheating, so I'm in the iron with that is fair.\"라고 이유를 붙였는데 문장이 세 동강 났다. ① agree that 뒤에는 주어·동사가 다 있는 절이 와야 한다. 주어가 동작이면 동명사 punishing. ② 그 학생들을 꾸미는 절은 who cheat(선행사 students가 복수라 cheats 아님). ③ 주어가 동명사 하나라 동사는 단수 is. published는 punish를 소리로 더듬다 나온 다른 단어다.",
+    "tag": "",
+    "day": "2026-11-19",
+    "audio": "data/speaking-audio/morning-3928918262.mp3",
+    "speakText": "I agree that punishing students who cheat is fair."
+   },
+   {
+    "id": "morning-3922431167",
+    "kind": "word",
+    "front": "동 · 처벌하다, 벌하다",
+    "back": "punish — punish somebody for something / be punished for",
+    "example": "I agree that punishing students who cheat is fair.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-19",
+    "audio": "data/speaking-audio/morning-3922431167.mp3",
+    "speakText": "I agree that punishing students who cheat is fair."
+   },
+   {
+    "id": "morning-2916345784",
+    "kind": "sentence",
+    "front": "I suspicious you.",
+    "back": "I'm suspicious of you.",
+    "example": "",
+    "note": "suspicious는 형용사라 혼자서 동사 자리에 설 수 없다. be suspicious of + 사람이 한 덩어리다. 어제 V-002로 넣은 연어인데 통화에서 be와 of가 동시에 빠졌다. 튜터가 \"Be suspicious... of somebody\"로 끊어 줘도 am이 안 붙었다.",
+    "tag": "",
+    "day": "2026-11-19",
+    "audio": "data/speaking-audio/morning-2916345784.mp3",
+    "speakText": "I'm suspicious of you."
+   },
+   {
+    "id": "morning-269093049",
+    "kind": "sentence",
+    "front": "I post a poem my regression on Madison.",
+    "back": "I postponed my presentation until Monday.",
+    "example": "",
+    "note": "① 이미 정해 둔 일을 미룬 것이니 과거 postponed(-ed를 끝까지 발음). ② 미루는 끝 시점은 on이 아니라 until — until Monday는 \"월요일까지\". ③ 소리가 post a poem으로 뭉개져 단어 자체가 안 잡혔고, presentation은 regression, Monday는 Madison으로 들렸다.",
+    "tag": "",
+    "day": "2026-11-19",
+    "audio": "data/speaking-audio/morning-269093049.mp3",
+    "speakText": "I postponed my presentation until Monday."
+   },
+   {
+    "id": "morning-1923255630",
+    "kind": "pattern",
+    "front": "패턴: 동명사 주어(-ing) + 관계절 + 단수 동사",
+    "back": "I agree that punishing students who cheat is fair.",
+    "example": "Working part-time while studying teaches you time management. / Punishing people who break the rules is the job of the state.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-19",
+    "audio": "data/speaking-audio/morning-1923255630.mp3",
+    "speakText": "Working part-time while studying teaches you time management. / Punishing people who break the rules is the job of the state."
+   },
+   {
+    "id": "morning-1684556442",
+    "kind": "word",
+    "front": "(~을) 단속하다, 엄격히 규제하다",
+    "back": "crack down on",
+    "example": "I think it's fair to crack down on cheating.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-19",
+    "audio": "data/speaking-audio/morning-1684556442.mp3",
+    "speakText": "I think it's fair to crack down on cheating."
+   },
+   {
+    "id": "morning-588170429",
+    "kind": "word",
+    "front": "형 · 의심하는, 수상한",
+    "back": "suspicious — be suspicious of somebody",
+    "example": "Fierce competition makes students suspicious of each other.",
+    "note": "",
+    "tag": "TOEIC",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-588170429.mp3",
+    "speakText": "Fierce competition makes students suspicious of each other."
+   },
+   {
+    "id": "morning-4089661176",
+    "kind": "word",
+    "front": "동 · 장려하다, 용기를 북돋우다",
+    "back": "encourage — encourage somebody to do",
+    "example": "A generous reward would encourage people to speak up.",
+    "note": "",
+    "tag": "NGSL",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-4089661176.mp3",
+    "speakText": "A generous reward would encourage people to speak up."
+   },
+   {
+    "id": "morning-3899604587",
+    "kind": "sentence",
+    "front": "Korean exam should stop memorized. Exam.",
+    "back": "Korean exams should stop testing memorization.",
+    "example": "",
+    "note": "① should 뒤는 항상 동사원형(be used가 아니라 use, stop은 맞음). ② stop 뒤에 동작을 이어 말할 때는 stop + -ing(stop testing). ③ 시험은 복수(exams). 더 자연스럽게: \"Korean exams should shift away from rote memorization.",
+    "tag": "",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-3899604587.mp3",
+    "speakText": "Korean exams should stop testing memorization."
+   },
+   {
+    "id": "morning-3848634133",
+    "kind": "word",
+    "front": "(용기를 내어) 목소리를 내다, 문제를 제기하다",
+    "back": "speak up (about)",
+    "example": "…encourage people to speak up about cheating.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-3848634133.mp3",
+    "speakText": "…encourage people to speak up about cheating."
+   },
+   {
+    "id": "morning-356412515",
+    "kind": "sentence",
+    "front": "A personal scandal. Should cut off his scandal.",
+    "back": "A personal scandal shouldn't cost him his career.",
+    "example": "",
+    "note": "cut off는 \"잘라내다\"라서 주어가 스캔들일 때 \"스캔들이 스캔들을 잘라낸다\"는 이상한 문장이 된다. \"~에게 ~을 잃게 하다\"는 cost + 사람 + 명사(cost him his career). 부정은 shouldn't.",
+    "tag": "",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-356412515.mp3",
+    "speakText": "A personal scandal shouldn't cost him his career."
+   },
+   {
+    "id": "morning-350901285",
+    "kind": "pattern",
+    "front": "패턴: encourage + 목적어 + to + 동사원형",
+    "back": "A generous reward would encourage people to speak up about cheating.",
+    "example": "A good teacher encourages students to ask questions. / Cheap tickets encourage people to visit museums.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-350901285.mp3",
+    "speakText": "A good teacher encourages students to ask questions. / Cheap tickets encourage people to visit museums."
+   },
+   {
+    "id": "morning-3254983872",
+    "kind": "word",
+    "front": "형 · (보상·제공이) 후한, 관대한",
+    "back": "generous — a generous reward / a generous offer",
+    "example": "A generous reward would encourage people to speak up about cheating.",
+    "note": "",
+    "tag": "TOEIC",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-3254983872.mp3",
+    "speakText": "A generous reward would encourage people to speak up about cheating."
+   },
+   {
+    "id": "morning-3096233241",
+    "kind": "word",
+    "front": "명 · 경력, 직업 생활",
+    "back": "career — cost somebody his career / build a career",
+    "example": "A personal scandal shouldn't cost him his career.",
+    "note": "",
+    "tag": "NGSL",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-3096233241.mp3",
+    "speakText": "A personal scandal shouldn't cost him his career."
+   },
+   {
+    "id": "morning-279372947",
+    "kind": "pattern",
+    "front": "패턴: make + 목적어 + 형용사 (원인 → 결과)",
+    "back": "Fierce competition makes students suspicious of each other.",
+    "example": "Long meetings make me sleepy. / Comparing grades makes students anxious.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-279372947.mp3",
+    "speakText": "Long meetings make me sleepy. / Comparing grades makes students anxious."
+   },
+   {
+    "id": "morning-2331922342",
+    "kind": "word",
+    "front": "명 · 경쟁, 대회",
+    "back": "competition — fierce / stiff competition",
+    "example": "Fierce competition makes students suspicious of each other.",
+    "note": "",
+    "tag": "NGSL",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-2331922342.mp3",
+    "speakText": "Fierce competition makes students suspicious of each other."
+   },
+   {
+    "id": "morning-2287408232",
+    "kind": "sentence",
+    "front": "A little bit tired because I walk. From 8 AM. To 9 AM several times.",
+    "back": "I'm a little tired because I walked a lot this morning.",
+    "example": "",
+    "note": "이미 끝난 일(아침 8~9시)인데 동사가 현재형 walk. 과거 사건은 끝까지 과거형. several times(여러 차례)보다 a lot(많이)이 이 문장에서 자연스럽다.",
+    "tag": "",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-2287408232.mp3",
+    "speakText": "I'm a little tired because I walked a lot this morning."
+   },
+   {
+    "id": "morning-1492693120",
+    "kind": "word",
+    "front": "통암기, 기계적 암기",
+    "back": "rote memorization",
+    "example": "Korean exams should shift away from rote memorization.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-1492693120.mp3",
+    "speakText": "Korean exams should shift away from rote memorization."
+   },
+   {
+    "id": "morning-1233158904",
+    "kind": "pattern",
+    "front": "패턴: should + 동사원형",
+    "back": "Korean exams should stop testing memorization.",
+    "example": "Korean universities should give students more project work. / The government shouldn't reward students for reporting friends.",
+    "note": "",
+    "tag": "",
+    "day": "2026-11-18",
+    "audio": "data/speaking-audio/morning-1233158904.mp3",
+    "speakText": "Korean universities should give students more project work. / The government shouldn't reward students for reporting friends."
+   }
+  ]
+ },
+ "stats": {
+  "opicTopics": 17,
+  "opicQuestions": 24,
+  "toeicParts": 5,
+  "toeicQuestions": 11,
+  "morningCards": 55
+ }
+}

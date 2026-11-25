@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useToast } from '../hooks/useToast';
 import { useVocaData, useVocaProgress } from '../hooks/useVocaProgress';
+import SpeakingView from './speaking/SpeakingView';
 import VocaCardsView from './voca/VocaCardsView';
 import VocaListView from './voca/VocaListView';
 import VocaQuizView from './voca/VocaQuizView';
@@ -15,10 +16,12 @@ const VIEWS: Array<{ key: View; label: string }> = [
   { key: 'search', label: '검색·오답' },
 ];
 
+/** 영어 탭 — 노랭이 단어장(기존 그대로) + 토스·오픽 말하기 */
 export default function VocaTab() {
   const { data, error, loading, retry } = useVocaData();
   const voca = useVocaProgress();
   const [toast, showToast] = useToast();
+  const [mode, setMode] = useState<'voca' | 'speak'>('voca');
   const [view, setView] = useState<View>('list');
   const [part, setPart] = useState(voca.progress.last.part);
   const [day, setDay] = useState(voca.progress.last.day);
@@ -37,10 +40,12 @@ export default function VocaTab() {
       {toast}
       <header className="topbar">
         <div>
-          <p className="eyebrow">TOEIC VOCA · 해커스 노랭이</p>
-          <h1 className="title">단어장</h1>
+          <p className="eyebrow">
+            {mode === 'voca' ? 'TOEIC VOCA · 해커스 노랭이' : 'SPEAKING · OPIc AL · TOEIC Speaking'}
+          </p>
+          <h1 className="title">영어</h1>
         </div>
-        {data && (
+        {mode === 'voca' && data && (
           <div className="topbar-right">
             <span className="voca-head-count num">
               {knownTotal.toLocaleString('ko-KR')}
@@ -48,53 +53,73 @@ export default function VocaTab() {
             </span>
           </div>
         )}
+        {mode === 'speak' && (
+          <div className="topbar-right">
+            <span className="speak-head-tag">🎧 소리 내어</span>
+          </div>
+        )}
       </header>
 
-      <div className="seg voca-view-seg" role="tablist" aria-label="단어장 화면">
-        {VIEWS.map((v) => (
-          <button
-            key={v.key}
-            role="tab"
-            aria-selected={view === v.key}
-            aria-pressed={view === v.key}
-            onClick={() => setView(v.key)}
-          >
-            {v.label}
-          </button>
-        ))}
+      <div className="seg english-seg" role="tablist" aria-label="영어 학습 종류">
+        <button role="tab" aria-selected={mode === 'voca'} aria-pressed={mode === 'voca'} onClick={() => setMode('voca')}>
+          노랭이 단어장
+        </button>
+        <button role="tab" aria-selected={mode === 'speak'} aria-pressed={mode === 'speak'} onClick={() => setMode('speak')}>
+          토스 · 오픽 말하기
+        </button>
       </div>
 
-      {loading && (
-        <div className="card voca-loading">
-          <span className="voca-spinner" aria-hidden="true" />
-          <p>단어 5,101개를 불러오는 중…</p>
-          <span className="hint">처음 한 번만 내려받고, 다음부터는 바로 열려요</span>
-        </div>
-      )}
-
-      {error && (
-        <div className="card voca-loading">
-          <p>{error}</p>
-          <button className="btn btn-line btn-sm" onClick={retry}>
-            다시 시도
-          </button>
-        </div>
-      )}
-
-      {data && (
+      {mode === 'voca' && (
         <>
-          {view === 'list' && (
-            <VocaListView data={data} part={part} day={day} onPart={setPart} onDay={setDay} voca={voca} showToast={showToast} />
+          <div className="seg voca-view-seg" role="tablist" aria-label="단어장 화면">
+            {VIEWS.map((v) => (
+              <button
+                key={v.key}
+                role="tab"
+                aria-selected={view === v.key}
+                aria-pressed={view === v.key}
+                onClick={() => setView(v.key)}
+              >
+                {v.label}
+              </button>
+            ))}
+          </div>
+
+          {loading && (
+            <div className="card voca-loading">
+              <span className="voca-spinner" aria-hidden="true" />
+              <p>단어 5,101개를 불러오는 중…</p>
+              <span className="hint">처음 한 번만 내려받고, 다음부터는 바로 열려요</span>
+            </div>
           )}
-          {view === 'cards' && (
-            <VocaCardsView data={data} part={part} day={day} voca={voca} showToast={showToast} />
+
+          {error && (
+            <div className="card voca-loading">
+              <p>{error}</p>
+              <button className="btn btn-line btn-sm" onClick={retry}>
+                다시 시도
+              </button>
+            </div>
           )}
-          {view === 'quiz' && (
-            <VocaQuizView data={data} part={part} day={day} voca={voca} showToast={showToast} />
+
+          {data && (
+            <>
+              {view === 'list' && (
+                <VocaListView data={data} part={part} day={day} onPart={setPart} onDay={setDay} voca={voca} showToast={showToast} />
+              )}
+              {view === 'cards' && (
+                <VocaCardsView data={data} part={part} day={day} voca={voca} showToast={showToast} />
+              )}
+              {view === 'quiz' && (
+                <VocaQuizView data={data} part={part} day={day} voca={voca} showToast={showToast} />
+              )}
+              {view === 'search' && <VocaSearchView data={data} voca={voca} showToast={showToast} />}
+            </>
           )}
-          {view === 'search' && <VocaSearchView data={data} voca={voca} showToast={showToast} />}
         </>
       )}
+
+      {mode === 'speak' && <SpeakingView />}
     </main>
   );
 }

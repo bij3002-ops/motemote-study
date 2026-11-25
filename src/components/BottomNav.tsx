@@ -28,7 +28,7 @@ const items: Array<{ key: Tab; label: string; icon: JSX.Element }> = [
   },
   {
     key: 'voca',
-    label: '단어장',
+    label: '영어',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4.5 5.2c0-.9.7-1.6 1.6-1.6H11v16.2H6.1c-.9 0-1.6-.7-1.6-1.6V5.2Z" />
