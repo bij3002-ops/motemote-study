@@ -203,7 +203,7 @@ export default function VocaSearchView({ data, voca, showToast }: Props) {
                 <div className="voca-part-top">
                   <span className="nm">{row.part.name}</span>
                   <span className="vl num">
-                    {row.known} / {row.total}
+                    {row.known} / {row.total.toLocaleString('ko-KR')}
                   </span>
                   <span className="pc num">{row.pct}%</span>
                 </div>
